@@ -10,6 +10,11 @@ namespace Dam.EntityAdapter.Fakes
 {
     public class BundleRepositoryAdapter : EntityRepository<BundleEntity>
     {
+        public override Task<BundleEntity> Create(BundleEntity entity)
+        {
+            return Task.FromResult(entity);
+        }
+
         public override Task<IQueryable<BundleEntity>> GetEntitiesAsync()
         {
             var result = new List<BundleEntity>();
@@ -27,12 +32,19 @@ namespace Dam.EntityAdapter.Fakes
             return Task.FromResult(FakeEntity(id));
         }
 
+        public override Task<BundleEntity> Update(BundleEntity entity)
+        {
+            return Task.FromResult(entity);
+        }
+
         private BundleEntity FakeEntity(Guid? id = null)
         {
             return new Faker<BundleEntity>("en")
                 .RuleFor(x => x.BundleId, f => (id.HasValue ? id.Value : f.Random.Guid()).ToString())
                 .RuleFor(x => x.BundleTitle, f => f.Commerce.ProductName())
-                .RuleFor(x => x.BundleDescription, f => f.Commerce.ProductAdjective());
+                .RuleFor(x => x.BundleDescription, f => f.Commerce.ProductAdjective())
+                .RuleFor(x => x.Icon, f => f.Internet.Avatar())
+                .RuleFor(x => x.Country, f => f.Address.Country());
         }
     }
 }

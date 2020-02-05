@@ -25,6 +25,7 @@ namespace Dam.Server
 
 
             services.AddTransient<DamQuery>();
+            services.AddTransient<DamMutation>();
             services.AddTransient<DamSchema>();
 
             services.AddGraphQL(options =>
@@ -37,6 +38,10 @@ namespace Dam.Server
             services.AddTransient<BundleGraphType>();
             services.AddTransient<VersionGraphType>();
             services.AddTransient<AttachmentGraphType>();
+
+            services.AddTransient<BundleInputGraphType>();
+            services.AddTransient<VersionInputGraphType>();
+            services.AddTransient<AttachmentInputGraphType>();
 
             return services;
         }

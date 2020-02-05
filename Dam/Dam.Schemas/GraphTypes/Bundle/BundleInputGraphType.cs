@@ -9,24 +9,26 @@ using GraphQL.Types;
 
 namespace Dam.Schemas.GraphTypes.Bundle
 {
-    public class BundleGraphType : ObjectGraphType<BundleEntity>
+    public class BundleInputGraphType : InputObjectGraphType<BundleEntity>
     {
-        public BundleGraphType()
+        public BundleInputGraphType()
         {
+            Name = "BundleInput";
+
             BuildGraphTypeFields();
         }
 
         private void BuildGraphTypeFields()
         {
             Field(o => o.BundleId, nullable: true);
-            Field(o => o.Version, true, typeof (VersionGraphType))
+            Field(o => o.Version, true, typeof (VersionInputGraphType))
                 .Resolve(context => context.Source.Version);
             Field(o => o.BundleTitle, nullable: true);
             Field(o => o.BundleDescription, nullable: true);
             Field(o => o.LanguagesInAssets, nullable: true);
             Field(o => o.Attachment,
             true,
-            typeof (ListGraphType<AttachmentGraphType>))
+            typeof (ListGraphType<AttachmentInputGraphType>))
                 .Resolve(context => context.Source.Attachment);
             Field(o => o.Icon, nullable: true);
             Field(o => o.Country, nullable: true);

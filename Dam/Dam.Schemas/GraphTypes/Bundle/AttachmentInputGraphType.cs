@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-05T21:54:55.665Z
+//  2020-02-05T21:54:55.736Z
 //
 using System;
 using System.Collections.Generic;
@@ -9,17 +9,21 @@ using GraphQL.Types;
 
 namespace Dam.Schemas.GraphTypes.Bundle
 {
-    public class VersionGraphType : ObjectGraphType<VersionEntity>
+    public class
+    AttachmentInputGraphType
+    : InputObjectGraphType<AttachmentEntity>
     {
-        public VersionGraphType()
+        public AttachmentInputGraphType()
         {
+            Name = "AttachmentInput";
+
             BuildGraphTypeFields();
         }
 
         private void BuildGraphTypeFields()
         {
-            Field(o => o.Major, nullable: true);
-            Field(o => o.Minor, nullable: true);
+            Field(o => o.DownloadUrl, nullable: true);
+            Field(o => o.UploadDateTime, nullable: true);
         }
     }
 }

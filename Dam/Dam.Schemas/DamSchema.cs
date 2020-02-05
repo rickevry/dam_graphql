@@ -9,6 +9,7 @@ namespace Dam.Schemas
         public DamSchema(IServiceProvider provider) : base(provider)
         {
             Query = provider.GetRequiredService<DamQuery>();
+            Mutation = provider.GetRequiredService<DamMutation>();
         }
     }
 }

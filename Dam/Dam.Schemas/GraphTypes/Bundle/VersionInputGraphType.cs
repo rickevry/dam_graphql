@@ -9,10 +9,12 @@ using GraphQL.Types;
 
 namespace Dam.Schemas.GraphTypes.Bundle
 {
-    public class VersionGraphType : ObjectGraphType<VersionEntity>
+    public class VersionInputGraphType : InputObjectGraphType<VersionEntity>
     {
-        public VersionGraphType()
+        public VersionInputGraphType()
         {
+            Name = "VersionInput";
+
             BuildGraphTypeFields();
         }
 
