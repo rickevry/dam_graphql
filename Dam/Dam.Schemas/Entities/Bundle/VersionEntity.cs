@@ -1,16 +1,19 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-05T21:54:55.659Z
+//  2020-02-07T10:08:59.144Z
 //
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Dam.Repository;
+using Dam.Repository.Attributes;
 using Dam.Schemas.Attributes;
 
 namespace Dam.Schemas.Entities.Bundle
 {
-    [QueryName("Version")]
-    public class VersionEntity : DamEntity
+    [EntityName("Version")]
+    [QueryName("versions")]
+    public class VersionEntity : MutableEntity
     {
 #region Private fields
 

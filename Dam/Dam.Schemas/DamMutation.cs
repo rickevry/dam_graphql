@@ -1,8 +1,11 @@
 ﻿using Dam.Repository;
+using Dam.Repository.Attributes;
+using Dam.Schemas.Attributes;
 using Dam.Schemas.Entities.Bundle;
 using Dam.Schemas.GraphTypes.Bundle;
 using GraphQL;
 using GraphQL.Types;
+using System.Linq;
 
 namespace Dam.Schemas
 {
@@ -19,23 +22,27 @@ namespace Dam.Schemas
 
         private void BuildMutableFields()
         {
-            BuildBundleField();
+            BuildBundleFields();
         }
 
-        private void BuildBundleField()
+        private void BuildBundleFields()
         {
-            Field<BundleGraphType>(
-                "createBundle",
+            var entityName = typeof(BundleEntity).GetCustomAttributes(typeof(EntityNameAttribute), false).Select(qn => qn as EntityNameAttribute).FirstOrDefault();
+            if (entityName != null)
+            {
+                Field<BundleGraphType>(
+                $"save{entityName}",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<BundleInputGraphType>> { Name = "bundle" }
+                    new QueryArgument<NonNullGraphType<BundleInputGraphType>> { Name = entityName.Name.ToLower() }
                 ),
                 resolve: context =>
                 {
-                    var bundle = context.GetArgument<BundleEntity>("bundle");
-                    var saved = _entityRepositoryProvider.GetRepository<BundleEntity>().Save(bundle);
+                    var bundle = context.GetArgument<BundleEntity>(entityName.Name.ToLower());
+                    var saved = _entityRepositoryProvider.GetRepository<BundleEntity>().SaveAsync(bundle);
 
                     return saved;
                 });
+            }
         }
     }
 }

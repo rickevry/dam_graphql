@@ -4,10 +4,23 @@ namespace Dam.Repository
 {
     public class SearchEntityArguments
     {
-        public Guid? Id { get; set; }
+        public object Id { get; set; }
 
         public bool HasSearchByIdParam
-            => Id.HasValue && Id.Value != Guid.Empty;
+        {
+            get
+            {
+                switch (Id)
+                {
+                    case Guid guidValue: return guidValue != Guid.Empty;
+                    case string stringValue: return !string.IsNullOrWhiteSpace(stringValue);
+                    case int intValue: return intValue > 0;
+                    case long longValue: return longValue > 0;
+
+                    default: return Id != null;
+                }
+            }
+        }
 
         public bool HasAnyParam
             => HasSearchByIdParam;

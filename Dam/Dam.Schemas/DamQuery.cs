@@ -22,10 +22,10 @@ namespace Dam.Schemas
 
         private void BuildQueryFields()
         {
-            BuildBundleField();
+            BuildBundleFields();
         }
 
-        private void BuildBundleField()
+        private void BuildBundleFields ()
         {
             var queryName = typeof(BundleEntity).GetCustomAttributes(typeof(QueryNameAttribute), false).Select(qn => qn as QueryNameAttribute).FirstOrDefault();
             if (queryName != null)
@@ -33,12 +33,12 @@ namespace Dam.Schemas
                 Field<ListGraphType<BundleGraphType>>(
                     queryName,
                     arguments: new QueryArguments(
-                        new QueryArgument<GuidGraphType> { Name = "id", DefaultValue = null }
+                        new QueryArgument<StringGraphType> { Name = "id", DefaultValue = null }
                     ),
                     resolve: context =>
                     _entityRepositoryProvider.GetRepository<BundleEntity>().SearchAsync(new SearchEntityArguments
                     {
-                        Id = context.GetArgument<Guid>("id"),
+                        Id = context.GetArgument<string>("id"),
                     }));
             }
         }

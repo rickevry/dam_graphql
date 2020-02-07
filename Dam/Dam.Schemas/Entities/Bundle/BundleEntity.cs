@@ -1,16 +1,19 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-05T21:54:55.634Z
+//  2020-02-07T10:08:59.131Z
 //
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Dam.Repository;
+using Dam.Repository.Attributes;
 using Dam.Schemas.Attributes;
 
 namespace Dam.Schemas.Entities.Bundle
 {
-    [QueryName("Bundle")]
-    public class BundleEntity : DamEntity
+    [EntityName("Bundle")]
+    [QueryName("bundles")]
+    public class BundleEntity : MutableEntity
     {
 #region Private fields
 
@@ -39,6 +42,7 @@ namespace Dam.Schemas.Entities.Bundle
         /// <summary>
         /// description missing
         /// </summary>
+        [Key]
         public string BundleId
         {
             get
@@ -47,6 +51,7 @@ namespace Dam.Schemas.Entities.Bundle
             }
             set
             {
+                _id = value;
                 SetField(ref _bundleId, value);
             }
         }

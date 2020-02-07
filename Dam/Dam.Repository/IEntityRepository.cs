@@ -8,6 +8,6 @@ namespace Dam.Repository
     {
         Task<IQueryable<TEntity>> SearchAsync(SearchEntityArguments args);
 
-        Task<TEntity> Save(TEntity entity);
+        Task<TEntity> SaveAsync(TEntity entity);
     }
 }
