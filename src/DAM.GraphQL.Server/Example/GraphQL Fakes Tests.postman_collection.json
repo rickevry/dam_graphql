@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "2227ba59-984a-4eec-a202-326ed09c3080",
+		"name": "GraphQL Fakes Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:44333/graphql?query={bundles{bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{bundles{bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:44333/graphql?query={bundle(id:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\"){bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "{bundle(id:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\"){bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutate Update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}&variables={bundle:{bundleId:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\",bundleTitle:\"updated from postman 1\", version:{minor:5}}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}"
+						},
+						{
+							"key": "variables",
+							"value": "{bundle:{bundleId:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\",bundleTitle:\"updated from postman 1\", version:{minor:5}}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutate Creation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}&variables={bundle:{bundleTitle:\"created from postman\", version:{major:1}}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44333",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}"
+						},
+						{
+							"key": "variables",
+							"value": "{bundle:{bundleTitle:\"created from postman\", version:{major:1}}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
