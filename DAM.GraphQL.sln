@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.DataModels.Base", "src\DAM.Core.DataModels.Base\DAM.Core.DataModels.Base.csproj", "{AC644953-CB90-4065-8C2C-32C4C3093945}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.DataModels", "src\DAM.Core.DataModels\DAM.Core.DataModels.csproj", "{7C92437A-5182-4F9C-AE9D-8E17F8A88A47}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.GraphQL.Repository", "src\DAM.GraphQL.Repository\DAM.GraphQL.Repository.csproj", "{AB5CE696-081E-461A-B44B-BA22B0B5BE7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.GraphQL.Schemas", "src\DAM.GraphQL.Schemas\DAM.GraphQL.Schemas.csproj", "{0E8AF4C6-023F-4284-ADDE-6B29C5DA9BF2}"
@@ -15,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.GraphQL.Repository.Fake
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.GraphQL.Server", "src\DAM.GraphQL.Server\DAM.GraphQL.Server.csproj", "{55CFBF21-51E7-4B67-8A11-3BAE83E07091}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{694ADB5B-4738-483B-88B0-BC7D1079C989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.GraphQL.Configuration", "src\DAM.GraphQL.Configuration\DAM.GraphQL.Configuration.csproj", "{A1998CAD-2D53-4CE7-91C5-AA1474461250}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{0C73AC20-3FDB-4B00-B3EA-80A43B49671D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5BFD48FB-FF1B-4E87-835A-FDB7B0D6764A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlobStorage", "src\DAM.Services\BlobStorage\BlobStorage.csproj", "{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.GraphQL.Repository.Actors", "DAM.GraphQL.Repository.Actors\DAM.GraphQL.Repository.Actors.csproj", "{46CF1910-3C8A-439E-AA18-22F55852DF34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC644953-CB90-4065-8C2C-32C4C3093945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC644953-CB90-4065-8C2C-32C4C3093945}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC644953-CB90-4065-8C2C-32C4C3093945}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC644953-CB90-4065-8C2C-32C4C3093945}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C92437A-5182-4F9C-AE9D-8E17F8A88A47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C92437A-5182-4F9C-AE9D-8E17F8A88A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C92437A-5182-4F9C-AE9D-8E17F8A88A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C92437A-5182-4F9C-AE9D-8E17F8A88A47}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB5CE696-081E-461A-B44B-BA22B0B5BE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB5CE696-081E-461A-B44B-BA22B0B5BE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB5CE696-081E-461A-B44B-BA22B0B5BE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,15 +41,24 @@ Global
 		{55CFBF21-51E7-4B67-8A11-3BAE83E07091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55CFBF21-51E7-4B67-8A11-3BAE83E07091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55CFBF21-51E7-4B67-8A11-3BAE83E07091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1998CAD-2D53-4CE7-91C5-AA1474461250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1998CAD-2D53-4CE7-91C5-AA1474461250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1998CAD-2D53-4CE7-91C5-AA1474461250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1998CAD-2D53-4CE7-91C5-AA1474461250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CF1910-3C8A-439E-AA18-22F55852DF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CF1910-3C8A-439E-AA18-22F55852DF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CF1910-3C8A-439E-AA18-22F55852DF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CF1910-3C8A-439E-AA18-22F55852DF34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AC644953-CB90-4065-8C2C-32C4C3093945} = {694ADB5B-4738-483B-88B0-BC7D1079C989}
-		{7C92437A-5182-4F9C-AE9D-8E17F8A88A47} = {694ADB5B-4738-483B-88B0-BC7D1079C989}
-		{AB5CE696-081E-461A-B44B-BA22B0B5BE7E} = {0C73AC20-3FDB-4B00-B3EA-80A43B49671D}
-		{5A17E77A-B42D-463F-B7BF-EAB328B46504} = {0C73AC20-3FDB-4B00-B3EA-80A43B49671D}
+		{1A2AC285-0EAA-400F-8787-DBF9B2CB6E09} = {5BFD48FB-FF1B-4E87-835A-FDB7B0D6764A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12FF07D2-C9F4-40A1-9DF6-9CE0B20B1908}

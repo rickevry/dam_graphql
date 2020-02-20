@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAM.Core.DataModels.Base\DAM.Core.DataModels.Base.csproj" />
-    <ProjectReference Include="..\DAM.Core.DataModels\DAM.Core.DataModels.csproj" />
+    <ProjectReference Include="..\..\DAM.GraphQL.Repository.Actors\DAM.GraphQL.Repository.Actors.csproj" />
+    <ProjectReference Include="..\DAM.GraphQL.Configuration\DAM.GraphQL.Configuration.csproj" />
     <ProjectReference Include="..\DAM.GraphQL.Repository.Fakes\DAM.GraphQL.Repository.Fakes.csproj" />
     <ProjectReference Include="..\DAM.GraphQL.Repository\DAM.GraphQL.Repository.csproj" />
     <ProjectReference Include="..\DAM.GraphQL.Schemas\DAM.GraphQL.Schemas.csproj" />
