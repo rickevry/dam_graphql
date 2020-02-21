@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-20T16:00:25.367Z
+//  2020-02-21T10:21:07.222Z
 //
 using System;
 using System.Collections.Generic;
@@ -12,13 +12,15 @@ namespace DAM.Services.Models.Asset
     {
         public Guid Id { get; set; }
 
+        public string PublicationId { get; set; }
+
         public string AssetId { get; set; }
 
         public string PublishId { get; set; }
 
         public string PublishingUnit { get; set; }
 
-        public string PublicationID { get; set; }
+        public DocumentAttributes DocumentAttributes { get; set; }
 
         /// <summary>
         /// AssetType|(external)
@@ -32,7 +34,7 @@ namespace DAM.Services.Models.Asset
         /// Designation-Brand-Product-Name (ie. 6205 SKF Deep Groove Ball Bearing)
 
         /// </summary>
-        public string AssetTitle { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Asset source : Explains the soruce from which your asset was fist produced
@@ -58,19 +60,16 @@ namespace DAM.Services.Models.Asset
         /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
         /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
         /// </summary>
-        public string AssetFileName { get; set; }
+        public string FileName { get; set; }
 
-        /// <summary>
-        /// a
-        /// </summary>
-        public SystemGeneratedAttributes SystemGeneratedAttributes { get; set; }
+        public DateTime FileModifiedDate { get; set; }
 
         public string CopyrightOwner { get; set; }
 
         /// <summary>
         /// Industry (multi, external)
         /// </summary>
-        public List<string> Industry { get; set; }
+        public List<string> Categories { get; set; }
 
         /// <summary>
         /// Internal description (SKF intranet): Mandatory field
@@ -81,12 +80,19 @@ namespace DAM.Services.Models.Asset
         /// </summary>
         public string InternalDescription { get; set; }
 
+        public DateTime MetadataModifiedDate { get; set; }
+
+        /// <summary>
+        /// description missing
+        /// </summary>
+        public string CheckedOutBy { get; set; }
+
         public string CopyrightDescription { get; set; }
 
         /// <summary>
-        /// Products (multi, external)
+        /// description missing
         /// </summary>
-        public List<string> Products { get; set; }
+        public bool IsCheckedOut { get; set; }
 
         /// <summary>
         /// External description (Tridion): Describes the IMPORTANT FEATURES of the product/service in the document for external users, not that is its a "5 page brochure". No useless information.
@@ -96,20 +102,31 @@ namespace DAM.Services.Models.Asset
         /// </summary>
         public string ExternalDescription { get; set; }
 
+        /// <summary>
+        /// Multi
+        /// </summary>
+        public List<Renditions> Renditions { get; set; }
+
+        public DateTime RepublishedDate { get; set; }
+
         public DateTime CopyrightExpiryDate { get; set; }
 
         /// <summary>
-        /// Services (multi, external)
+        /// Publish date: Will be the date you publish your asset. It can also be pre-set to a future date if needed. Once published, the asset will not be visible untill the set future date is met.
         /// </summary>
-        public List<string> Services { get; set; }
+        public DateTime PublishedDate { get; set; }
 
         /// <summary>
-        /// File name: Is the name you give the file on your computer. This field will be searchable in all our channels and in external search such as Google.
-        /// In Media Finder, photos/illustrations/Rich media/Zip the file name will appear as the title.
-        /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
-        /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
+        /// Asset role: Determines the carachtaristics of your asset and usage areas and limitations
+        /// Component
+        /// Final_format
+        /// Original_image
+        /// Layout_file
+        /// Review_file
+        /// Input_or_Source_file
+        /// Manuscript_file
         /// </summary>
-        public string OriginalFileName { get; set; }
+        public string AssetRole { get; set; }
 
         /// <summary>
         /// Version of the bundle
@@ -120,11 +137,6 @@ namespace DAM.Services.Models.Asset
         /// (renamed)
         /// </summary>
         public bool PublishEnabled { get; set; }
-
-        /// <summary>
-        /// Corporate|(multi, external)
-        /// </summary>
-        public List<Corporate> Corporate { get; set; }
 
         /// <summary>
         /// WebPim,Tridion
@@ -140,21 +152,7 @@ namespace DAM.Services.Models.Asset
         /// </summary>
         public DateTime ExpiryDate { get; set; }
 
-        /// <summary>
-        /// Asset role: Determines the carachtaristics of your asset and usage areas and limitations
-        /// Component
-        /// Final_format
-        /// Original_image
-        /// Layout_file
-        /// Review_file
-        /// Input_or_Source_file
-        /// Manuscript_file
-        /// </summary>
-        public string AssetRole { get; set; }
-
         public string PublicationDesignation { get; set; }
-
-        public List<CustomerChannel> CustomerChannel { get; set; }
 
         /// <summary>
         /// (x,y,z)
@@ -167,11 +165,11 @@ namespace DAM.Services.Models.Asset
         /// </summary>
         public List<ProductDesignation> ProductDesignation { get; set; }
 
+        public Rights Rights { get; set; }
+
         /// <summary>
-        /// Working, accepted, archived, deleted, deleted
+        /// Working, accepted, published(?), archived, deleted
         /// </summary>
         public string State { get; set; }
-
-        public Rights Rights { get; set; }
     }
 }

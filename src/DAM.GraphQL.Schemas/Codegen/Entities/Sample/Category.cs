@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-20T16:00:26.085Z
+//  2020-02-21T10:21:07.636Z
 //
 using System;
 using System.Collections.Generic;
@@ -11,5 +11,7 @@ namespace DAM.Services.Models.Sample
     public class Category : IEntityId<Guid>
     {
         public Guid Id { get; set; }
+
+        public Guid CategoryType { get; set; }
     }
 }
