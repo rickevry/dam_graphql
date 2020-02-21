@@ -58,7 +58,7 @@ namespace DAM.GraphQL.Server.Extensions
 
         private static IEnumerable<Type> FindDataModelGraphTypes()
         {
-            var graphTypesAssembly = Assembly.GetAssembly(typeof(DataModelsSchema));
+            var graphTypesAssembly = Assembly.GetAssembly(typeof(MutableModel));
             return graphTypesAssembly.GetTypes().Where(x =>
                 !x.IsAbstract &&
                 typeof(IGraphType).IsAssignableFrom(x));

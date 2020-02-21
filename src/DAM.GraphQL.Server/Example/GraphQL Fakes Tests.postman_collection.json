@@ -10,9 +10,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
 				"url": {
-					"raw": "https://localhost:44333/graphql?query={bundles{bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}",
+					"raw": "https://localhost:44333/graphql?query={bundles{id,bundleTitle,bundleDescription,country}}",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -24,7 +23,7 @@
 					"query": [
 						{
 							"key": "query",
-							"value": "{bundles{bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}"
+							"value": "{bundles{id,bundleTitle,bundleDescription,country}}"
 						}
 					]
 				}
@@ -33,12 +32,18 @@
 		},
 		{
 			"name": "Get By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
-					"raw": "https://localhost:44333/graphql?query={bundle(id:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\"){bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}",
+					"raw": "https://localhost:44333/graphql?query={bundle(id:\"cb1baba7-db5b-6693-9b59-61a72792b596\"){id,bundleTitle,bundleDescription,country}}",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -50,7 +55,7 @@
 					"query": [
 						{
 							"key": "query",
-							"value": "{bundle(id:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\"){bundleId,bundleTitle,bundleDescription,country,icon,version{major,minor}}}"
+							"value": "{bundle(id:\"cb1baba7-db5b-6693-9b59-61a72792b596\"){id,bundleTitle,bundleDescription,country}}"
 						}
 					]
 				}
@@ -62,9 +67,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
 				"url": {
-					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}&variables={bundle:{bundleId:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\",bundleTitle:\"updated from postman 1\", version:{minor:5}}}",
+					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){id,bundleTitle,bundleDescription}}&variables={bundle:{id:\"cb1baba7-db5b-6693-9b59-61a72792b596\",bundleTitle:\"updated from postman 1\"}}",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -76,11 +80,11 @@
 					"query": [
 						{
 							"key": "query",
-							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}"
+							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){id,bundleTitle,bundleDescription}}"
 						},
 						{
 							"key": "variables",
-							"value": "{bundle:{bundleId:\"c44aecfe-08b6-f7b6-963e-bda55ee46c1f\",bundleTitle:\"updated from postman 1\", version:{minor:5}}}"
+							"value": "{bundle:{id:\"cb1baba7-db5b-6693-9b59-61a72792b596\",bundleTitle:\"updated from postman 1\"}}"
 						}
 					]
 				}
@@ -92,9 +96,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
 				"url": {
-					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}&variables={bundle:{bundleTitle:\"created from postman\", version:{major:1}}}",
+					"raw": "https://localhost:44333/graphql?query=mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){id,bundleTitle,bundleDescription}}&variables={bundle:{bundleTitle:\"created from postman\"}}",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -106,11 +109,11 @@
 					"query": [
 						{
 							"key": "query",
-							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){bundleId,bundleTitle,bundleDescription,version{major,minor}}}"
+							"value": "mutation($bundle:Bundle_BundleInput!){saveBundle(bundle:$bundle){id,bundleTitle,bundleDescription}}"
 						},
 						{
 							"key": "variables",
-							"value": "{bundle:{bundleTitle:\"created from postman\", version:{major:1}}}"
+							"value": "{bundle:{bundleTitle:\"created from postman\"}}"
 						}
 					]
 				}
