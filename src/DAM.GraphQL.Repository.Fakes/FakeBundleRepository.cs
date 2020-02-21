@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DAM.Core.DataModels.Bundle;
+using DAM.GraphQL.Schemas.Bundle;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace DAM.GraphQL.Repository.Fakes
 {
     public class FakeBundleRepository : DataRepository<BundleModel>
     {
-        private static ConcurrentDictionary<object, BundleModel> _inMemoryDb = new ConcurrentDictionary<object, BundleModel>();
+        private static ConcurrentDictionary<Guid, BundleModel> _inMemoryDb = new ConcurrentDictionary<Guid, BundleModel>();
 
         public FakeBundleRepository()
         {
@@ -18,17 +18,17 @@ namespace DAM.GraphQL.Repository.Fakes
 
         public override Task<BundleModel> CreateAsync(BundleModel entity)
         {
-            if (string.IsNullOrWhiteSpace(entity.BundleId))
+            if (entity.Id == Guid.Empty)
             {
-                entity.BundleId = Guid.NewGuid().ToString();
+                entity.Id = Guid.NewGuid();
             }
 
-            if (_inMemoryDb.ContainsKey(entity.BundleId))
+            if (_inMemoryDb.ContainsKey(entity.Id))
             {
                 return UpdateAsync(entity);
             }
 
-            _inMemoryDb.TryAdd(entity.BundleId, entity);
+            _inMemoryDb.TryAdd(entity.Id, entity);
 
             return Task.FromResult(entity);
         }
@@ -39,7 +39,7 @@ namespace DAM.GraphQL.Repository.Fakes
             return Task.FromResult(result.AsQueryable());
         }
 
-        public override Task<BundleModel> GetByIdAsync(object id)
+        public override Task<BundleModel> GetByIdAsync(Guid id)
         {
             if (id != null && _inMemoryDb.ContainsKey(id))
             {
@@ -51,17 +51,17 @@ namespace DAM.GraphQL.Repository.Fakes
 
         public override Task<BundleModel> UpdateAsync(BundleModel entity)
         {
-            if (_inMemoryDb.ContainsKey(entity.BundleId))
+            if (_inMemoryDb.ContainsKey(entity.Id))
             {
-                if (_inMemoryDb.TryGetValue(entity.BundleId, out var currentModel))
+                if (_inMemoryDb.TryGetValue(entity.Id, out var currentModel))
                 {
-                    _inMemoryDb.TryUpdate(entity.BundleId, entity, currentModel);
+                    _inMemoryDb.TryUpdate(entity.Id, entity, currentModel);
                 }
             }
 
             return Task.FromResult(entity);
         }
-        public override Task<bool> DeleteAsync(object id)
+        public override Task<bool> DeleteAsync(Guid id)
         {
             if (_inMemoryDb.ContainsKey(id))
             {
@@ -77,30 +77,25 @@ namespace DAM.GraphQL.Repository.Fakes
             {
                 for (var i = 20; i > 0; i--)
                 {
-                    var fake = FakeModel();
-                    _inMemoryDb.TryAdd(fake.BundleId, fake);
+                    var fake = FakeModel(Guid.Empty);
+                    _inMemoryDb.TryAdd(fake.Id, fake);
                 }
             }
         }
 
-        private BundleModel FakeModel(object id = null)
+        private BundleModel FakeModel(Guid id)
         {
             return new Faker<BundleModel>("en")
-                .RuleFor(x => x.BundleId, f => id != null ? id.ToString() : f.Random.Guid().ToString())
+                .RuleFor(x => x.Id, f => id != Guid.Empty ? id : f.Random.Guid())
                 .RuleFor(x => x.BundleTitle, f => f.Commerce.ProductName())
                 .RuleFor(x => x.BundleDescription, f => f.Commerce.ProductAdjective())
-                .RuleFor(x => x.Icon, f => f.Internet.Avatar())
-                .RuleFor(x => x.Country, f => f.Address.Country())
-                .RuleFor(x => x.Version, f => f.Random.ArrayElement(
-                    new VersionModel[]
-                    {
-                        null,
-                        new VersionModel
-                        {
-                            Major = f.Random.Int(0, 10),
-                            Minor = f.Random.Int(0, 100),
-                        }
-                    }));
+                .RuleFor(x => x.ThumbnailURL, f => f.Internet.Avatar())
+                .RuleFor(x => x.Country, f => new System.Collections.Generic.List<string>{
+                    f.Address.Country(),
+                    f.Address.Country(),
+                    f.Address.Country(),
+                    f.Address.Country(),
+                });
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using DAM.Core.DataModels.Base;
+﻿using DAM.GraphQL.Schemas;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace DAM.GraphQL.Repository
     {
         public async Task<TModel> SaveAsync(TModel value)
         {
-            var original = await GetByIdAsync(value.GetEntityId());
+            var original = await GetByIdAsync(value.Id);
             if (original != null)
             {
                 original.SetMutableFields(value);
@@ -24,10 +25,10 @@ namespace DAM.GraphQL.Repository
 
         public abstract Task<TModel> UpdateAsync(TModel entity);
 
-        public abstract Task<bool> DeleteAsync(object id);
+        public abstract Task<bool> DeleteAsync(Guid id);
 
         public abstract Task<IQueryable<TModel>> GetItemsAsync();
 
-        public abstract Task<TModel> GetByIdAsync(object id);
+        public abstract Task<TModel> GetByIdAsync(Guid id);
     }
 }

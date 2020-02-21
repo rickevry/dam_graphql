@@ -1,4 +1,4 @@
-﻿using DAM.Core.DataModels.Base;
+﻿using DAM.GraphQL.Schemas;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
