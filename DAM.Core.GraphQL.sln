@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.Server", "src\DAM.Core.GraphQL.Server\DAM.Core.GraphQL.Server.csproj", "{CE00519A-A751-4829-BC57-B8BA93D16C60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.Schemas", "src\DAM.Core.GraphQL.Schemas\DAM.Core.GraphQL.Schemas.csproj", "{7AC345D5-5374-4956-B862-4E9AE022FD1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{7D2F934A-637C-4B7B-8322-EC99D894BB0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Configuration", "src\DAM.Core.GraphQL.Configuration\DAM.Core.GraphQL.Configuration.csproj", "{5D998B84-F721-42C7-8CCD-84C5545D6E76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Repository", "src\DAM.Core.GraphQL.Repository\DAM.Core.GraphQL.Repository.csproj", "{15E61828-06D6-4D37-9458-84DBA626B77A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.Repository.Fakes", "src\DAM.Core.GraphQL.Repository.Fakes\DAM.Core.GraphQL.Repository.Fakes.csproj", "{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.Repository.Akka", "src\DAM.Core.GraphQL.Repository.Akka\DAM.Core.GraphQL.Repository.Akka.csproj", "{0BB752CC-9924-4435-B16E-7F3517B3DB31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.Shared", "..\DAM.Shared\src\DAM.Core.Shared\DAM.Core.Shared.csproj", "{42E197DA-3B89-4061-B425-E58AA72C320C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE00519A-A751-4829-BC57-B8BA93D16C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE00519A-A751-4829-BC57-B8BA93D16C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE00519A-A751-4829-BC57-B8BA93D16C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE00519A-A751-4829-BC57-B8BA93D16C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC345D5-5374-4956-B862-4E9AE022FD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC345D5-5374-4956-B862-4E9AE022FD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC345D5-5374-4956-B862-4E9AE022FD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC345D5-5374-4956-B862-4E9AE022FD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D998B84-F721-42C7-8CCD-84C5545D6E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D998B84-F721-42C7-8CCD-84C5545D6E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D998B84-F721-42C7-8CCD-84C5545D6E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D998B84-F721-42C7-8CCD-84C5545D6E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E61828-06D6-4D37-9458-84DBA626B77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E61828-06D6-4D37-9458-84DBA626B77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E61828-06D6-4D37-9458-84DBA626B77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E61828-06D6-4D37-9458-84DBA626B77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E197DA-3B89-4061-B425-E58AA72C320C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E197DA-3B89-4061-B425-E58AA72C320C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E197DA-3B89-4061-B425-E58AA72C320C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E197DA-3B89-4061-B425-E58AA72C320C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42E197DA-3B89-4061-B425-E58AA72C320C} = {7D2F934A-637C-4B7B-8322-EC99D894BB0B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {955C173F-B6B7-4E51-87F1-FB3C9BF217B4}
+	EndGlobalSection
+EndGlobal
