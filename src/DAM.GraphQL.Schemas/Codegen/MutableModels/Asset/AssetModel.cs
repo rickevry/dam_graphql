@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-20T16:00:25.965Z
+//  2020-02-21T10:21:07.568Z
 //
 using System;
 using System.Collections.Generic;
@@ -14,67 +14,83 @@ namespace DAM.GraphQL.Schemas.Asset
     [QueryName("assets")]
     public class AssetModel : MutableModel
     {
+        private string _publicationId;
+
         private string _assetId;
 
         private string _publishId;
 
         private string _publishingUnit;
 
-        private string _publicationID;
+        private DocumentAttributesModel _documentAttributes;
 
         private AssetTypeModel _assetType;
 
-        private string _assetTitle;
+        private string _title;
 
         private string _assetSource;
 
         private List<string> _languageCode;
 
-        private string _assetFileName;
+        private string _fileName;
 
-        private SystemGeneratedAttributesModel _systemGeneratedAttributes;
+        private DateTime _fileModifiedDate;
 
         private string _copyrightOwner;
 
-        private List<string> _industry;
+        private List<string> _categories;
 
         private string _internalDescription;
 
+        private DateTime _metadataModifiedDate;
+
+        private string _checkedOutBy;
+
         private string _copyrightDescription;
 
-        private List<string> _products;
+        private bool _isCheckedOut;
 
         private string _externalDescription;
 
+        private List<RenditionsModel> _renditions;
+
+        private DateTime _republishedDate;
+
         private DateTime _copyrightExpiryDate;
 
-        private List<string> _services;
+        private DateTime _publishedDate;
 
-        private string _originalFileName;
+        private string _assetRole;
 
         private VersionModel _version;
 
         private bool _publishEnabled;
 
-        private List<CorporateModel> _corporate;
-
         private List<PublishingChannelStatesModel> _publishingChannelStates;
 
         private DateTime _expiryDate;
 
-        private string _assetRole;
-
         private string _publicationDesignation;
-
-        private List<CustomerChannelModel> _customerChannel;
 
         private List<AssetSitesModel> _assetSites;
 
         private List<ProductDesignationModel> _productDesignation;
 
+        private RightsModel _rights;
+
         private string _state;
 
-        private RightsModel _rights;
+        public string PublicationId
+        {
+            get
+            {
+                return _publicationId;
+            }
+            set
+            {
+                SetField(ref _publicationId, value);
+            }
+        }
 
         public string AssetId
         {
@@ -112,15 +128,15 @@ namespace DAM.GraphQL.Schemas.Asset
             }
         }
 
-        public string PublicationID
+        public DocumentAttributesModel DocumentAttributes
         {
             get
             {
-                return _publicationID;
+                return _documentAttributes;
             }
             set
             {
-                SetField(ref _publicationID, value);
+                SetField(ref _documentAttributes, value);
             }
         }
 
@@ -146,15 +162,15 @@ namespace DAM.GraphQL.Schemas.Asset
         /// Designation-Brand-Product-Name (ie. 6205 SKF Deep Groove Ball Bearing)
 
         /// </summary>
-        public string AssetTitle
+        public string Title
         {
             get
             {
-                return _assetTitle;
+                return _title;
             }
             set
             {
-                SetField(ref _assetTitle, value);
+                SetField(ref _title, value);
             }
         }
 
@@ -202,30 +218,27 @@ namespace DAM.GraphQL.Schemas.Asset
         /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
         /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
         /// </summary>
-        public string AssetFileName
+        public string FileName
         {
             get
             {
-                return _assetFileName;
+                return _fileName;
             }
             set
             {
-                SetField(ref _assetFileName, value);
+                SetField(ref _fileName, value);
             }
         }
 
-        /// <summary>
-        /// a
-        /// </summary>
-        public SystemGeneratedAttributesModel SystemGeneratedAttributes
+        public DateTime FileModifiedDate
         {
             get
             {
-                return _systemGeneratedAttributes;
+                return _fileModifiedDate;
             }
             set
             {
-                SetField(ref _systemGeneratedAttributes, value);
+                SetField(ref _fileModifiedDate, value);
             }
         }
 
@@ -244,15 +257,15 @@ namespace DAM.GraphQL.Schemas.Asset
         /// <summary>
         /// Industry (multi, external)
         /// </summary>
-        public List<string> Industry
+        public List<string> Categories
         {
             get
             {
-                return _industry;
+                return _categories;
             }
             set
             {
-                SetField(ref _industry, value);
+                SetField(ref _categories, value);
             }
         }
 
@@ -275,6 +288,33 @@ namespace DAM.GraphQL.Schemas.Asset
             }
         }
 
+        public DateTime MetadataModifiedDate
+        {
+            get
+            {
+                return _metadataModifiedDate;
+            }
+            set
+            {
+                SetField(ref _metadataModifiedDate, value);
+            }
+        }
+
+        /// <summary>
+        /// description missing
+        /// </summary>
+        public string CheckedOutBy
+        {
+            get
+            {
+                return _checkedOutBy;
+            }
+            set
+            {
+                SetField(ref _checkedOutBy, value);
+            }
+        }
+
         public string CopyrightDescription
         {
             get
@@ -288,17 +328,17 @@ namespace DAM.GraphQL.Schemas.Asset
         }
 
         /// <summary>
-        /// Products (multi, external)
+        /// description missing
         /// </summary>
-        public List<string> Products
+        public bool IsCheckedOut
         {
             get
             {
-                return _products;
+                return _isCheckedOut;
             }
             set
             {
-                SetField(ref _products, value);
+                SetField(ref _isCheckedOut, value);
             }
         }
 
@@ -320,6 +360,33 @@ namespace DAM.GraphQL.Schemas.Asset
             }
         }
 
+        /// <summary>
+        /// Multi
+        /// </summary>
+        public List<RenditionsModel> Renditions
+        {
+            get
+            {
+                return _renditions;
+            }
+            set
+            {
+                SetField(ref _renditions, value);
+            }
+        }
+
+        public DateTime RepublishedDate
+        {
+            get
+            {
+                return _republishedDate;
+            }
+            set
+            {
+                SetField(ref _republishedDate, value);
+            }
+        }
+
         public DateTime CopyrightExpiryDate
         {
             get
@@ -333,35 +400,39 @@ namespace DAM.GraphQL.Schemas.Asset
         }
 
         /// <summary>
-        /// Services (multi, external)
+        /// Publish date: Will be the date you publish your asset. It can also be pre-set to a future date if needed. Once published, the asset will not be visible untill the set future date is met.
         /// </summary>
-        public List<string> Services
+        public DateTime PublishedDate
         {
             get
             {
-                return _services;
+                return _publishedDate;
             }
             set
             {
-                SetField(ref _services, value);
+                SetField(ref _publishedDate, value);
             }
         }
 
         /// <summary>
-        /// File name: Is the name you give the file on your computer. This field will be searchable in all our channels and in external search such as Google.
-        /// In Media Finder, photos/illustrations/Rich media/Zip the file name will appear as the title.
-        /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
-        /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
+        /// Asset role: Determines the carachtaristics of your asset and usage areas and limitations
+        /// Component
+        /// Final_format
+        /// Original_image
+        /// Layout_file
+        /// Review_file
+        /// Input_or_Source_file
+        /// Manuscript_file
         /// </summary>
-        public string OriginalFileName
+        public string AssetRole
         {
             get
             {
-                return _originalFileName;
+                return _assetRole;
             }
             set
             {
-                SetField(ref _originalFileName, value);
+                SetField(ref _assetRole, value);
             }
         }
 
@@ -392,21 +463,6 @@ namespace DAM.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _publishEnabled, value);
-            }
-        }
-
-        /// <summary>
-        /// Corporate|(multi, external)
-        /// </summary>
-        public List<CorporateModel> Corporate
-        {
-            get
-            {
-                return _corporate;
-            }
-            set
-            {
-                SetField(ref _corporate, value);
             }
         }
 
@@ -442,28 +498,6 @@ namespace DAM.GraphQL.Schemas.Asset
             }
         }
 
-        /// <summary>
-        /// Asset role: Determines the carachtaristics of your asset and usage areas and limitations
-        /// Component
-        /// Final_format
-        /// Original_image
-        /// Layout_file
-        /// Review_file
-        /// Input_or_Source_file
-        /// Manuscript_file
-        /// </summary>
-        public string AssetRole
-        {
-            get
-            {
-                return _assetRole;
-            }
-            set
-            {
-                SetField(ref _assetRole, value);
-            }
-        }
-
         public string PublicationDesignation
         {
             get
@@ -473,18 +507,6 @@ namespace DAM.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _publicationDesignation, value);
-            }
-        }
-
-        public List<CustomerChannelModel> CustomerChannel
-        {
-            get
-            {
-                return _customerChannel;
-            }
-            set
-            {
-                SetField(ref _customerChannel, value);
             }
         }
 
@@ -519,8 +541,20 @@ namespace DAM.GraphQL.Schemas.Asset
             }
         }
 
+        public RightsModel Rights
+        {
+            get
+            {
+                return _rights;
+            }
+            set
+            {
+                SetField(ref _rights, value);
+            }
+        }
+
         /// <summary>
-        /// Working, accepted, archived, deleted, deleted
+        /// Working, accepted, published(?), archived, deleted
         /// </summary>
         public string State
         {
@@ -531,18 +565,6 @@ namespace DAM.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _state, value);
-            }
-        }
-
-        public RightsModel Rights
-        {
-            get
-            {
-                return _rights;
-            }
-            set
-            {
-                SetField(ref _rights, value);
             }
         }
 
@@ -558,42 +580,43 @@ namespace DAM.GraphQL.Schemas.Asset
         {
             return new AssetModel {
                 Id = entity.Id,
+                _publicationId = entity.PublicationId,
                 _assetId = entity.AssetId,
                 _publishId = entity.PublishId,
                 _publishingUnit = entity.PublishingUnit,
-                _publicationID = entity.PublicationID,
+                _documentAttributes = entity.DocumentAttributes,
                 _assetType = entity.AssetType,
-                _assetTitle = entity.AssetTitle,
+                _title = entity.Title,
                 _assetSource = entity.AssetSource,
                 _languageCode = entity.LanguageCode,
-                _assetFileName = entity.AssetFileName,
-                _systemGeneratedAttributes = entity.SystemGeneratedAttributes,
+                _fileName = entity.FileName,
+                _fileModifiedDate = entity.FileModifiedDate,
                 _copyrightOwner = entity.CopyrightOwner,
-                _industry = entity.Industry,
+                _categories = entity.Categories,
                 _internalDescription = entity.InternalDescription,
+                _metadataModifiedDate = entity.MetadataModifiedDate,
+                _checkedOutBy = entity.CheckedOutBy,
                 _copyrightDescription = entity.CopyrightDescription,
-                _products = entity.Products,
+                _isCheckedOut = entity.IsCheckedOut,
                 _externalDescription = entity.ExternalDescription,
+                _renditions = RenditionsModel.FromEntityList(entity.Renditions),
+                _republishedDate = entity.RepublishedDate,
                 _copyrightExpiryDate = entity.CopyrightExpiryDate,
-                _services = entity.Services,
-                _originalFileName = entity.OriginalFileName,
+                _publishedDate = entity.PublishedDate,
+                _assetRole = entity.AssetRole,
                 _version = entity.Version,
                 _publishEnabled = entity.PublishEnabled,
-                _corporate = CorporateModel.FromEntityList(entity.Corporate),
                 _publishingChannelStates =
                     PublishingChannelStatesModel
                         .FromEntityList(entity.PublishingChannelStates),
                 _expiryDate = entity.ExpiryDate,
-                _assetRole = entity.AssetRole,
                 _publicationDesignation = entity.PublicationDesignation,
-                _customerChannel =
-                    CustomerChannelModel.FromEntityList(entity.CustomerChannel),
                 _assetSites = AssetSitesModel.FromEntityList(entity.AssetSites),
                 _productDesignation =
                     ProductDesignationModel
                         .FromEntityList(entity.ProductDesignation),
-                _state = entity.State,
-                _rights = entity.Rights
+                _rights = entity.Rights,
+                _state = entity.State
             };
         }
 

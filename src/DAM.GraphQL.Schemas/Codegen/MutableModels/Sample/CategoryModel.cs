@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-20T16:00:26.127Z
+//  2020-02-21T10:21:07.640Z
 //
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,20 @@ namespace DAM.GraphQL.Schemas.Sample
     [QueryName("Category")]
     public class CategoryModel : MutableModel
     {
+        private Guid _categoryType;
+
+        public Guid CategoryType
+        {
+            get
+            {
+                return _categoryType;
+            }
+            set
+            {
+                SetField(ref _categoryType, value);
+            }
+        }
+
         public static implicit operator CategoryModel(
             Services.Models.Sample.Category entity
         )
@@ -25,7 +39,10 @@ namespace DAM.GraphQL.Schemas.Sample
         public static CategoryModel
         FromEntity(Services.Models.Sample.Category entity)
         {
-            return new CategoryModel { Id = entity.Id };
+            return new CategoryModel {
+                Id = entity.Id,
+                _categoryType = entity.CategoryType
+            };
         }
 
         public static List<CategoryModel>
