@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAM.Services\BlobStorage\BlobStorage.csproj" />
+    <ProjectReference Include="..\..\..\DAM.Services\DAM.Services\DAM.Services.csproj" />
   </ItemGroup>
 
 </Project>

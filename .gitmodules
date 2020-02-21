@@ -1,3 +1,0 @@
-[submodule "src/DAM.Services"]
-	path = src/DAM.Services
-	url = https://github.com/rickevry/dam_services.git
