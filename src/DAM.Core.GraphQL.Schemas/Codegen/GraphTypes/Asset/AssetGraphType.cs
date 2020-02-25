@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.971Z
+//  2020-02-25T11:04:53.666Z
 //
 using System;
 using System.Collections.Generic;
@@ -28,18 +28,16 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             true,
             typeof (DocumentAttributesGraphType))
                 .Resolve(context => context.Source.DocumentAttributes);
-            Field(o => o.DocumentInfo, true, typeof (DocumentInfoGraphType))
-                .Resolve(context => context.Source.DocumentInfo);
             Field(o => o.PublishId, nullable: true);
             Field(o => o.PublishingUnitId, nullable: true);
+            Field(o => o.DocumentInfo, true, typeof (DocumentInfoGraphType))
+                .Resolve(context => context.Source.DocumentInfo);
             Field(o => o.ProductDesignation,
             true,
             typeof (ListGraphType<ProductDesignationGraphType>))
                 .Resolve(context => context.Source.ProductDesignation);
             Field(o => o.Version, true, typeof (VersionGraphType))
                 .Resolve(context => context.Source.Version);
-            Field(o => o.Rights, true, typeof (RightsGraphType))
-                .Resolve(context => context.Source.Rights);
             Field(o => o.Renditions,
             true,
             typeof (ListGraphType<RenditionsGraphType>))

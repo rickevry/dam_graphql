@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:57.285Z
+//  2020-02-25T11:04:52.744Z
 //
 using System;
 using System.Collections.Generic;
@@ -30,8 +30,11 @@ namespace DAM.Core.GraphQL.Schemas.Collection
             Field(o => o.Assets, nullable: true);
             Field(o => o.ShowOnStartPage, nullable: true);
             Field(o => o.CoverAssetId, nullable: true);
+            Field(o => o.CreatedDate, nullable: true);
+            Field(o => o.CreatedBy, nullable: true);
             Field(o => o.isNewCollection, nullable: true);
-            Field(o => o.CreationDate, nullable: true);
+            Field(o => o.ModifiedDate, nullable: true);
+            Field(o => o.ModifiedBy, nullable: true);
         }
     }
 }

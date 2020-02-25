@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:56.787Z
+//  2020-02-25T11:04:52.463Z
 //
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,15 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
 
         private List<Guid> _collections;
 
+        private DateTime _createdDate;
+
+        private Guid _createdBy;
+
         private string _bundleType;
+
+        private DateTime _modifiedDate;
+
+        private Guid _modifiedBy;
 
         private string _sortField;
 
@@ -91,6 +99,30 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
             }
         }
 
+        public DateTime CreatedDate
+        {
+            get
+            {
+                return _createdDate;
+            }
+            set
+            {
+                SetField(ref _createdDate, value);
+            }
+        }
+
+        public Guid CreatedBy
+        {
+            get
+            {
+                return _createdBy;
+            }
+            set
+            {
+                SetField(ref _createdBy, value);
+            }
+        }
+
         /// <summary>
         /// description missing
         /// </summary>
@@ -103,6 +135,30 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
             set
             {
                 SetField(ref _bundleType, value);
+            }
+        }
+
+        public DateTime ModifiedDate
+        {
+            get
+            {
+                return _modifiedDate;
+            }
+            set
+            {
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
             }
         }
 
@@ -138,7 +194,11 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
                 _thumbnailURL = entity.ThumbnailURL,
                 _country = entity.Country,
                 _collections = entity.Collections,
+                _createdDate = entity.CreatedDate,
+                _createdBy = entity.CreatedBy,
                 _bundleType = entity.BundleType,
+                _modifiedDate = entity.ModifiedDate,
+                _modifiedBy = entity.ModifiedBy,
                 _sortField = entity.SortField
             };
         }

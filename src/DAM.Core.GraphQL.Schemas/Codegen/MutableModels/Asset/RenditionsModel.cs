@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.958Z
+//  2020-02-25T11:04:53.666Z
 //
 using System;
 using System.Collections.Generic;
@@ -13,23 +13,11 @@ namespace DAM.Core.GraphQL.Schemas.Asset
     [QueryName("Renditions")]
     public class RenditionsModel : MutableModel
     {
-        private string _renditionType;
-
         private string _snapshot;
 
         private long _fileSize;
 
-        public string RenditionType
-        {
-            get
-            {
-                return _renditionType;
-            }
-            set
-            {
-                SetField(ref _renditionType, value);
-            }
-        }
+        private string _renditionType;
 
         /// <summary>
         /// description missing
@@ -58,6 +46,18 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
+        public string RenditionType
+        {
+            get
+            {
+                return _renditionType;
+            }
+            set
+            {
+                SetField(ref _renditionType, value);
+            }
+        }
+
         public static implicit operator RenditionsModel(
             Shared.Models.Asset.Renditions entity
         )
@@ -71,9 +71,9 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         {
             return new RenditionsModel {
                 Id = entity.Id,
-                _renditionType = entity.RenditionType,
                 _snapshot = entity.Snapshot,
-                _fileSize = entity.FileSize
+                _fileSize = entity.FileSize,
+                _renditionType = entity.RenditionType
             };
         }
 

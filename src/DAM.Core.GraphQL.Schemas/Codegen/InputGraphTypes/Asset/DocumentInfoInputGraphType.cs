@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.403Z
+//  2020-02-25T11:04:53.526Z
 //
 using System;
 using System.Collections.Generic;
@@ -29,9 +29,13 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             Field(o => o.Title, nullable: true);
             Field(o => o.FolderId, nullable: true);
             Field(o => o.AssetRole, nullable: true);
-            Field(o => o.ExpiryDate, nullable: true);
             Field(o => o.PublicationDesignation, nullable: true);
-            Field(o => o.Authors, nullable: true);
+            Field(o => o.SecurityClass, nullable: true);
+            Field(o => o.TridionRestricted, nullable: true);
+            Field(o => o.CreatedDate, nullable: true);
+            Field(o => o.CreatedBy, nullable: true);
+            Field(o => o.ModifiedDate, nullable: true);
+            Field(o => o.ModifiedBy, nullable: true);
         }
     }
 }

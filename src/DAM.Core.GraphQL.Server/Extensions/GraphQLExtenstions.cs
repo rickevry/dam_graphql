@@ -14,7 +14,7 @@ namespace DAM.Core.GraphQL.Server.Extensions
 {
     public static class GraphQLExtenstions
     {
-        public static IServiceCollection AddGraphQL(this IServiceCollection services)
+        public static IServiceCollection AddGraphQLService(this IServiceCollection services)
         {
             // Workaround until GraphQL can swap off Newtonsoft.Json and onto the new MS one.
             // Depending on whether you're using IIS or Kestrel, the code required is different

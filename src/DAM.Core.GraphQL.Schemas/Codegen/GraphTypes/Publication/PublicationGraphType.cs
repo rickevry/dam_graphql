@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:57.891Z
+//  2020-02-25T11:04:53.104Z
 //
 using System;
 using System.Collections.Generic;
@@ -33,8 +33,10 @@ namespace DAM.Core.GraphQL.Schemas.Publication
             Field(o => o.InternalDescription, nullable: true);
             Field(o => o.ExternalDescription, nullable: true);
             Field(o => o.PublishingUnit, nullable: true);
-            Field(o => o.CreationDate, nullable: true);
-            Field(o => o.ModifyDate, nullable: true);
+            Field(o => o.CreatedDate, nullable: true);
+            Field(o => o.CreatedBy, nullable: true);
+            Field(o => o.ModifiedDate, nullable: true);
+            Field(o => o.ModifiedBy, nullable: true);
         }
     }
 }

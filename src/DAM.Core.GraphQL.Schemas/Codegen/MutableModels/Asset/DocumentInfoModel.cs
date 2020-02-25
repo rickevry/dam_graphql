@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.317Z
+//  2020-02-25T11:04:53.526Z
 //
 using System;
 using System.Collections.Generic;
@@ -29,11 +29,19 @@ namespace DAM.Core.GraphQL.Schemas.Asset
 
         private string _assetRole;
 
-        private DateTime _expiryDate;
-
         private string _publicationDesignation;
 
-        private List<string> _authors;
+        private string _securityClass;
+
+        private bool _tridionRestricted;
+
+        private DateTime _createdDate;
+
+        private Guid _createdBy;
+
+        private DateTime _modifiedDate;
+
+        private Guid _modifiedBy;
 
         /// <summary>
         /// Internal description (SKF intranet): Mandatory field
@@ -174,23 +182,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        /// <summary>
-        /// Expiry date: How long will your asset be valid?
-        /// By default system sets it to 2 years, but it can be modified. When your asset is about to reach its expiry date you as content manager will receive a notificaton e-mail 2 weeks prior to expiry. A red triangle will also be visible in the bottom of your asset. If you wish to extend the life of your asset you will need to modify the metadata field and re-publish your asset for the change to synch through.
-        /// If Expiry date is met the asset/structure will be unpublished automatically by system
-        /// </summary>
-        public DateTime ExpiryDate
-        {
-            get
-            {
-                return _expiryDate;
-            }
-            set
-            {
-                SetField(ref _expiryDate, value);
-            }
-        }
-
         public string PublicationDesignation
         {
             get
@@ -203,15 +194,86 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public List<string> Authors
+        /// <summary>
+        /// Security Class
+        /// </summary>
+        public string SecurityClass
         {
             get
             {
-                return _authors;
+                return _securityClass;
             }
             set
             {
-                SetField(ref _authors, value);
+                SetField(ref _securityClass, value);
+            }
+        }
+
+        /// <summary>
+        /// Tridion restricted (keep or remove?): This field is required by SKF legal and limits the usage and distribution of your asset.
+        /// SKF_internal
+        /// SKF_open
+        /// Rights_managed
+        /// Restricted_content_on_skf_com
+        /// Publish_enabled_for_skf_com
+        /// </summary>
+        public bool TridionRestricted
+        {
+            get
+            {
+                return _tridionRestricted;
+            }
+            set
+            {
+                SetField(ref _tridionRestricted, value);
+            }
+        }
+
+        public DateTime CreatedDate
+        {
+            get
+            {
+                return _createdDate;
+            }
+            set
+            {
+                SetField(ref _createdDate, value);
+            }
+        }
+
+        public Guid CreatedBy
+        {
+            get
+            {
+                return _createdBy;
+            }
+            set
+            {
+                SetField(ref _createdBy, value);
+            }
+        }
+
+        public DateTime ModifiedDate
+        {
+            get
+            {
+                return _modifiedDate;
+            }
+            set
+            {
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
             }
         }
 
@@ -236,9 +298,13 @@ namespace DAM.Core.GraphQL.Schemas.Asset
                 _title = entity.Title,
                 _folderId = entity.FolderId,
                 _assetRole = entity.AssetRole,
-                _expiryDate = entity.ExpiryDate,
                 _publicationDesignation = entity.PublicationDesignation,
-                _authors = entity.Authors
+                _securityClass = entity.SecurityClass,
+                _tridionRestricted = entity.TridionRestricted,
+                _createdDate = entity.CreatedDate,
+                _createdBy = entity.CreatedBy,
+                _modifiedDate = entity.ModifiedDate,
+                _modifiedBy = entity.ModifiedBy
             };
         }
 

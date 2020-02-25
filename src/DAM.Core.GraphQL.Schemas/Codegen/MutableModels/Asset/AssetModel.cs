@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:57.990Z
+//  2020-02-25T11:04:53.666Z
 //
 using System;
 using System.Collections.Generic;
@@ -21,17 +21,15 @@ namespace DAM.Core.GraphQL.Schemas.Asset
 
         private DocumentAttributesModel _documentAttributes;
 
-        private DocumentInfoModel _documentInfo;
-
         private string _publishId;
 
         private Guid _publishingUnitId;
 
+        private DocumentInfoModel _documentInfo;
+
         private List<ProductDesignationModel> _productDesignation;
 
         private VersionModel _version;
-
-        private RightsModel _rights;
 
         private List<RenditionsModel> _renditions;
 
@@ -83,18 +81,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public DocumentInfoModel DocumentInfo
-        {
-            get
-            {
-                return _documentInfo;
-            }
-            set
-            {
-                SetField(ref _documentInfo, value);
-            }
-        }
-
         public string PublishId
         {
             get
@@ -116,6 +102,18 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _publishingUnitId, value);
+            }
+        }
+
+        public DocumentInfoModel DocumentInfo
+        {
+            get
+            {
+                return _documentInfo;
+            }
+            set
+            {
+                SetField(ref _documentInfo, value);
             }
         }
 
@@ -143,18 +141,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _version, value);
-            }
-        }
-
-        public RightsModel Rights
-        {
-            get
-            {
-                return _rights;
-            }
-            set
-            {
-                SetField(ref _rights, value);
             }
         }
 
@@ -189,14 +175,13 @@ namespace DAM.Core.GraphQL.Schemas.Asset
                 _assetId = entity.AssetId,
                 _publicationId = entity.PublicationId,
                 _documentAttributes = entity.DocumentAttributes,
-                _documentInfo = entity.DocumentInfo,
                 _publishId = entity.PublishId,
                 _publishingUnitId = entity.PublishingUnitId,
+                _documentInfo = entity.DocumentInfo,
                 _productDesignation =
                     ProductDesignationModel
                         .FromEntityList(entity.ProductDesignation),
                 _version = entity.Version,
-                _rights = entity.Rights,
                 _renditions = RenditionsModel.FromEntityList(entity.Renditions)
             };
         }

@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:57.389Z
+//  2020-02-25T11:04:53.104Z
 //
 using System;
 using System.Collections.Generic;
@@ -29,9 +29,13 @@ namespace DAM.Core.GraphQL.Schemas.Publication
 
         private Guid _publishingUnit;
 
-        private DateTime _creationDate;
+        private DateTime _createdDate;
 
-        private DateTime _modifyDate;
+        private Guid _createdBy;
+
+        private DateTime _modifiedDate;
+
+        private Guid _modifiedBy;
 
         public string PublicationName
         {
@@ -129,27 +133,51 @@ namespace DAM.Core.GraphQL.Schemas.Publication
             }
         }
 
-        public DateTime CreationDate
+        public DateTime CreatedDate
         {
             get
             {
-                return _creationDate;
+                return _createdDate;
             }
             set
             {
-                SetField(ref _creationDate, value);
+                SetField(ref _createdDate, value);
             }
         }
 
-        public DateTime ModifyDate
+        public Guid CreatedBy
         {
             get
             {
-                return _modifyDate;
+                return _createdBy;
             }
             set
             {
-                SetField(ref _modifyDate, value);
+                SetField(ref _createdBy, value);
+            }
+        }
+
+        public DateTime ModifiedDate
+        {
+            get
+            {
+                return _modifiedDate;
+            }
+            set
+            {
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
             }
         }
 
@@ -174,8 +202,10 @@ namespace DAM.Core.GraphQL.Schemas.Publication
                 _internalDescription = entity.InternalDescription,
                 _externalDescription = entity.ExternalDescription,
                 _publishingUnit = entity.PublishingUnit,
-                _creationDate = entity.CreationDate,
-                _modifyDate = entity.ModifyDate
+                _createdDate = entity.CreatedDate,
+                _createdBy = entity.CreatedBy,
+                _modifiedDate = entity.ModifiedDate,
+                _modifiedBy = entity.ModifiedBy
             };
         }
 

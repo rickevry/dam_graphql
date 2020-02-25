@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:57.155Z
+//  2020-02-25T11:04:52.744Z
 //
 using System;
 using System.Collections.Generic;
@@ -29,9 +29,15 @@ namespace DAM.Core.GraphQL.Schemas.Collection
 
         private Guid _coverAssetId;
 
+        private DateTime _createdDate;
+
+        private Guid _createdBy;
+
         private bool _isNewCollection;
 
-        private DateTime _creationDate;
+        private DateTime _modifiedDate;
+
+        private Guid _modifiedBy;
 
         public string CollectionTitle
         {
@@ -129,6 +135,30 @@ namespace DAM.Core.GraphQL.Schemas.Collection
             }
         }
 
+        public DateTime CreatedDate
+        {
+            get
+            {
+                return _createdDate;
+            }
+            set
+            {
+                SetField(ref _createdDate, value);
+            }
+        }
+
+        public Guid CreatedBy
+        {
+            get
+            {
+                return _createdBy;
+            }
+            set
+            {
+                SetField(ref _createdBy, value);
+            }
+        }
+
         /// <summary>
         /// description missing
         /// </summary>
@@ -144,15 +174,27 @@ namespace DAM.Core.GraphQL.Schemas.Collection
             }
         }
 
-        public DateTime CreationDate
+        public DateTime ModifiedDate
         {
             get
             {
-                return _creationDate;
+                return _modifiedDate;
             }
             set
             {
-                SetField(ref _creationDate, value);
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
             }
         }
 
@@ -177,8 +219,11 @@ namespace DAM.Core.GraphQL.Schemas.Collection
                 _assets = entity.Assets,
                 _showOnStartPage = entity.ShowOnStartPage,
                 _coverAssetId = entity.CoverAssetId,
+                _createdDate = entity.CreatedDate,
+                _createdBy = entity.CreatedBy,
                 _isNewCollection = entity.isNewCollection,
-                _creationDate = entity.CreationDate
+                _modifiedDate = entity.ModifiedDate,
+                _modifiedBy = entity.ModifiedBy
             };
         }
 

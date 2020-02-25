@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:59.029Z
+//  2020-02-25T11:04:53.948Z
 //
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,62 @@ namespace DAM.Core.GraphQL.Schemas.Sample
     [QueryName("assets")]
     public class SampleModel : MutableModel
     {
+        private DateTime _createdDate;
+
+        private Guid _createdBy;
+
+        private DateTime _modifiedDate;
+
+        private Guid _modifiedBy;
+
+        public DateTime CreatedDate
+        {
+            get
+            {
+                return _createdDate;
+            }
+            set
+            {
+                SetField(ref _createdDate, value);
+            }
+        }
+
+        public Guid CreatedBy
+        {
+            get
+            {
+                return _createdBy;
+            }
+            set
+            {
+                SetField(ref _createdBy, value);
+            }
+        }
+
+        public DateTime ModifiedDate
+        {
+            get
+            {
+                return _modifiedDate;
+            }
+            set
+            {
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
+            }
+        }
+
         public static implicit operator SampleModel(
             Shared.Models.Sample.Sample entity
         )
@@ -23,7 +79,13 @@ namespace DAM.Core.GraphQL.Schemas.Sample
 
         public static SampleModel FromEntity(Shared.Models.Sample.Sample entity)
         {
-            return new SampleModel { Id = entity.Id };
+            return new SampleModel {
+                Id = entity.Id,
+                _createdDate = entity.CreatedDate,
+                _createdBy = entity.CreatedBy,
+                _modifiedDate = entity.ModifiedDate,
+                _modifiedBy = entity.ModifiedBy
+            };
         }
 
         public static List<SampleModel>

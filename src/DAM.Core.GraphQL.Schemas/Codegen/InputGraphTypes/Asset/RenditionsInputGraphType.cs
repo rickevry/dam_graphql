@@ -1,6 +1,6 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.970Z
+//  2020-02-25T11:04:53.666Z
 //
 using System;
 using System.Collections.Generic;
@@ -21,9 +21,9 @@ namespace DAM.Core.GraphQL.Schemas.Asset
 
         private void BuildGraphTypeFields()
         {
-            Field(o => o.RenditionType, nullable: true);
             Field(o => o.Snapshot, nullable: true);
             Field(o => o.FileSize, nullable: true);
+            Field(o => o.RenditionType, nullable: true);
         }
     }
 }
