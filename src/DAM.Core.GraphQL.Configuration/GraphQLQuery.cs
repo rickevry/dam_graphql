@@ -1,6 +1,8 @@
 ﻿using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas.Asset;
 using DAM.Core.GraphQL.Schemas.Bundle;
+using DAM.Core.GraphQL.SearchProxy.Schemas;
+using DAM.Core.GraphQL.SearchProxy.Services;
 using GraphQL;
 using GraphQL.Types;
 using System;
@@ -8,15 +10,39 @@ using System.Linq;
 
 namespace DAM.Core.GraphQL.Schemas
 {
-    public class DataModelsQuery : ObjectGraphType
+    public class GraphQLQuery : ObjectGraphType
     {
         private readonly DataRepositoryProvider _repositoryProvider;
+        private readonly SearchClientService _searchClient;
 
-        public DataModelsQuery(DataRepositoryProvider repositoryProvider)
+        public GraphQLQuery(
+            DataRepositoryProvider repositoryProvider,
+            SearchClientService searchClient)
         {
             _repositoryProvider = repositoryProvider;
+            _searchClient = searchClient;
 
             CreateQueryFields();
+            CreateSearchFields();
+        }
+
+        private void CreateSearchFields()
+        {
+            SearchProxyRegistration.RegisterSearchSchemaTypes();
+
+            Field<AutoRegisteringObjectGraphType<RootObject>>(
+                "search",
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "token" },
+                    new QueryArgument<StringGraphType> { Name = "params" }
+                ),
+                resolve: context =>
+                {
+                    var token = context.GetArgument<string>("token");
+                    var queryParams = context.GetArgument<string>("params");
+
+                    return _searchClient.Search(queryParams, token);
+                });
         }
 
         private void CreateQueryFields()

@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Server.Configuration;
+﻿using DAM.Core.GraphQL.SearchProxy.Configuration;
+using DAM.Core.GraphQL.Server.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +10,8 @@ namespace DAM.Core.GraphQL.Server.Extensions
         public static IServiceCollection AddConfiguration(this IServiceCollection services,
             IConfiguration config)
         {
-            services.Configure<GraphQLConfiguration>(config);
+            services.Configure<GraphQLSettings>(config.GetSection(nameof(GraphQLSettings)));
+            services.Configure<SearchProxySettings>(config.GetSection(nameof(SearchProxySettings)));
 
             return services;
         }

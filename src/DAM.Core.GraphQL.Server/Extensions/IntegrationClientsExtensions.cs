@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DAM.Core.GraphQL.SearchProxy.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DAM.Core.GraphQL.Server.Extensions
 {
@@ -6,6 +7,8 @@ namespace DAM.Core.GraphQL.Server.Extensions
     {
         public static IServiceCollection AddIntegrationClients(this IServiceCollection services)
         {
+            services.AddSingleton<SearchClientService>();
+
             return services;
         }
     }

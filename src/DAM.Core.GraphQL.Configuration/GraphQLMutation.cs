@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace DAM.Core.GraphQL.Schemas
 {
-    public class DataModelsMutation : ObjectGraphType
+    public class GraphQLMutation : ObjectGraphType
     {
         private readonly DataRepositoryProvider _repositoryProvider;
 
-        public DataModelsMutation(DataRepositoryProvider repositoryProvider)
+        public GraphQLMutation(DataRepositoryProvider repositoryProvider)
         {
             _repositoryProvider = repositoryProvider;
 

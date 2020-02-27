@@ -8,10 +8,9 @@
     <PackageReference Include="GraphQL-Parser" Version="5.1.0" />
     <PackageReference Include="GraphQL" Version="3.0.0-preview-1490" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\DAM.Shared\src\DAM.Core.Shared\DAM.Core.Shared.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
   </ItemGroup>
 
 </Project>

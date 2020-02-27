@@ -27,8 +27,8 @@ namespace DAM.Core.GraphQL.Server
                 .AddIntegrationClients()
                 .AddDataRepositories()
                 .AddGraphQLService()
-                .AddGraphQLSchema()
-                .AddGraphQLTypes();
+                .AddGraphQLTypes()
+                .AddGraphQLSchema();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +49,7 @@ namespace DAM.Core.GraphQL.Server
                 });
             });
 
-            app.UseGraphQL<DataModelsSchema>();
+            app.UseGraphQL<GraphQLSchema>();
         }
     }
 }

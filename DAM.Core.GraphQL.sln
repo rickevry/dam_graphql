@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Repository
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.Shared", "..\DAM.Shared\src\DAM.Core.Shared\DAM.Core.Shared.csproj", "{42E197DA-3B89-4061-B425-E58AA72C320C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.SearchProxy", "src\DAM.Core.GraphQL.SearchProxy\DAM.Core.GraphQL.SearchProxy.csproj", "{85C9C176-3232-49FE-A3FF-BA9D70B32926}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{42E197DA-3B89-4061-B425-E58AA72C320C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E197DA-3B89-4061-B425-E58AA72C320C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E197DA-3B89-4061-B425-E58AA72C320C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C9C176-3232-49FE-A3FF-BA9D70B32926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C9C176-3232-49FE-A3FF-BA9D70B32926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C9C176-3232-49FE-A3FF-BA9D70B32926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C9C176-3232-49FE-A3FF-BA9D70B32926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

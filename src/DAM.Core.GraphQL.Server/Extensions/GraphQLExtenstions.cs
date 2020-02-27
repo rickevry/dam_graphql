@@ -1,14 +1,11 @@
 ﻿using DAM.Core.GraphQL.Schemas;
+using DAM.Core.GraphQL.SearchProxy;
+using DAM.Core.GraphQL.Server.Configuration;
 using GraphQL.Server;
-using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+using Microsoft.Extensions.Options;
 
 namespace DAM.Core.GraphQL.Server.Extensions
 {
@@ -28,40 +25,32 @@ namespace DAM.Core.GraphQL.Server.Extensions
                 options.AllowSynchronousIO = true;
             });
 
-            services.AddGraphQL(options =>
+            services.AddGraphQL((provider, options) =>
             {
-                options.EnableMetrics = true;
-                options.ExposeExceptions = true;
-            });
+                var settings = provider.GetRequiredService<IOptions<GraphQLSettings>>().Value;
+
+                options.EnableMetrics = settings.EnableMetrics;
+                options.ExposeExceptions = settings.ExposeExceptions;
+            })
+                .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { });
 
             return services;
         }
 
         public static IServiceCollection AddGraphQLSchema(this IServiceCollection services)
         {
-            services.AddSingleton<DataModelsQuery>();
-            services.AddSingleton<DataModelsMutation>();
-            services.AddSingleton<DataModelsSchema>();
+            services.AddSingleton<GraphQLQuery>();
+            services.AddSingleton<GraphQLMutation>();
+            services.AddSingleton<GraphQLSchema>();
 
             return services;
         }
 
         public static IServiceCollection AddGraphQLTypes(this IServiceCollection services)
         {
-            foreach (var type in FindDataModelGraphTypes())
-            {
-                services.TryAdd(new ServiceDescriptor(type, type, ServiceLifetime.Transient));
-            }
-
-            return services;
-        }
-
-        private static IEnumerable<Type> FindDataModelGraphTypes()
-        {
-            var graphTypesAssembly = Assembly.GetAssembly(typeof(MutableModel));
-            return graphTypesAssembly.GetTypes().Where(x =>
-                !x.IsAbstract &&
-                typeof(IGraphType).IsAssignableFrom(x));
+            return services
+                .AddGraphQLSearchProxyTypes()
+                .AddGraphQLDataModelTypes();
         }
     }
 }

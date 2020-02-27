@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DAM.Core.GraphQL.Server.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace DAM.Core.GraphQL.Server
 {
@@ -20,7 +17,24 @@ namespace DAM.Core.GraphQL.Server
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder
+                        .UseConfiguration(BuildConfiguration(args))
+                        .UseStartup<Startup>();
                 });
+
+        private static IConfigurationRoot BuildConfiguration(string[] args)
+            => new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .AddJsonFile(
+                    $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
+                    optional: true,
+                    reloadOnChange: true)
+                .AddJsonFile(
+                    $"appsettings.{Environment.GetEnvironmentVariable("Environment")}.json",
+                    optional: true,
+                    reloadOnChange: true)
+                .AddCommandLine(args)
+                .Build();
     }
 }
