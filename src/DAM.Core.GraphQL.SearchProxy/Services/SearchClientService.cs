@@ -33,7 +33,7 @@ namespace DAM.Core.GraphQL.SearchProxy.Services
         {
             JsonSerializerSettings settings = new JsonSerializerSettings();
 
-            settings.Converters.Add(new SearchResultsListConverter<string>());
+            settings.Converters.Add(new SearchResultsArrayConverter<string>());
 
             return JsonConvert.DeserializeObject<RootObject>(searchResponse, settings);
         }

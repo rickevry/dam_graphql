@@ -1,11 +1,12 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-25T11:04:52.963Z
+//  2020-02-28T09:54:21.913Z
 //
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using DAM.Core.Shared.Models.Publication;
 
 namespace DAM.Core.GraphQL.Schemas.Publication
 {

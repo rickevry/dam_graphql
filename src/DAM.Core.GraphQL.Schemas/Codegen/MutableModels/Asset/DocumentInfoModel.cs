@@ -1,11 +1,12 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-25T11:04:53.526Z
+//  2020-02-28T09:54:23.008Z
 //
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using DAM.Core.Shared.Models.Asset;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
@@ -34,14 +35,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         private string _securityClass;
 
         private bool _tridionRestricted;
-
-        private DateTime _createdDate;
-
-        private Guid _createdBy;
-
-        private DateTime _modifiedDate;
-
-        private Guid _modifiedBy;
 
         /// <summary>
         /// Internal description (SKF intranet): Mandatory field
@@ -229,54 +222,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public DateTime CreatedDate
-        {
-            get
-            {
-                return _createdDate;
-            }
-            set
-            {
-                SetField(ref _createdDate, value);
-            }
-        }
-
-        public Guid CreatedBy
-        {
-            get
-            {
-                return _createdBy;
-            }
-            set
-            {
-                SetField(ref _createdBy, value);
-            }
-        }
-
-        public DateTime ModifiedDate
-        {
-            get
-            {
-                return _modifiedDate;
-            }
-            set
-            {
-                SetField(ref _modifiedDate, value);
-            }
-        }
-
-        public Guid ModifiedBy
-        {
-            get
-            {
-                return _modifiedBy;
-            }
-            set
-            {
-                SetField(ref _modifiedBy, value);
-            }
-        }
-
         public static implicit operator DocumentInfoModel(
             Shared.Models.Asset.DocumentInfo entity
         )
@@ -300,11 +245,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
                 _assetRole = entity.AssetRole,
                 _publicationDesignation = entity.PublicationDesignation,
                 _securityClass = entity.SecurityClass,
-                _tridionRestricted = entity.TridionRestricted,
-                _createdDate = entity.CreatedDate,
-                _createdBy = entity.CreatedBy,
-                _modifiedDate = entity.ModifiedDate,
-                _modifiedBy = entity.ModifiedBy
+                _tridionRestricted = entity.TridionRestricted
             };
         }
 

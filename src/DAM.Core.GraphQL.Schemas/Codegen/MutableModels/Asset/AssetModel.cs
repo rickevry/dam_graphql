@@ -1,11 +1,12 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-25T11:04:53.666Z
+//  2020-02-28T09:54:23.241Z
 //
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using DAM.Core.Shared.Models.Asset;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
@@ -15,7 +16,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
     {
         private DocumentStateModel _documentState;
 
-        private Guid _assetId;
+        private string _assetId;
 
         private string _publicationId;
 
@@ -23,15 +24,23 @@ namespace DAM.Core.GraphQL.Schemas.Asset
 
         private string _publishId;
 
-        private Guid _publishingUnitId;
-
         private DocumentInfoModel _documentInfo;
+
+        private Guid _publishingUnitId;
 
         private List<ProductDesignationModel> _productDesignation;
 
         private VersionModel _version;
 
         private List<RenditionsModel> _renditions;
+
+        private DateTime _createdDate;
+
+        private DateTime _modifiedDate;
+
+        private Guid _createdBy;
+
+        private Guid _modifiedBy;
 
         public DocumentStateModel DocumentState
         {
@@ -45,7 +54,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public Guid AssetId
+        public string AssetId
         {
             get
             {
@@ -93,18 +102,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public Guid PublishingUnitId
-        {
-            get
-            {
-                return _publishingUnitId;
-            }
-            set
-            {
-                SetField(ref _publishingUnitId, value);
-            }
-        }
-
         public DocumentInfoModel DocumentInfo
         {
             get
@@ -114,6 +111,18 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _documentInfo, value);
+            }
+        }
+
+        public Guid PublishingUnitId
+        {
+            get
+            {
+                return _publishingUnitId;
+            }
+            set
+            {
+                SetField(ref _publishingUnitId, value);
             }
         }
 
@@ -159,6 +168,54 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
+        public DateTime CreatedDate
+        {
+            get
+            {
+                return _createdDate;
+            }
+            set
+            {
+                SetField(ref _createdDate, value);
+            }
+        }
+
+        public DateTime ModifiedDate
+        {
+            get
+            {
+                return _modifiedDate;
+            }
+            set
+            {
+                SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public Guid CreatedBy
+        {
+            get
+            {
+                return _createdBy;
+            }
+            set
+            {
+                SetField(ref _createdBy, value);
+            }
+        }
+
+        public Guid ModifiedBy
+        {
+            get
+            {
+                return _modifiedBy;
+            }
+            set
+            {
+                SetField(ref _modifiedBy, value);
+            }
+        }
+
         public static implicit operator AssetModel(
             Shared.Models.Asset.Asset entity
         )
@@ -176,13 +233,17 @@ namespace DAM.Core.GraphQL.Schemas.Asset
                 _publicationId = entity.PublicationId,
                 _documentAttributes = entity.DocumentAttributes,
                 _publishId = entity.PublishId,
-                _publishingUnitId = entity.PublishingUnitId,
                 _documentInfo = entity.DocumentInfo,
+                _publishingUnitId = entity.PublishingUnitId,
                 _productDesignation =
                     ProductDesignationModel
                         .FromEntityList(entity.ProductDesignation),
                 _version = entity.Version,
-                _renditions = RenditionsModel.FromEntityList(entity.Renditions)
+                _renditions = RenditionsModel.FromEntityList(entity.Renditions),
+                _createdDate = entity.CreatedDate,
+                _modifiedDate = entity.ModifiedDate,
+                _createdBy = entity.CreatedBy,
+                _modifiedBy = entity.ModifiedBy
             };
         }
 

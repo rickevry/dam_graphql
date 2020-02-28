@@ -1,9 +1,10 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-25T11:04:53.666Z
+//  2020-02-28T09:54:23.242Z
 //
 using System;
 using System.Collections.Generic;
+using DAM.Core.Shared.Models.Asset;
 using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
@@ -31,11 +32,11 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             typeof (DocumentAttributesInputGraphType))
                 .Resolve(context => context.Source.DocumentAttributes);
             Field(o => o.PublishId, nullable: true);
-            Field(o => o.PublishingUnitId, nullable: true);
             Field(o => o.DocumentInfo,
             true,
             typeof (DocumentInfoInputGraphType))
                 .Resolve(context => context.Source.DocumentInfo);
+            Field(o => o.PublishingUnitId, nullable: true);
             Field(o => o.ProductDesignation,
             true,
             typeof (ListGraphType<ProductDesignationInputGraphType>))
@@ -46,6 +47,10 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             true,
             typeof (ListGraphType<RenditionsInputGraphType>))
                 .Resolve(context => context.Source.Renditions);
+            Field(o => o.CreatedDate, nullable: true);
+            Field(o => o.ModifiedDate, nullable: true);
+            Field(o => o.CreatedBy, nullable: true);
+            Field(o => o.ModifiedBy, nullable: true);
         }
     }
 }

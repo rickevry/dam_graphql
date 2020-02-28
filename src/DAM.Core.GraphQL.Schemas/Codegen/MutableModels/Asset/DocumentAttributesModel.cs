@@ -1,11 +1,12 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-25T11:04:53.385Z
+//  2020-02-28T09:54:22.850Z
 //
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using DAM.Core.Shared.Models.Asset;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
@@ -15,7 +16,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
     {
         private DateTime _fileModifiedDate;
 
-        private string _checkedOutBy;
+        private Guid _checkedOutBy;
 
         private bool _isCheckedOut;
 
@@ -46,7 +47,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         /// <summary>
         /// description missing
         /// </summary>
-        public string CheckedOutBy
+        public Guid CheckedOutBy
         {
             get
             {
