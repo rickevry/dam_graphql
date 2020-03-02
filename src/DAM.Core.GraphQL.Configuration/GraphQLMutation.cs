@@ -1,4 +1,5 @@
 ﻿using DAM.Core.GraphQL.Repository;
+using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.Asset;
 using DAM.Core.GraphQL.Schemas.Bundle;
 using GraphQL;
@@ -6,7 +7,7 @@ using GraphQL.Types;
 using System;
 using System.Linq;
 
-namespace DAM.Core.GraphQL.Schemas
+namespace DAM.Core.GraphQL.Configuration
 {
     public class GraphQLMutation : ObjectGraphType
     {

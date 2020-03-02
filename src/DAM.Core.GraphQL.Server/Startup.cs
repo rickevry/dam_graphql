@@ -1,3 +1,4 @@
+using DAM.Core.GraphQL.Configuration;
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Server.Extensions;
 using Microsoft.AspNetCore.Builder;

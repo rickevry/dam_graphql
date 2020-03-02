@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Schemas;
+﻿using DAM.Core.GraphQL.Configuration;
+using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.SearchProxy;
 using DAM.Core.GraphQL.Server.Configuration;
 using GraphQL.Server;
@@ -50,7 +51,8 @@ namespace DAM.Core.GraphQL.Server.Extensions
         {
             return services
                 .AddGraphQLSearchProxyTypes()
-                .AddGraphQLDataModelTypes();
+                .AddGraphQLDataModelTypes()
+                .AddGraphQLTestTypes();
         }
     }
 }

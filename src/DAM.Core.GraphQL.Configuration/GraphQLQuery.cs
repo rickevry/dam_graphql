@@ -1,14 +1,18 @@
 ﻿using DAM.Core.GraphQL.Repository;
+using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.Asset;
 using DAM.Core.GraphQL.Schemas.Bundle;
 using DAM.Core.GraphQL.SearchProxy.Schemas;
 using DAM.Core.GraphQL.SearchProxy.Services;
 using GraphQL;
 using GraphQL.Types;
+using GraphQL.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace DAM.Core.GraphQL.Schemas
+namespace DAM.Core.GraphQL.Configuration
 {
     public class GraphQLQuery : ObjectGraphType
     {
@@ -24,6 +28,54 @@ namespace DAM.Core.GraphQL.Schemas
 
             CreateQueryFields();
             CreateSearchFields();
+            CreateTestFields();
+        }
+
+        private void CreateTestFields()
+        {
+            GraphTypeTypeRegistry.Register<InvoiceModel, InvoiceGraphType>();
+            GraphTypeTypeRegistry.Register<DrawingModel, DrawingGraphType>();
+
+            Field<ListGraphType<InvoiceGraphType>>("invoices",
+                resolve: context =>
+                {
+                    return Task.FromResult(
+                        new List<InvoiceModel>
+                        {
+                            new InvoiceModel
+                            {
+                                Title="Invoice 101",
+                                Customer="Volvo",
+                                Amount=10000,
+                            },
+                            new InvoiceModel
+                            {
+                                Title="Invoice 102",
+                                Customer="Volvo",
+                                Amount=10000,
+                            }
+                        });
+                });
+
+            Field<ListGraphType<DrawingGraphType>>("drawings",
+                resolve: context =>
+                {
+                    return Task.FromResult(
+                        new List<DrawingModel>
+                        {
+                            new DrawingModel
+                            {
+                                Title="SKF001",
+                                Info="Lorem ipsum dolor sit amet",
+                            },
+                            new DrawingModel
+                            {
+                                Title="SKF002",
+                                Info="Lorem ipsum dolor sit amet",
+                            }
+                        });
+                });
+
         }
 
         private void CreateSearchFields()

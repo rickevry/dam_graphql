@@ -2,7 +2,7 @@
 using GraphQL.Utilities;
 using System;
 
-namespace DAM.Core.GraphQL.Schemas
+namespace DAM.Core.GraphQL.Configuration
 {
     public class GraphQLSchema : Schema
     {

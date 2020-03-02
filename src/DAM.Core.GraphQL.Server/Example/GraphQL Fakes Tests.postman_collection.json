@@ -6,33 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Search",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query search($token: String!, $params: String){\n    search (token: $token, params: $params){\n        stats {totalHits searchEngineTimeInMillis searchEngineRoundTripTimeInMillis searchProcessingTimeInMillis}\n        documentList {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _id\n                _type\n                acl\n                added_time\n                asset_type\n                assetsource\n                author\n                channel\n                description\n                description_external\n                display_language\n                doc_date_time\n                docid\n                downloads\n                env\n                format\n                industries_taxonomy\n                language\n                main_content_hash\n                main_content_size\n                main_content_url\n                media_type\n                ml_url\n                mlassettype\n                mmid\n                pdf_preview_size\n                pdf_preview_standard_size\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_size\n                png_highpreview1278_url\n                png_highpreview800_size\n                png_highpreview800_url\n                png_highpreview_size\n                png_highpreview_url\n                png_lowpreview_size\n                png_lowpreview_url\n                processing_time\n                processingtime\n                publication_designation\n                publish_status\n                rightsmanaged\n                security_context\n                security_level\n                tab\n                taxonomy\n                tcmid\n                thumbnail\n                thumbnail_url\n                thumbnailurl\n                title\n                url                \n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        facets {\n            id\n            displayName\n            selectionType\n            multipleLevels\n            filters { displayName selected query count\n                children { displayName selected query count\n                    children { displayName selected query count \n                        children { displayName selected query count \n                            children { displayName selected query count \n                                children { displayName selected query count \n                                    children { displayName selected query count \n                                        children { displayName selected query count }\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}",
-						"variables": "{\n\t\"token\": \"qddEgxUxFKwBMeolmUmLDSGpK0g\",\n\t\"params\": \"offset=15&hits=2&q=roller\"\n}"
-					}
-				},
-				"url": {
-					"raw": "http://graphqlpoc1.thedamproject.com/graphql",
-					"protocol": "http",
-					"host": [
-						"graphqlpoc1",
-						"thedamproject",
-						"com"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get All Bundles",
 			"request": {
 				"method": "POST",
@@ -137,6 +110,32 @@
 							"key": "variables",
 							"value": "{bundle:{bundleTitle:\"created from postman\"}}"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoices/Drawings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n    drawings{\n        type,\n        title,\n        info\n    }\n    \n    invoices{\n        type,\n        title,\n        customer,\n        amount\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
 					]
 				}
 			},
