@@ -1,10 +1,4 @@
-﻿using GraphQL.Types;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace DAM.Core.GraphQL.Configuration
 {
@@ -14,6 +8,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             services.AddTransient<InvoiceGraphType>();
             services.AddTransient<DrawingGraphType>();
+            services.AddTransient<WrapperGraphType>();
 
             return services;
         }

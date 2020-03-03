@@ -36,11 +36,11 @@ namespace DAM.Core.GraphQL.Configuration
             GraphTypeTypeRegistry.Register<InvoiceModel, InvoiceGraphType>();
             GraphTypeTypeRegistry.Register<DrawingModel, DrawingGraphType>();
 
-            Field<ListGraphType<InvoiceGraphType>>("invoices",
+            Field<ListGraphType<WrapperGraphType>>("wrapper",
                 resolve: context =>
                 {
                     return Task.FromResult(
-                        new List<InvoiceModel>
+                        new List<object>
                         {
                             new InvoiceModel
                             {
@@ -53,16 +53,7 @@ namespace DAM.Core.GraphQL.Configuration
                                 Title="Invoice 102",
                                 Customer="Volvo",
                                 Amount=10000,
-                            }
-                        });
-                });
-
-            Field<ListGraphType<DrawingGraphType>>("drawings",
-                resolve: context =>
-                {
-                    return Task.FromResult(
-                        new List<DrawingModel>
-                        {
+                            },
                             new DrawingModel
                             {
                                 Title="SKF001",
