@@ -16,6 +16,8 @@ namespace DAM.Core.GraphQL.Configuration
             Field(o => o.Type);
             Field(o => o.Title);
             Field(o => o.Info);
+
+            Interface<SearchItemInterface>();
         }
     }
 }

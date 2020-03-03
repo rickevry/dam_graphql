@@ -6,6 +6,7 @@ namespace DAM.Core.GraphQL.Configuration
     {
         public static IServiceCollection AddGraphQLTestTypes(this IServiceCollection services)
         {
+            services.AddTransient<SearchItemInterface>();
             services.AddTransient<InvoiceGraphType>();
             services.AddTransient<DrawingGraphType>();
             services.AddTransient<WrapperGraphType>();

@@ -33,6 +33,7 @@ namespace DAM.Core.GraphQL.Configuration
 
         private void CreateTestFields()
         {
+            GraphTypeTypeRegistry.Register<SearchItem, SearchItemInterface>();
             GraphTypeTypeRegistry.Register<InvoiceModel, InvoiceGraphType>();
             GraphTypeTypeRegistry.Register<DrawingModel, DrawingGraphType>();
 
