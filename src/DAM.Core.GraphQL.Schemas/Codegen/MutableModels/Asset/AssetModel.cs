@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:23.241Z
 //
 using System;
 using System.Collections.Generic;
@@ -16,19 +15,21 @@ namespace DAM.Core.GraphQL.Schemas.Asset
     {
         private DocumentStateModel _documentState;
 
+        private CopyrightModel _copyright;
+
         private string _assetId;
 
         private string _publicationId;
 
         private DocumentAttributesModel _documentAttributes;
 
-        private string _publishId;
-
         private DocumentInfoModel _documentInfo;
 
         private Guid _publishingUnitId;
 
-        private List<ProductDesignationModel> _productDesignation;
+        private ReleaseFormModel _releaseForm;
+
+        private ProductInfoModel _productInfo;
 
         private VersionModel _version;
 
@@ -51,6 +52,18 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             set
             {
                 SetField(ref _documentState, value);
+            }
+        }
+
+        public CopyrightModel Copyright
+        {
+            get
+            {
+                return _copyright;
+            }
+            set
+            {
+                SetField(ref _copyright, value);
             }
         }
 
@@ -90,18 +103,6 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public string PublishId
-        {
-            get
-            {
-                return _publishId;
-            }
-            set
-            {
-                SetField(ref _publishId, value);
-            }
-        }
-
         public DocumentInfoModel DocumentInfo
         {
             get
@@ -126,15 +127,37 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             }
         }
 
-        public List<ProductDesignationModel> ProductDesignation
+        /// <summary>
+        /// All files within the ZIP file need to comply to SKF Group Policy of the Use of SKF information, for details please visit SKF intranet and SKF Identity guidelines, for details please visit SKF Visual identity standards.
+        ///
+
+        /// If ZIP file contains photo(s) these need to be approved for commercial purposes.
+        /// You are not permitted to have photo(s) in the ZIP file that requires release form(s) unless precise details of full name of subjects are stated in the ZIP file description. Release form(s) must be stored along with the photo(s) in the ZIP file.
+        ///
+
+        /// If unsure, please contact the Content Manager of the workspace.
+        /// </summary>
+        public ReleaseFormModel ReleaseForm
         {
             get
             {
-                return _productDesignation;
+                return _releaseForm;
             }
             set
             {
-                SetField(ref _productDesignation, value);
+                SetField(ref _releaseForm, value);
+            }
+        }
+
+        public ProductInfoModel ProductInfo
+        {
+            get
+            {
+                return _productInfo;
+            }
+            set
+            {
+                SetField(ref _productInfo, value);
             }
         }
 
@@ -229,15 +252,14 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             return new AssetModel {
                 Id = entity.Id,
                 _documentState = entity.DocumentState,
+                _copyright = entity.Copyright,
                 _assetId = entity.AssetId,
                 _publicationId = entity.PublicationId,
                 _documentAttributes = entity.DocumentAttributes,
-                _publishId = entity.PublishId,
                 _documentInfo = entity.DocumentInfo,
                 _publishingUnitId = entity.PublishingUnitId,
-                _productDesignation =
-                    ProductDesignationModel
-                        .FromEntityList(entity.ProductDesignation),
+                _releaseForm = entity.ReleaseForm,
+                _productInfo = entity.ProductInfo,
                 _version = entity.Version,
                 _renditions = RenditionsModel.FromEntityList(entity.Renditions),
                 _createdDate = entity.CreatedDate,

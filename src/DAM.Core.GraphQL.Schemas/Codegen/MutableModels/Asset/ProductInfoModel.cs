@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:23.131Z
 //
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using DAM.Core.Shared.Models.Asset;
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
     [ModelName("ProductInfo")]
-    [QueryName("ProductInfo")]
+    [QueryName("productInfo")]
     public class ProductInfoModel : MutableModel
     {
         private List<ProductDesignationModel> _productDesignation;

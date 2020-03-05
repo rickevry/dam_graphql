@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:23.128Z
 //
 using System;
 using System.Collections.Generic;

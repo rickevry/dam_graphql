@@ -5,6 +5,9 @@ namespace DAM.Core.GraphQL.SearchProxy.Configuration
     public class SearchProxySettings
     {
         [Required]
-        public string Url { get; set; }
+        public string FindUrl { get; set; }
+
+        [Required]
+        public string QCUrl { get; set; }
     }
 }

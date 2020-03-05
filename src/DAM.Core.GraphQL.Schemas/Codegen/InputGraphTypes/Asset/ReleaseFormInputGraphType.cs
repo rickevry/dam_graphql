@@ -1,26 +1,28 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.389Z
 //
 using System;
 using System.Collections.Generic;
+using DAM.Core.Shared.Models.Asset;
 using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
     public class
-    ExpiryDateInputGraphType
-    : InputObjectGraphType<ExpiryDateModel>
+    ReleaseFormInputGraphType
+    : InputObjectGraphType<ReleaseFormModel>
     {
-        public ExpiryDateInputGraphType()
+        public ReleaseFormInputGraphType()
         {
-            Name = "Asset_ExpiryDateInput";
+            Name = "Asset_ReleaseFormInput";
 
             BuildGraphTypeFields();
         }
 
         private void BuildGraphTypeFields()
         {
+            Field(o => o.modelReleaseForms, nullable: true);
+            Field(o => o.generalReleaseForms, nullable: true);
         }
     }
 }

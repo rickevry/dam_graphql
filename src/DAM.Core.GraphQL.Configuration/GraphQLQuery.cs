@@ -27,8 +27,9 @@ namespace DAM.Core.GraphQL.Configuration
             _searchClient = searchClient;
 
             CreateQueryFields();
-            CreateSearchFields();
             CreateTestFields();
+
+            _searchClient.CreateSearchFields(this);
         }
 
         private void CreateTestFields()
@@ -68,25 +69,6 @@ namespace DAM.Core.GraphQL.Configuration
                         });
                 });
 
-        }
-
-        private void CreateSearchFields()
-        {
-            SearchProxyRegistration.RegisterSearchSchemaTypes();
-
-            Field<AutoRegisteringObjectGraphType<RootObject>>(
-                "search",
-                arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "token" },
-                    new QueryArgument<StringGraphType> { Name = "params" }
-                ),
-                resolve: context =>
-                {
-                    var token = context.GetArgument<string>("token");
-                    var queryParams = context.GetArgument<string>("params");
-
-                    return _searchClient.Search(queryParams, token);
-                });
         }
 
         private void CreateQueryFields()

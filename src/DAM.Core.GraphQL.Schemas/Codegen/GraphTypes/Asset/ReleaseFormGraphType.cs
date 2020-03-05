@@ -1,24 +1,26 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-21T17:25:58.818Z
 //
 using System;
 using System.Collections.Generic;
+using DAM.Core.Shared.Models.Asset;
 using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
-    public class RightsManagedGraphType : ObjectGraphType<RightsManagedModel>
+    public class ReleaseFormGraphType : ObjectGraphType<ReleaseFormModel>
     {
-        public RightsManagedGraphType()
+        public ReleaseFormGraphType()
         {
-            Name = "Asset_RightsManaged";
+            Name = "Asset_ReleaseForm";
 
             BuildGraphTypeFields();
         }
 
         private void BuildGraphTypeFields()
         {
+            Field(o => o.modelReleaseForms, nullable: true);
+            Field(o => o.generalReleaseForms, nullable: true);
         }
     }
 }

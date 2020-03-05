@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:22.388Z
 //
 using System;
 using System.Collections.Generic;
@@ -19,6 +18,8 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         private Guid _createdBy;
 
         private DateTime _modifiedDate;
+
+        private string _title;
 
         private Guid _modifiedBy;
 
@@ -57,6 +58,18 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
             set
             {
                 SetField(ref _modifiedDate, value);
+            }
+        }
+
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                SetField(ref _title, value);
             }
         }
 
@@ -100,6 +113,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
                 _createdDate = entity.CreatedDate,
                 _createdBy = entity.CreatedBy,
                 _modifiedDate = entity.ModifiedDate,
+                _title = entity.Title,
                 _modifiedBy = entity.ModifiedBy,
                 _folders = entity.Folders
             };

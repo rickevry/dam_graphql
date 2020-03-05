@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:23.229Z
 //
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using DAM.Core.Shared.Models.Asset;
 namespace DAM.Core.GraphQL.Schemas.Asset
 {
     [ModelName("Renditions")]
-    [QueryName("Renditions")]
+    [QueryName("renditions")]
     public class RenditionsModel : MutableModel
     {
         private string _snapshot;

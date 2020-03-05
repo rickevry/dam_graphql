@@ -1,6 +1,5 @@
 //
 //  This file was automatically generated and should not be edited.
-//  2020-02-28T09:54:23.242Z
 //
 using System;
 using System.Collections.Generic;
@@ -23,20 +22,21 @@ namespace DAM.Core.GraphQL.Schemas.Asset
             Field(o => o.DocumentState, true, typeof (DocumentStateGraphType))
                 .Resolve(context => context.Source.DocumentState);
             Field(o => o.Id, nullable: true);
+            Field(o => o.Copyright, true, typeof (CopyrightGraphType))
+                .Resolve(context => context.Source.Copyright);
             Field(o => o.AssetId, nullable: true);
             Field(o => o.PublicationId, nullable: true);
             Field(o => o.DocumentAttributes,
             true,
             typeof (DocumentAttributesGraphType))
                 .Resolve(context => context.Source.DocumentAttributes);
-            Field(o => o.PublishId, nullable: true);
             Field(o => o.DocumentInfo, true, typeof (DocumentInfoGraphType))
                 .Resolve(context => context.Source.DocumentInfo);
             Field(o => o.PublishingUnitId, nullable: true);
-            Field(o => o.ProductDesignation,
-            true,
-            typeof (ListGraphType<ProductDesignationGraphType>))
-                .Resolve(context => context.Source.ProductDesignation);
+            Field(o => o.ReleaseForm, true, typeof (ReleaseFormGraphType))
+                .Resolve(context => context.Source.ReleaseForm);
+            Field(o => o.ProductInfo, true, typeof (ProductInfoGraphType))
+                .Resolve(context => context.Source.ProductInfo);
             Field(o => o.Version, true, typeof (VersionGraphType))
                 .Resolve(context => context.Source.Version);
             Field(o => o.Renditions,
