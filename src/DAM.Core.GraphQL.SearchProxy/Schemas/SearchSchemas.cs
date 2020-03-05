@@ -125,6 +125,8 @@ namespace DAM.Core.GraphQL.SearchProxy.Schemas
 
     public class Filter
     {
+        public int id { get; set; }
+        public int? parentId { get; set; }
         public string displayName { get; set; }
         public bool selected { get; set; }
         public string query { get; set; }
