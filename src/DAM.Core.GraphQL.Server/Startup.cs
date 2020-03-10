@@ -1,6 +1,7 @@
 using DAM.Core.GraphQL.Configuration;
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Server.Extensions;
+using DAM.Core.Infrastructure.AkkaClusterClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,8 @@ namespace DAM.Core.GraphQL.Server
                 .AddGraphQLService()
                 .AddGraphQLTypes()
                 .AddGraphQLSchema();
+
+            services.AddSingleton<AkkaClusterClientSystem>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
