@@ -23,6 +23,15 @@ namespace DAM.Core.GraphQL.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
+
             services
                 .AddConfiguration(Configuration)
                 .AddIntegrationClients()
@@ -41,6 +50,8 @@ namespace DAM.Core.GraphQL.Server
             }
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {

@@ -34,9 +34,6 @@ namespace DAM.Core.GraphQL.SearchProxy.Services
         {
             var searchResponse = await searchProvider.Search(queryParams, token);
             var result = DeserializeSearchResponse(searchResponse);
-
-            MakeFiltersFlatten(result);
-
             return result;
         }
 
@@ -73,43 +70,6 @@ namespace DAM.Core.GraphQL.SearchProxy.Services
             settings.Converters.Add(new SearchResultsArrayConverter<string>());
 
             return JsonConvert.DeserializeObject<RootObject>(searchResponse, settings);
-        }
-
-        private static void MakeFiltersFlatten(RootObject result)
-        {
-            if (result.facets != null)
-            {
-                result.facets.ForEach(facet => facet.filters =
-                    FlattenFilters(facet.filters).ToList());
-            }
-        }
-
-        private static IEnumerable<Filter> FlattenFilters(
-            IEnumerable<Filter> filters,
-            Filter parent = null,
-            int nextTreeId = 1)
-        {
-            if (filters == null)
-            {
-                return null;
-            }
-
-            return filters
-                .SelectMany(filter =>
-                {
-                    filter.id = nextTreeId++;
-
-                    if (parent != null)
-                    {
-                        filter.parentId = parent.id;
-                    }
-
-                    var flattenChildren = FlattenFilters(filter.children, filter);
-                    filter.children = null;
-
-                    return flattenChildren;
-                })
-                .Concat(filters);
         }
     }
 }
