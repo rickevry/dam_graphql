@@ -1,8 +1,8 @@
 ﻿using Akka.Actor;
-using DAM.Core.Actors.Messages.Assets;
 using DAM.Core.GraphQL.Schemas.Asset;
 using DAM.Core.Infrastructure.AkkaClusterClient;
-using DAM.Core.Infrastructure.AkkaClusterClient.Actors;
+using DAM.Core.Messages;
+using DAM.Core.Messages.Asset;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace DAM.Core.GraphQL.Repository.Akka
     {
         private readonly AkkaClusterClientSystem _clusterClient;
         private readonly IServiceProvider _provider;
+
         public AssetActorRepository(IServiceProvider provider)
         {
             _provider = provider;
@@ -30,11 +31,16 @@ namespace DAM.Core.GraphQL.Repository.Akka
             throw new NotImplementedException();
         }
 
+        public override IDataResult ExecuteCommand(IDataCommand command)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Task<AssetModel> GetByIdAsync(Guid id)
         {
             try
             {
-                var test = _clusterClient.Ask<GetAssetResponseMessage>(new GetAssetByIdMessage(id)).GetAwaiter().GetResult();
+                var test = _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id)).GetAwaiter().GetResult();
 
                 if (test.IsSuccessful)
                     return Task.FromResult(AssetModel.FromEntity(test.AssetModel));

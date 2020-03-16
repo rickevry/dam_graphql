@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DAM.Services\src\DAM.Core.Messages\DAM.Core.Messages.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.Schemas\DAM.Core.GraphQL.Schemas.csproj" />
   </ItemGroup>
 

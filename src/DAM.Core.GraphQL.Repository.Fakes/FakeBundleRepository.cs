@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using DAM.Core.GraphQL.Schemas.Bundle;
+using DAM.Core.Messages;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -98,5 +99,9 @@ namespace DAM.Core.GraphQL.Repository.Fakes
                 });
         }
 
+        public override IDataResult ExecuteCommand(IDataCommand command)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

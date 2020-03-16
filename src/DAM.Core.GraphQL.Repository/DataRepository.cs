@@ -1,4 +1,5 @@
 ﻿using DAM.Core.GraphQL.Schemas;
+using DAM.Core.Messages;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ namespace DAM.Core.GraphQL.Repository
 {
     public abstract class DataRepository<TModel> where TModel : MutableModel, new()
     {
+        public abstract IDataResult ExecuteCommand(IDataCommand command);
+
         public async Task<TModel> SaveAsync(TModel value)
         {
             var original = await GetByIdAsync(value.Id);
