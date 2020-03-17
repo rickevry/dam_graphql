@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Sample;
+using DAM.Core.Shared.Models.SampleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Sample
+namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
     [ModelName("Isocode")]
     [QueryName("Isocode")]
     public class IsocodeModel : MutableModel
     {
         public static implicit operator IsocodeModel(
-            Shared.Models.Sample.Isocode entity
+            Shared.Models.SampleDomain.Isocode entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static IsocodeModel
-        FromEntity(Shared.Models.Sample.Isocode entity)
+        FromEntity(Shared.Models.SampleDomain.Isocode entity)
         {
             return new IsocodeModel { Id = entity.Id };
         }
 
         public static List<IsocodeModel>
-        FromEntityList(List<Shared.Models.Sample.Isocode> entityList)
+        FromEntityList(List<Shared.Models.SampleDomain.Isocode> entityList)
         {
             if (entityList == null)
             {

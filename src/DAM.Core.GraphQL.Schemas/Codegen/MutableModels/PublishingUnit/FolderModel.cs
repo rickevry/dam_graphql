@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.PublishingUnit;
+using DAM.Core.Shared.Models.PublishingUnitDomain;
 
-namespace DAM.Core.GraphQL.Schemas.PublishingUnit
+namespace DAM.Core.GraphQL.Schemas.PublishingUnitDomain
 {
     [ModelName("Folder")]
     [QueryName("Folder")]
@@ -98,7 +98,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         }
 
         public static implicit operator FolderModel(
-            Shared.Models.PublishingUnit.Folder entity
+            Shared.Models.PublishingUnitDomain.Folder entity
         )
 
         {
@@ -106,7 +106,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         }
 
         public static FolderModel
-        FromEntity(Shared.Models.PublishingUnit.Folder entity)
+        FromEntity(Shared.Models.PublishingUnitDomain.Folder entity)
         {
             return new FolderModel {
                 Id = entity.Id,
@@ -120,7 +120,9 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         }
 
         public static List<FolderModel>
-        FromEntityList(List<Shared.Models.PublishingUnit.Folder> entityList)
+        FromEntityList(
+            List<Shared.Models.PublishingUnitDomain.Folder> entityList
+        )
         {
             if (entityList == null)
             {

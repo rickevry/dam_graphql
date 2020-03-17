@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Sample;
+using DAM.Core.Shared.Models.SampleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Sample
+namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
     [ModelName("ParentId")]
     [QueryName("ParentId")]
     public class ParentIdModel : MutableModel
     {
         public static implicit operator ParentIdModel(
-            Shared.Models.Sample.ParentId entity
+            Shared.Models.SampleDomain.ParentId entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static ParentIdModel
-        FromEntity(Shared.Models.Sample.ParentId entity)
+        FromEntity(Shared.Models.SampleDomain.ParentId entity)
         {
             return new ParentIdModel { Id = entity.Id };
         }
 
         public static List<ParentIdModel>
-        FromEntityList(List<Shared.Models.Sample.ParentId> entityList)
+        FromEntityList(List<Shared.Models.SampleDomain.ParentId> entityList)
         {
             if (entityList == null)
             {

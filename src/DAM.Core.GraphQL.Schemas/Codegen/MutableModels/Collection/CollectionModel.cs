@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Collection;
+using DAM.Core.Shared.Models.CollectionDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Collection
+namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     [ModelName("Collection")]
     [QueryName("collections")]
@@ -199,7 +199,7 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static implicit operator CollectionModel(
-            Shared.Models.Collection.Collection entity
+            Shared.Models.CollectionDomain.Collection entity
         )
 
         {
@@ -207,7 +207,7 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static CollectionModel
-        FromEntity(Shared.Models.Collection.Collection entity)
+        FromEntity(Shared.Models.CollectionDomain.Collection entity)
         {
             return new CollectionModel {
                 Id = entity.Id,
@@ -228,7 +228,9 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static List<CollectionModel>
-        FromEntityList(List<Shared.Models.Collection.Collection> entityList)
+        FromEntityList(
+            List<Shared.Models.CollectionDomain.Collection> entityList
+        )
         {
             if (entityList == null)
             {

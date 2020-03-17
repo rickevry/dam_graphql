@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Publication;
+using DAM.Core.Shared.Models.PublicationDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Publication
+namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     [ModelName("ExternalDescription")]
     [QueryName("ExternalDescription")]
     public class ExternalDescriptionModel : MutableModel
     {
         public static implicit operator ExternalDescriptionModel(
-            Shared.Models.Publication.ExternalDescription entity
+            Shared.Models.PublicationDomain.ExternalDescription entity
         )
 
         {
@@ -22,14 +22,14 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static ExternalDescriptionModel
-        FromEntity(Shared.Models.Publication.ExternalDescription entity)
+        FromEntity(Shared.Models.PublicationDomain.ExternalDescription entity)
         {
             return new ExternalDescriptionModel { Id = entity.Id };
         }
 
         public static List<ExternalDescriptionModel>
         FromEntityList(
-            List<Shared.Models.Publication.ExternalDescription> entityList
+            List<Shared.Models.PublicationDomain.ExternalDescription> entityList
         )
         {
             if (entityList == null)

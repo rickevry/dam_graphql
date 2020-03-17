@@ -3,10 +3,10 @@
 //
 using System;
 using System.Collections.Generic;
-using DAM.Core.Shared.Models.Customer;
+using DAM.Core.Shared.Models.CustomerDomain;
 using GraphQL.Types;
 
-namespace DAM.Core.GraphQL.Schemas.Customer
+namespace DAM.Core.GraphQL.Schemas.CustomerDomain
 {
     public class CustomerGraphType : ObjectGraphType<CustomerModel>
     {

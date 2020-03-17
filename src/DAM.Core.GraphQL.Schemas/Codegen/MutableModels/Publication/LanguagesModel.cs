@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Publication;
+using DAM.Core.Shared.Models.PublicationDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Publication
+namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     [ModelName("Languages")]
     [QueryName("Languages")]
@@ -42,7 +42,7 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static implicit operator LanguagesModel(
-            Shared.Models.Publication.Languages entity
+            Shared.Models.PublicationDomain.Languages entity
         )
 
         {
@@ -50,7 +50,7 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static LanguagesModel
-        FromEntity(Shared.Models.Publication.Languages entity)
+        FromEntity(Shared.Models.PublicationDomain.Languages entity)
         {
             return new LanguagesModel {
                 Id = entity.Id,
@@ -60,7 +60,9 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static List<LanguagesModel>
-        FromEntityList(List<Shared.Models.Publication.Languages> entityList)
+        FromEntityList(
+            List<Shared.Models.PublicationDomain.Languages> entityList
+        )
         {
             if (entityList == null)
             {

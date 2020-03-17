@@ -3,10 +3,10 @@
 //
 using System;
 using System.Collections.Generic;
-using DAM.Core.Shared.Models.PublishingUnit;
+using DAM.Core.Shared.Models.PublishingUnitDomain;
 using GraphQL.Types;
 
-namespace DAM.Core.GraphQL.Schemas.PublishingUnit
+namespace DAM.Core.GraphQL.Schemas.PublishingUnitDomain
 {
     public class PublishingUnitGraphType : ObjectGraphType<PublishingUnitModel>
     {

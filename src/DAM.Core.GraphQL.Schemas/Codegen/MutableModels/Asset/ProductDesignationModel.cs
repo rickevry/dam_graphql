@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("ProductDesignation")]
     [QueryName("productDesignation")]
@@ -42,7 +42,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator ProductDesignationModel(
-            Shared.Models.Asset.ProductDesignation entity
+            Shared.Models.AssetDomain.ProductDesignation entity
         )
 
         {
@@ -50,7 +50,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static ProductDesignationModel
-        FromEntity(Shared.Models.Asset.ProductDesignation entity)
+        FromEntity(Shared.Models.AssetDomain.ProductDesignation entity)
         {
             return new ProductDesignationModel {
                 Id = entity.Id,
@@ -60,7 +60,9 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<ProductDesignationModel>
-        FromEntityList(List<Shared.Models.Asset.ProductDesignation> entityList)
+        FromEntityList(
+            List<Shared.Models.AssetDomain.ProductDesignation> entityList
+        )
         {
             if (entityList == null)
             {

@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("SecurityClass")]
     [QueryName("SecurityClass")]
     public class SecurityClassModel : MutableModel
     {
         public static implicit operator SecurityClassModel(
-            Shared.Models.Asset.SecurityClass entity
+            Shared.Models.AssetDomain.SecurityClass entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static SecurityClassModel
-        FromEntity(Shared.Models.Asset.SecurityClass entity)
+        FromEntity(Shared.Models.AssetDomain.SecurityClass entity)
         {
             return new SecurityClassModel { Id = entity.Id };
         }
 
         public static List<SecurityClassModel>
-        FromEntityList(List<Shared.Models.Asset.SecurityClass> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.SecurityClass> entityList)
         {
             if (entityList == null)
             {

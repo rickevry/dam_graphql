@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Collection;
+using DAM.Core.Shared.Models.CollectionDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Collection
+namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     [ModelName("CollectionDescription")]
     [QueryName("CollectionDescription")]
     public class CollectionDescriptionModel : MutableModel
     {
         public static implicit operator CollectionDescriptionModel(
-            Shared.Models.Collection.CollectionDescription entity
+            Shared.Models.CollectionDomain.CollectionDescription entity
         )
 
         {
@@ -22,14 +22,15 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static CollectionDescriptionModel
-        FromEntity(Shared.Models.Collection.CollectionDescription entity)
+        FromEntity(Shared.Models.CollectionDomain.CollectionDescription entity)
         {
             return new CollectionDescriptionModel { Id = entity.Id };
         }
 
         public static List<CollectionDescriptionModel>
         FromEntityList(
-            List<Shared.Models.Collection.CollectionDescription> entityList
+            List<Shared.Models.CollectionDomain.CollectionDescription>
+            entityList
         )
         {
             if (entityList == null)

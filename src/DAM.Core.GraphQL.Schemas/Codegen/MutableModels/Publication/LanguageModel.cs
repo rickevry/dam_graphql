@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Publication;
+using DAM.Core.Shared.Models.PublicationDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Publication
+namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     [ModelName("Language")]
     [QueryName("Language")]
     public class LanguageModel : MutableModel
     {
         public static implicit operator LanguageModel(
-            Shared.Models.Publication.Language entity
+            Shared.Models.PublicationDomain.Language entity
         )
 
         {
@@ -22,13 +22,15 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static LanguageModel
-        FromEntity(Shared.Models.Publication.Language entity)
+        FromEntity(Shared.Models.PublicationDomain.Language entity)
         {
             return new LanguageModel { Id = entity.Id };
         }
 
         public static List<LanguageModel>
-        FromEntityList(List<Shared.Models.Publication.Language> entityList)
+        FromEntityList(
+            List<Shared.Models.PublicationDomain.Language> entityList
+        )
         {
             if (entityList == null)
             {

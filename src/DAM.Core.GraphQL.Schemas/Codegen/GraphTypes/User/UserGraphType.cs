@@ -3,10 +3,10 @@
 //
 using System;
 using System.Collections.Generic;
-using DAM.Core.Shared.Models.User;
+using DAM.Core.Shared.Models.UserDomain;
 using GraphQL.Types;
 
-namespace DAM.Core.GraphQL.Schemas.User
+namespace DAM.Core.GraphQL.Schemas.UserDomain
 {
     public class UserGraphType : ObjectGraphType<UserModel>
     {

@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("Version")]
     [QueryName("versions")]
@@ -82,7 +82,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator VersionModel(
-            Shared.Models.Asset.Version entity
+            Shared.Models.AssetDomain.Version entity
         )
 
         {
@@ -90,7 +90,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static VersionModel
-        FromEntity(Shared.Models.Asset.Version entity)
+        FromEntity(Shared.Models.AssetDomain.Version entity)
         {
             return new VersionModel {
                 Id = entity.Id,
@@ -102,7 +102,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<VersionModel>
-        FromEntityList(List<Shared.Models.Asset.Version> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.Version> entityList)
         {
             if (entityList == null)
             {

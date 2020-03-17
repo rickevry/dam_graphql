@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Collection;
+using DAM.Core.Shared.Models.CollectionDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Collection
+namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     [ModelName("CoverAssetId")]
     [QueryName("CoverAssetId")]
     public class CoverAssetIdModel : MutableModel
     {
         public static implicit operator CoverAssetIdModel(
-            Shared.Models.Collection.CoverAssetId entity
+            Shared.Models.CollectionDomain.CoverAssetId entity
         )
 
         {
@@ -22,13 +22,15 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static CoverAssetIdModel
-        FromEntity(Shared.Models.Collection.CoverAssetId entity)
+        FromEntity(Shared.Models.CollectionDomain.CoverAssetId entity)
         {
             return new CoverAssetIdModel { Id = entity.Id };
         }
 
         public static List<CoverAssetIdModel>
-        FromEntityList(List<Shared.Models.Collection.CoverAssetId> entityList)
+        FromEntityList(
+            List<Shared.Models.CollectionDomain.CoverAssetId> entityList
+        )
         {
             if (entityList == null)
             {

@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("DocumentState")]
     [QueryName("documentState")]
@@ -65,7 +65,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator DocumentStateModel(
-            Shared.Models.Asset.DocumentState entity
+            Shared.Models.AssetDomain.DocumentState entity
         )
 
         {
@@ -73,7 +73,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static DocumentStateModel
-        FromEntity(Shared.Models.Asset.DocumentState entity)
+        FromEntity(Shared.Models.AssetDomain.DocumentState entity)
         {
             return new DocumentStateModel {
                 Id = entity.Id,
@@ -86,7 +86,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<DocumentStateModel>
-        FromEntityList(List<Shared.Models.Asset.DocumentState> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.DocumentState> entityList)
         {
             if (entityList == null)
             {

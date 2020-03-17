@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DAM.Services\src\DAM.Core.Messages\DAM.Core.Messages.csproj" />
     <ProjectReference Include="..\..\..\DAM.Shared\src\DAM.Core.Shared\DAM.Core.Shared.csproj" />
   </ItemGroup>
 

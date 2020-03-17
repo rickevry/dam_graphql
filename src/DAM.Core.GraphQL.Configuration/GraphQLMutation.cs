@@ -1,9 +1,14 @@
 ﻿using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas;
-using DAM.Core.GraphQL.Schemas.Asset;
-using DAM.Core.GraphQL.Schemas.Bundle;
+using DAM.Core.GraphQL.Schemas.AssetDomain;
+using DAM.Core.GraphQL.Schemas.BundleDomain;
+using DAM.Core.GraphQL.Schemas.Messages;
+using DAM.Core.Messages;
+using DAM.Core.Shared.Models.AssetDomain;
+using DAM.Core.Shared.Models.BundleDomain;
 using GraphQL;
 using GraphQL.Types;
+using GraphQL.Utilities;
 using System;
 using System.Linq;
 
@@ -18,6 +23,7 @@ namespace DAM.Core.GraphQL.Configuration
             _repositoryProvider = repositoryProvider;
 
             CreateMutableFields();
+            CreateDataCommandsFields();
         }
 
         private void CreateMutableFields()
@@ -69,6 +75,36 @@ namespace DAM.Core.GraphQL.Configuration
                     var obj = context.GetArgument<TModel>(modelName.Name.ToLower());
                     return _repositoryProvider.GetRepository<TModel>().SaveAsync(obj);
                 });
+        }
+
+        private void CreateDataCommandsFields()
+        {
+            foreach (var graphType in MessagesHelper.GetMessagesGraphTypes() ?? Enumerable.Empty<MessageTypesContainer>())
+            {
+                GraphTypeTypeRegistry.Register(graphType.CommandType, graphType.CommandGraphType);
+                GraphTypeTypeRegistry.Register(graphType.ResultType, graphType.ResultGraphType);
+
+                Field(
+                    graphType.ResultGraphType,
+                    graphType.CommandType.Name,
+                    arguments: new QueryArguments(new QueryArgument(graphType.CommandGraphType)
+                    {
+                        Name = "command"
+                    }),
+                    resolve: context =>
+                    {
+                        var obj = context.GetArgument(graphType.CommandType, "command");
+                        switch (graphType.RepositoryType)
+                        {
+                            case Type assetType when assetType == typeof(Asset):
+                                return _repositoryProvider.GetRepository<AssetModel>().ExecuteCommand(obj as IDataCommand);
+                            case Type bundleType when bundleType == typeof(Bundle):
+                                return _repositoryProvider.GetRepository<BundleModel>().ExecuteCommand(obj as IDataCommand);
+                        }
+
+                        throw new NotSupportedException($"Type {graphType.RepositoryType} has no supported repository");
+                    });
+            }
         }
     }
 }

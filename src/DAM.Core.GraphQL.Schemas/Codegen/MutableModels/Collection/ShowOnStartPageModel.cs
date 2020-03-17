@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Collection;
+using DAM.Core.Shared.Models.CollectionDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Collection
+namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     [ModelName("ShowOnStartPage")]
     [QueryName("ShowOnStartPage")]
     public class ShowOnStartPageModel : MutableModel
     {
         public static implicit operator ShowOnStartPageModel(
-            Shared.Models.Collection.ShowOnStartPage entity
+            Shared.Models.CollectionDomain.ShowOnStartPage entity
         )
 
         {
@@ -22,14 +22,14 @@ namespace DAM.Core.GraphQL.Schemas.Collection
         }
 
         public static ShowOnStartPageModel
-        FromEntity(Shared.Models.Collection.ShowOnStartPage entity)
+        FromEntity(Shared.Models.CollectionDomain.ShowOnStartPage entity)
         {
             return new ShowOnStartPageModel { Id = entity.Id };
         }
 
         public static List<ShowOnStartPageModel>
         FromEntityList(
-            List<Shared.Models.Collection.ShowOnStartPage> entityList
+            List<Shared.Models.CollectionDomain.ShowOnStartPage> entityList
         )
         {
             if (entityList == null)

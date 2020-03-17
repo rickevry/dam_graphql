@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("ReleaseForm")]
     [QueryName("releaseForm")]
@@ -42,7 +42,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator ReleaseFormModel(
-            Shared.Models.Asset.ReleaseForm entity
+            Shared.Models.AssetDomain.ReleaseForm entity
         )
 
         {
@@ -50,7 +50,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static ReleaseFormModel
-        FromEntity(Shared.Models.Asset.ReleaseForm entity)
+        FromEntity(Shared.Models.AssetDomain.ReleaseForm entity)
         {
             return new ReleaseFormModel {
                 Id = entity.Id,
@@ -60,7 +60,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<ReleaseFormModel>
-        FromEntityList(List<Shared.Models.Asset.ReleaseForm> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.ReleaseForm> entityList)
         {
             if (entityList == null)
             {

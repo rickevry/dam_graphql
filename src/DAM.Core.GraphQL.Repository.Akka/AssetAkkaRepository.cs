@@ -1,8 +1,7 @@
-﻿using Akka.Actor;
-using DAM.Core.GraphQL.Schemas.Asset;
+﻿using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.Infrastructure.AkkaClusterClient;
 using DAM.Core.Messages;
-using DAM.Core.Messages.Asset;
+using DAM.Core.Messages.AssetDomain;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;

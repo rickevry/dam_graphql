@@ -3,10 +3,10 @@
 //
 using System;
 using System.Collections.Generic;
-using DAM.Core.Shared.Models.Collection;
+using DAM.Core.Shared.Models.CollectionDomain;
 using GraphQL.Types;
 
-namespace DAM.Core.GraphQL.Schemas.Collection
+namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     public class
     CollectionInputGraphType

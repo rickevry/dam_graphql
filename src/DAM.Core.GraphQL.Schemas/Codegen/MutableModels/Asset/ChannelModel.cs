@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("Channel")]
     [QueryName("Channel")]
     public class ChannelModel : MutableModel
     {
         public static implicit operator ChannelModel(
-            Shared.Models.Asset.Channel entity
+            Shared.Models.AssetDomain.Channel entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static ChannelModel
-        FromEntity(Shared.Models.Asset.Channel entity)
+        FromEntity(Shared.Models.AssetDomain.Channel entity)
         {
             return new ChannelModel { Id = entity.Id };
         }
 
         public static List<ChannelModel>
-        FromEntityList(List<Shared.Models.Asset.Channel> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.Channel> entityList)
         {
             if (entityList == null)
             {

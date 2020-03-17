@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Customer;
+using DAM.Core.Shared.Models.CustomerDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Customer
+namespace DAM.Core.GraphQL.Schemas.CustomerDomain
 {
     [ModelName("Customer")]
     [QueryName("Customer")]
@@ -70,7 +70,7 @@ namespace DAM.Core.GraphQL.Schemas.Customer
         }
 
         public static implicit operator CustomerModel(
-            Shared.Models.Customer.Customer entity
+            Shared.Models.CustomerDomain.Customer entity
         )
 
         {
@@ -78,7 +78,7 @@ namespace DAM.Core.GraphQL.Schemas.Customer
         }
 
         public static CustomerModel
-        FromEntity(Shared.Models.Customer.Customer entity)
+        FromEntity(Shared.Models.CustomerDomain.Customer entity)
         {
             return new CustomerModel {
                 Id = entity.Id,
@@ -90,7 +90,7 @@ namespace DAM.Core.GraphQL.Schemas.Customer
         }
 
         public static List<CustomerModel>
-        FromEntityList(List<Shared.Models.Customer.Customer> entityList)
+        FromEntityList(List<Shared.Models.CustomerDomain.Customer> entityList)
         {
             if (entityList == null)
             {

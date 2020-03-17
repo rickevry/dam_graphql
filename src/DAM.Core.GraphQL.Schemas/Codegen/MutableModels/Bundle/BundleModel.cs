@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Bundle;
+using DAM.Core.Shared.Models.BundleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Bundle
+namespace DAM.Core.GraphQL.Schemas.BundleDomain
 {
     [ModelName("Bundle")]
     [QueryName("bundles")]
@@ -178,14 +178,15 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
         }
 
         public static implicit operator BundleModel(
-            Shared.Models.Bundle.Bundle entity
+            Shared.Models.BundleDomain.Bundle entity
         )
 
         {
             return FromEntity(entity);
         }
 
-        public static BundleModel FromEntity(Shared.Models.Bundle.Bundle entity)
+        public static BundleModel
+        FromEntity(Shared.Models.BundleDomain.Bundle entity)
         {
             return new BundleModel {
                 Id = entity.Id,
@@ -204,7 +205,7 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
         }
 
         public static List<BundleModel>
-        FromEntityList(List<Shared.Models.Bundle.Bundle> entityList)
+        FromEntityList(List<Shared.Models.BundleDomain.Bundle> entityList)
         {
             if (entityList == null)
             {

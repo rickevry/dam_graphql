@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Publication;
+using DAM.Core.Shared.Models.PublicationDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Publication
+namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     [ModelName("PublicationName")]
     [QueryName("PublicationName")]
     public class PublicationNameModel : MutableModel
     {
         public static implicit operator PublicationNameModel(
-            Shared.Models.Publication.PublicationName entity
+            Shared.Models.PublicationDomain.PublicationName entity
         )
 
         {
@@ -22,14 +22,14 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static PublicationNameModel
-        FromEntity(Shared.Models.Publication.PublicationName entity)
+        FromEntity(Shared.Models.PublicationDomain.PublicationName entity)
         {
             return new PublicationNameModel { Id = entity.Id };
         }
 
         public static List<PublicationNameModel>
         FromEntityList(
-            List<Shared.Models.Publication.PublicationName> entityList
+            List<Shared.Models.PublicationDomain.PublicationName> entityList
         )
         {
             if (entityList == null)

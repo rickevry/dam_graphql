@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("Copyright")]
     [QueryName("Copyright")]
@@ -77,7 +77,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator CopyrightModel(
-            Shared.Models.Asset.Copyright entity
+            Shared.Models.AssetDomain.Copyright entity
         )
 
         {
@@ -85,7 +85,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static CopyrightModel
-        FromEntity(Shared.Models.Asset.Copyright entity)
+        FromEntity(Shared.Models.AssetDomain.Copyright entity)
         {
             return new CopyrightModel {
                 Id = entity.Id,
@@ -97,7 +97,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<CopyrightModel>
-        FromEntityList(List<Shared.Models.Asset.Copyright> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.Copyright> entityList)
         {
             if (entityList == null)
             {

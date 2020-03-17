@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Bundle;
+using DAM.Core.Shared.Models.BundleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Bundle
+namespace DAM.Core.GraphQL.Schemas.BundleDomain
 {
     [ModelName("Version")]
     [QueryName("versions")]
     public class VersionModel : MutableModel
     {
         public static implicit operator VersionModel(
-            Shared.Models.Bundle.Version entity
+            Shared.Models.BundleDomain.Version entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Bundle
         }
 
         public static VersionModel
-        FromEntity(Shared.Models.Bundle.Version entity)
+        FromEntity(Shared.Models.BundleDomain.Version entity)
         {
             return new VersionModel { Id = entity.Id };
         }
 
         public static List<VersionModel>
-        FromEntityList(List<Shared.Models.Bundle.Version> entityList)
+        FromEntityList(List<Shared.Models.BundleDomain.Version> entityList)
         {
             if (entityList == null)
             {

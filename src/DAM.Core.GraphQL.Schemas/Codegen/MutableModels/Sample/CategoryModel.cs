@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Sample;
+using DAM.Core.Shared.Models.SampleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Sample
+namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
     [ModelName("Category")]
     [QueryName("Category")]
@@ -28,7 +28,7 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static implicit operator CategoryModel(
-            Shared.Models.Sample.Category entity
+            Shared.Models.SampleDomain.Category entity
         )
 
         {
@@ -36,7 +36,7 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static CategoryModel
-        FromEntity(Shared.Models.Sample.Category entity)
+        FromEntity(Shared.Models.SampleDomain.Category entity)
         {
             return new CategoryModel {
                 Id = entity.Id,
@@ -45,7 +45,7 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static List<CategoryModel>
-        FromEntityList(List<Shared.Models.Sample.Category> entityList)
+        FromEntityList(List<Shared.Models.SampleDomain.Category> entityList)
         {
             if (entityList == null)
             {

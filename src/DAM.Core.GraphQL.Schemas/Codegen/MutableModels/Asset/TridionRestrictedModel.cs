@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("TridionRestricted")]
     [QueryName("TridionRestricted")]
     public class TridionRestrictedModel : MutableModel
     {
         public static implicit operator TridionRestrictedModel(
-            Shared.Models.Asset.TridionRestricted entity
+            Shared.Models.AssetDomain.TridionRestricted entity
         )
 
         {
@@ -22,13 +22,15 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static TridionRestrictedModel
-        FromEntity(Shared.Models.Asset.TridionRestricted entity)
+        FromEntity(Shared.Models.AssetDomain.TridionRestricted entity)
         {
             return new TridionRestrictedModel { Id = entity.Id };
         }
 
         public static List<TridionRestrictedModel>
-        FromEntityList(List<Shared.Models.Asset.TridionRestricted> entityList)
+        FromEntityList(
+            List<Shared.Models.AssetDomain.TridionRestricted> entityList
+        )
         {
             if (entityList == null)
             {

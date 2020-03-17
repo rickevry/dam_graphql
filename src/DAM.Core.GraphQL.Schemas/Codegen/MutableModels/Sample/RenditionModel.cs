@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Sample;
+using DAM.Core.Shared.Models.SampleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Sample
+namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
     [ModelName("Rendition")]
     [QueryName("Rendition")]
     public class RenditionModel : MutableModel
     {
         public static implicit operator RenditionModel(
-            Shared.Models.Sample.Rendition entity
+            Shared.Models.SampleDomain.Rendition entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static RenditionModel
-        FromEntity(Shared.Models.Sample.Rendition entity)
+        FromEntity(Shared.Models.SampleDomain.Rendition entity)
         {
             return new RenditionModel { Id = entity.Id };
         }
 
         public static List<RenditionModel>
-        FromEntityList(List<Shared.Models.Sample.Rendition> entityList)
+        FromEntityList(List<Shared.Models.SampleDomain.Rendition> entityList)
         {
             if (entityList == null)
             {

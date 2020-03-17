@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using DAM.Core.GraphQL.Schemas.Bundle;
+using DAM.Core.GraphQL.Schemas.BundleDomain;
 using DAM.Core.Messages;
 using System;
 using System.Collections.Concurrent;

@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Publication;
+using DAM.Core.Shared.Models.PublicationDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Publication
+namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     [ModelName("Editions")]
     [QueryName("Editions")]
@@ -42,7 +42,7 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static implicit operator EditionsModel(
-            Shared.Models.Publication.Editions entity
+            Shared.Models.PublicationDomain.Editions entity
         )
 
         {
@@ -50,7 +50,7 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static EditionsModel
-        FromEntity(Shared.Models.Publication.Editions entity)
+        FromEntity(Shared.Models.PublicationDomain.Editions entity)
         {
             return new EditionsModel {
                 Id = entity.Id,
@@ -60,7 +60,9 @@ namespace DAM.Core.GraphQL.Schemas.Publication
         }
 
         public static List<EditionsModel>
-        FromEntityList(List<Shared.Models.Publication.Editions> entityList)
+        FromEntityList(
+            List<Shared.Models.PublicationDomain.Editions> entityList
+        )
         {
             if (entityList == null)
             {

@@ -1,8 +1,7 @@
 ﻿using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas;
-using DAM.Core.GraphQL.Schemas.Asset;
-using DAM.Core.GraphQL.Schemas.Bundle;
-using DAM.Core.GraphQL.SearchProxy.Schemas;
+using DAM.Core.GraphQL.Schemas.AssetDomain;
+using DAM.Core.GraphQL.Schemas.BundleDomain;
 using DAM.Core.GraphQL.SearchProxy.Services;
 using GraphQL;
 using GraphQL.Types;

@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Asset;
+using DAM.Core.Shared.Models.AssetDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Asset
+namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     [ModelName("Renditions")]
     [QueryName("renditions")]
@@ -59,7 +59,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static implicit operator RenditionsModel(
-            Shared.Models.Asset.Renditions entity
+            Shared.Models.AssetDomain.Renditions entity
         )
 
         {
@@ -67,7 +67,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static RenditionsModel
-        FromEntity(Shared.Models.Asset.Renditions entity)
+        FromEntity(Shared.Models.AssetDomain.Renditions entity)
         {
             return new RenditionsModel {
                 Id = entity.Id,
@@ -78,7 +78,7 @@ namespace DAM.Core.GraphQL.Schemas.Asset
         }
 
         public static List<RenditionsModel>
-        FromEntityList(List<Shared.Models.Asset.Renditions> entityList)
+        FromEntityList(List<Shared.Models.AssetDomain.Renditions> entityList)
         {
             if (entityList == null)
             {

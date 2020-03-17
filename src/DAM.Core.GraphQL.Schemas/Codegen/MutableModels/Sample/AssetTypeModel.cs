@@ -5,16 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.Sample;
+using DAM.Core.Shared.Models.SampleDomain;
 
-namespace DAM.Core.GraphQL.Schemas.Sample
+namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
     [ModelName("AssetType")]
     [QueryName("AssetType")]
     public class AssetTypeModel : MutableModel
     {
         public static implicit operator AssetTypeModel(
-            Shared.Models.Sample.AssetType entity
+            Shared.Models.SampleDomain.AssetType entity
         )
 
         {
@@ -22,13 +22,13 @@ namespace DAM.Core.GraphQL.Schemas.Sample
         }
 
         public static AssetTypeModel
-        FromEntity(Shared.Models.Sample.AssetType entity)
+        FromEntity(Shared.Models.SampleDomain.AssetType entity)
         {
             return new AssetTypeModel { Id = entity.Id };
         }
 
         public static List<AssetTypeModel>
-        FromEntityList(List<Shared.Models.Sample.AssetType> entityList)
+        FromEntityList(List<Shared.Models.SampleDomain.AssetType> entityList)
         {
             if (entityList == null)
             {

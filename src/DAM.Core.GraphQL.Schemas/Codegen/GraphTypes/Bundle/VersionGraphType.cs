@@ -3,10 +3,10 @@
 //
 using System;
 using System.Collections.Generic;
-using DAM.Core.Shared.Models.Bundle;
+using DAM.Core.Shared.Models.BundleDomain;
 using GraphQL.Types;
 
-namespace DAM.Core.GraphQL.Schemas.Bundle
+namespace DAM.Core.GraphQL.Schemas.BundleDomain
 {
     public class VersionGraphType : ObjectGraphType<VersionModel>
     {

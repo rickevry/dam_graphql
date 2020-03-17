@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.PublishingUnit;
+using DAM.Core.Shared.Models.PublishingUnitDomain;
 
-namespace DAM.Core.GraphQL.Schemas.PublishingUnit
+namespace DAM.Core.GraphQL.Schemas.PublishingUnitDomain
 {
     [ModelName("PublishingUnit")]
     [QueryName("publishingUnits")]
@@ -98,7 +98,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         }
 
         public static implicit operator PublishingUnitModel(
-            Shared.Models.PublishingUnit.PublishingUnit entity
+            Shared.Models.PublishingUnitDomain.PublishingUnit entity
         )
 
         {
@@ -106,7 +106,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
         }
 
         public static PublishingUnitModel
-        FromEntity(Shared.Models.PublishingUnit.PublishingUnit entity)
+        FromEntity(Shared.Models.PublishingUnitDomain.PublishingUnit entity)
         {
             return new PublishingUnitModel {
                 Id = entity.Id,
@@ -121,7 +121,7 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnit
 
         public static List<PublishingUnitModel>
         FromEntityList(
-            List<Shared.Models.PublishingUnit.PublishingUnit> entityList
+            List<Shared.Models.PublishingUnitDomain.PublishingUnit> entityList
         )
         {
             if (entityList == null)

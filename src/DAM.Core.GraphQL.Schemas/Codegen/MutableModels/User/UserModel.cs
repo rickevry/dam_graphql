@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using DAM.Core.Shared.Models.User;
+using DAM.Core.Shared.Models.UserDomain;
 
-namespace DAM.Core.GraphQL.Schemas.User
+namespace DAM.Core.GraphQL.Schemas.UserDomain
 {
     [ModelName("User")]
     [QueryName("User")]
@@ -92,14 +92,15 @@ namespace DAM.Core.GraphQL.Schemas.User
             }
         }
 
-        public static implicit operator UserModel(Shared.Models.User.User entity
+        public static implicit operator UserModel(
+            Shared.Models.UserDomain.User entity
         )
 
         {
             return FromEntity(entity);
         }
 
-        public static UserModel FromEntity(Shared.Models.User.User entity)
+        public static UserModel FromEntity(Shared.Models.UserDomain.User entity)
         {
             return new UserModel {
                 Id = entity.Id,
@@ -112,7 +113,7 @@ namespace DAM.Core.GraphQL.Schemas.User
         }
 
         public static List<UserModel>
-        FromEntityList(List<Shared.Models.User.User> entityList)
+        FromEntityList(List<Shared.Models.UserDomain.User> entityList)
         {
             if (entityList == null)
             {
