@@ -6,41 +6,15 @@
 	},
 	"item": [
 		{
-			"name": "Get All Bundles",
+			"name": "Get ASSET By Id",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\n    bundles {\n        id,\n        bundleTitle,\n        bundleDescription,\n        country\n    }\n}",
-						"variables": ""
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44342/graphql",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44342",
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Bundle By Id",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query bundles($id: Guid!)\n{\n    bundle (id: $id) {\n        id,\n        bundleTitle,\n        bundleDescription,\n        country\n    }\n}",
-						"variables": "{\n\t\"id\": \"8317046c-e2de-2db1-d058-fff9b9c30bf1\"\n}"
+						"query": "query assets($id: Guid!)\n{\n    asset (id: $id) {\n        id\n    }\n}",
+						"variables": "{\n\t\"id\": \"e9804578-7b23-452b-86de-3abf60373850\"\n}"
 					}
 				},
 				"url": {
@@ -123,7 +97,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query{\n    drawings{\n        type,\n        title,\n        info\n    }\n    \n    invoices{\n        type,\n        title,\n        customer,\n        amount\n    }\n}",
+						"query": "query{\n    wrapper{\n        __typename\n        ... on SearchItemInterface{\n            title\n        }\n        ... on Invoice{\n            customer,\n            amount,\n        }\n        ... on Drawing{\n            info\n        }\n    }\n}",
 						"variables": ""
 					}
 				},
