@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.PublishingUnitDomain
 {
-    public class FolderGraphType : ObjectGraphType<FolderModel>
+    public class
+    FolderGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.PublishingUnitDomain.Folder>
     {
         public FolderGraphType()
         {

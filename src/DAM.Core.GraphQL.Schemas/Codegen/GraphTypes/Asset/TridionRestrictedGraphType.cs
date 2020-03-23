@@ -10,7 +10,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     public class
     TridionRestrictedGraphType
-    : ObjectGraphType<TridionRestrictedModel>
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.TridionRestricted>
     {
         public TridionRestrictedGraphType()
         {

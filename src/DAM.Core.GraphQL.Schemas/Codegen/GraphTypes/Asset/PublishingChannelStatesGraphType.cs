@@ -10,7 +10,8 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     public class
     PublishingChannelStatesGraphType
-    : ObjectGraphType<PublishingChannelStatesModel>
+    :
+    ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.PublishingChannelStates>
     {
         public PublishingChannelStatesGraphType()
         {

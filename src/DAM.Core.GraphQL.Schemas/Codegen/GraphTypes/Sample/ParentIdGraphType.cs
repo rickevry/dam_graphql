@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class ParentIdGraphType : ObjectGraphType<ParentIdModel>
+    public class
+    ParentIdGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.ParentId>
     {
         public ParentIdGraphType()
         {

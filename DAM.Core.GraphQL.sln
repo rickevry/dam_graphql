@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Configurat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Repository", "src\DAM.Core.GraphQL.Repository\DAM.Core.GraphQL.Repository.csproj", "{15E61828-06D6-4D37-9458-84DBA626B77A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Repository.Fakes", "src\DAM.Core.GraphQL.Repository.Fakes\DAM.Core.GraphQL.Repository.Fakes.csproj", "{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.GraphQL.Repository.Akka", "src\DAM.Core.GraphQL.Repository.Akka\DAM.Core.GraphQL.Repository.Akka.csproj", "{0BB752CC-9924-4435-B16E-7F3517B3DB31}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.Shared", "..\DAM.Shared\src\DAM.Core.Shared\DAM.Core.Shared.csproj", "{42E197DA-3B89-4061-B425-E58AA72C320C}"
@@ -26,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.Actors", "..\DAM.Akka\src\DAM.Core.Assets.Actors\DAM.Core.Actors.csproj", "{103D3E7F-31AE-4592-B110-72439E9D7089}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAM.Core.Messages", "..\DAM.Services\src\DAM.Core.Messages\DAM.Core.Messages.csproj", "{7D24173F-98CE-4E37-AF8E-F3F7BC985E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAM.Core.GraphQL.Subscriptions", "src\DAM.Core.GraphQL.Subscriptions\DAM.Core.GraphQL.Subscriptions.csproj", "{F5E59AB2-ACB9-4314-95C4-48CD2C69856E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,6 @@ Global
 		{15E61828-06D6-4D37-9458-84DBA626B77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15E61828-06D6-4D37-9458-84DBA626B77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15E61828-06D6-4D37-9458-84DBA626B77A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE9F201A-CCF5-41DD-9BE7-79509FD2BB81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB752CC-9924-4435-B16E-7F3517B3DB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,6 +73,10 @@ Global
 		{7D24173F-98CE-4E37-AF8E-F3F7BC985E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D24173F-98CE-4E37-AF8E-F3F7BC985E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D24173F-98CE-4E37-AF8E-F3F7BC985E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E59AB2-ACB9-4314-95C4-48CD2C69856E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E59AB2-ACB9-4314-95C4-48CD2C69856E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E59AB2-ACB9-4314-95C4-48CD2C69856E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E59AB2-ACB9-4314-95C4-48CD2C69856E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

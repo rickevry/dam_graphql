@@ -1,18 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GraphQL-Parser" Version="5.1.0" />
     <PackageReference Include="GraphQL" Version="3.0.0-preview-1490" />
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="3.5.0-alpha0046" />
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="3.5.0-alpha0046" />
+    <PackageReference Include="GraphQL.Server.Transports.WebSockets" Version="3.5.0-alpha0046" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DAM.Core.GraphQL.Repository\DAM.Core.GraphQL.Repository.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.Schemas\DAM.Core.GraphQL.Schemas.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.SearchProxy\DAM.Core.GraphQL.SearchProxy.csproj" />
+    <ProjectReference Include="..\DAM.Core.GraphQL.Subscriptions\DAM.Core.GraphQL.Subscriptions.csproj" />
   </ItemGroup>
 
 </Project>

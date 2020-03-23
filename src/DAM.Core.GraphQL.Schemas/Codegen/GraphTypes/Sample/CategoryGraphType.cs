@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class CategoryGraphType : ObjectGraphType<CategoryModel>
+    public class
+    CategoryGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.Category>
     {
         public CategoryGraphType()
         {

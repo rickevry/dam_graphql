@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class SecurityClassGraphType : ObjectGraphType<SecurityClassModel>
+    public class
+    SecurityClassGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.SecurityClass>
     {
         public SecurityClassGraphType()
         {

@@ -13,11 +13,27 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
     [QueryName("renditions")]
     public class RenditionsModel : MutableModel
     {
-        private string _snapshot;
-
         private long _fileSize;
 
+        private string _snapshot;
+
         private string _renditionType;
+
+        private string _downloadUrl;
+
+        private string _mimeType;
+
+        public long FileSize
+        {
+            get
+            {
+                return _fileSize;
+            }
+            set
+            {
+                SetField(ref _fileSize, value);
+            }
+        }
 
         /// <summary>
         /// description missing
@@ -34,18 +50,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
-        public long FileSize
-        {
-            get
-            {
-                return _fileSize;
-            }
-            set
-            {
-                SetField(ref _fileSize, value);
-            }
-        }
-
         public string RenditionType
         {
             get
@@ -55,6 +59,37 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             set
             {
                 SetField(ref _renditionType, value);
+            }
+        }
+
+        public string DownloadUrl
+        {
+            get
+            {
+                return _downloadUrl;
+            }
+            set
+            {
+                SetField(ref _downloadUrl, value);
+            }
+        }
+
+        /// <summary>
+        /// Title: Mandatory
+        /// Is the name that would appear online. This field will be searchable in all our channels and in external search such as Google.
+        /// The naming convention to ensure proper search match should be very specific to the Asset & match the filename, No abbreviations or language codes etc
+        /// Designation-Brand-Product-Name (ie. 6205 SKF Deep Groove Ball Bearing)
+
+        /// </summary>
+        public string MimeType
+        {
+            get
+            {
+                return _mimeType;
+            }
+            set
+            {
+                SetField(ref _mimeType, value);
             }
         }
 
@@ -71,9 +106,11 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
         {
             return new RenditionsModel {
                 Id = entity.Id,
-                _snapshot = entity.Snapshot,
                 _fileSize = entity.FileSize,
-                _renditionType = entity.RenditionType
+                _snapshot = entity.Snapshot,
+                _renditionType = entity.RenditionType,
+                _downloadUrl = entity.DownloadUrl,
+                _mimeType = entity.MimeType
             };
         }
 

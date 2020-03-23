@@ -10,7 +10,9 @@ namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     public class
     CollectionDescriptionGraphType
-    : ObjectGraphType<CollectionDescriptionModel>
+    :
+    ObjectGraphType<DAM.Core.Shared.Models.CollectionDomain.CollectionDescription
+    >
     {
         public CollectionDescriptionGraphType()
         {

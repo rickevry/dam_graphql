@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
-    public class PublicationGraphType : ObjectGraphType<PublicationModel>
+    public class
+    PublicationGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.PublicationDomain.Publication>
     {
         public PublicationGraphType()
         {

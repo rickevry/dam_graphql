@@ -15,5 +15,9 @@ namespace DAM.Core.GraphQL.Schemas.Messages
         public string CheckinType { get; set; }
         public string FileName { get; set; }
         public byte[] FileData { get; set; }
+
+        public CheckinAssetCommandGraphType()
+        {
+        }
     }
 }

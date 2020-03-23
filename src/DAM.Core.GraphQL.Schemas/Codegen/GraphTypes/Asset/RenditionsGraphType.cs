@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class RenditionsGraphType : ObjectGraphType<RenditionsModel>
+    public class
+    RenditionsGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.Renditions>
     {
         public RenditionsGraphType()
         {
@@ -19,9 +21,11 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private void BuildGraphTypeFields()
         {
-            Field(o => o.Snapshot, nullable: true);
             Field(o => o.FileSize, nullable: true);
+            Field(o => o.Snapshot, nullable: true);
             Field(o => o.RenditionType, nullable: true);
+            Field(o => o.DownloadUrl, nullable: true);
+            Field(o => o.MimeType, nullable: true);
         }
     }
 }

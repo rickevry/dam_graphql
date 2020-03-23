@@ -21,19 +21,17 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private string _publicationId;
 
-        private DocumentAttributesModel _documentAttributes;
-
         private DocumentInfoModel _documentInfo;
 
         private Guid _publishingUnitId;
+
+        private DocumentAttributesModel _documentAttributes;
 
         private ReleaseFormModel _releaseForm;
 
         private ProductInfoModel _productInfo;
 
         private VersionModel _version;
-
-        private List<RenditionsModel> _renditions;
 
         private DateTime _createdDate;
 
@@ -42,6 +40,10 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
         private Guid _createdBy;
 
         private Guid _modifiedBy;
+
+        private bool _tridionRestricted;
+
+        private List<RenditionsModel> _renditions;
 
         public DocumentStateModel DocumentState
         {
@@ -91,18 +93,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
-        public DocumentAttributesModel DocumentAttributes
-        {
-            get
-            {
-                return _documentAttributes;
-            }
-            set
-            {
-                SetField(ref _documentAttributes, value);
-            }
-        }
-
         public DocumentInfoModel DocumentInfo
         {
             get
@@ -124,6 +114,18 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             set
             {
                 SetField(ref _publishingUnitId, value);
+            }
+        }
+
+        public DocumentAttributesModel DocumentAttributes
+        {
+            get
+            {
+                return _documentAttributes;
+            }
+            set
+            {
+                SetField(ref _documentAttributes, value);
             }
         }
 
@@ -176,21 +178,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
-        /// <summary>
-        /// Multi
-        /// </summary>
-        public List<RenditionsModel> Renditions
-        {
-            get
-            {
-                return _renditions;
-            }
-            set
-            {
-                SetField(ref _renditions, value);
-            }
-        }
-
         public DateTime CreatedDate
         {
             get
@@ -239,6 +226,41 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
+        /// <summary>
+        /// Tridion restricted (keep or remove?): This field is required by SKF legal and limits the usage and distribution of your asset.
+        /// SKF_internal
+        /// SKF_open
+        /// Rights_managed
+        /// Restricted_content_on_skf_com
+        /// Publish_enabled_for_skf_com
+        /// </summary>
+        public bool TridionRestricted
+        {
+            get
+            {
+                return _tridionRestricted;
+            }
+            set
+            {
+                SetField(ref _tridionRestricted, value);
+            }
+        }
+
+        /// <summary>
+        /// Multi
+        /// </summary>
+        public List<RenditionsModel> Renditions
+        {
+            get
+            {
+                return _renditions;
+            }
+            set
+            {
+                SetField(ref _renditions, value);
+            }
+        }
+
         public static implicit operator AssetModel(
             Shared.Models.AssetDomain.Asset entity
         )
@@ -256,17 +278,18 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _copyright = entity.Copyright,
                 _assetId = entity.AssetId,
                 _publicationId = entity.PublicationId,
-                _documentAttributes = entity.DocumentAttributes,
                 _documentInfo = entity.DocumentInfo,
                 _publishingUnitId = entity.PublishingUnitId,
+                _documentAttributes = entity.DocumentAttributes,
                 _releaseForm = entity.ReleaseForm,
                 _productInfo = entity.ProductInfo,
                 _version = entity.Version,
-                _renditions = RenditionsModel.FromEntityList(entity.Renditions),
                 _createdDate = entity.CreatedDate,
                 _modifiedDate = entity.ModifiedDate,
                 _createdBy = entity.CreatedBy,
-                _modifiedBy = entity.ModifiedBy
+                _modifiedBy = entity.ModifiedBy,
+                _tridionRestricted = entity.TridionRestricted,
+                _renditions = RenditionsModel.FromEntityList(entity.Renditions)
             };
         }
 

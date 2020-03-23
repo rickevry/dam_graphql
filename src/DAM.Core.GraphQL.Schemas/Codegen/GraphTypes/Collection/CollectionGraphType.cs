@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
-    public class CollectionGraphType : ObjectGraphType<CollectionModel>
+    public class
+    CollectionGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.CollectionDomain.Collection>
     {
         public CollectionGraphType()
         {

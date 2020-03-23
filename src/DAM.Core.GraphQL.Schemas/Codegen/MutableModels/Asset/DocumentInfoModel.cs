@@ -21,7 +21,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private List<string> _taxonomy;
 
-        private List<string> _languageCode;
+        private List<LanguagesModel> _languages;
 
         private string _title;
 
@@ -109,15 +109,15 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
         /// Note: All Media Library asset will be available through free text search independent of language
         /// Multilingual: If your asset is multilingual (eg a manual) you can add several language tagsImages: Language tag for images not displaying any text on the image should be set to language independent
         /// </summary>
-        public List<string> LanguageCode
+        public List<LanguagesModel> Languages
         {
             get
             {
-                return _languageCode;
+                return _languages;
             }
             set
             {
-                SetField(ref _languageCode, value);
+                SetField(ref _languages, value);
             }
         }
 
@@ -238,7 +238,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _externalDescription = entity.ExternalDescription,
                 _assetType = entity.AssetType,
                 _taxonomy = entity.Taxonomy,
-                _languageCode = entity.LanguageCode,
+                _languages = LanguagesModel.FromEntityList(entity.Languages),
                 _title = entity.Title,
                 _folderId = entity.FolderId,
                 _assetRole = entity.AssetRole,

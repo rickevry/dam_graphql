@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.CustomerDomain
 {
-    public class CustomerGraphType : ObjectGraphType<CustomerModel>
+    public class
+    CustomerGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.CustomerDomain.Customer>
     {
         public CustomerGraphType()
         {

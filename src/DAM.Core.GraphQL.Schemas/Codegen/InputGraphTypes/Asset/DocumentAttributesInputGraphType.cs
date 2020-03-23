@@ -30,6 +30,9 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             Field(o => o.FileSize, nullable: true);
             Field(o => o.MetadataModifiedDate, nullable: true);
             Field(o => o.FileName, nullable: true);
+            Field(o => o.MimeType, nullable: true);
+            Field(o => o.Resolution, true, typeof (ResolutionInputGraphType))
+                .Resolve(context => context.Source.Resolution);
         }
     }
 }

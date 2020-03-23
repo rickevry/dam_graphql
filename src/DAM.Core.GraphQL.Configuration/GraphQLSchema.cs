@@ -10,6 +10,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             Query = provider.GetRequiredService<GraphQLQuery>();
             Mutation = provider.GetRequiredService<GraphQLMutation>();
+            Subscription = provider.GetRequiredService<GraphQLSubscription>();
         }
     }
 }

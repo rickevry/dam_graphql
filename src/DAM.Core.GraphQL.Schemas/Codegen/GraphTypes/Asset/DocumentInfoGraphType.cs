@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class DocumentInfoGraphType : ObjectGraphType<DocumentInfoModel>
+    public class
+    DocumentInfoGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.DocumentInfo>
     {
         public DocumentInfoGraphType()
         {
@@ -23,7 +25,10 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             Field(o => o.ExternalDescription, nullable: true);
             Field(o => o.AssetType, nullable: true);
             Field(o => o.Taxonomy, nullable: true);
-            Field(o => o.LanguageCode, nullable: true);
+            Field(o => o.Languages,
+            true,
+            typeof (ListGraphType<LanguagesGraphType>))
+                .Resolve(context => context.Source.Languages);
             Field(o => o.Title, nullable: true);
             Field(o => o.FolderId, nullable: true);
             Field(o => o.AssetRole, nullable: true);

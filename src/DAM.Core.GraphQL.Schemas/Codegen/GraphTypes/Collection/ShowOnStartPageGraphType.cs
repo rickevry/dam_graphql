@@ -10,7 +10,7 @@ namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
     public class
     ShowOnStartPageGraphType
-    : ObjectGraphType<ShowOnStartPageModel>
+    : ObjectGraphType<DAM.Core.Shared.Models.CollectionDomain.ShowOnStartPage>
     {
         public ShowOnStartPageGraphType()
         {

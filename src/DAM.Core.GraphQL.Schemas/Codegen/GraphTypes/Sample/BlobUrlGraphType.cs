@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class BlobUrlGraphType : ObjectGraphType<BlobUrlModel>
+    public class
+    BlobUrlGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.BlobUrl>
     {
         public BlobUrlGraphType()
         {

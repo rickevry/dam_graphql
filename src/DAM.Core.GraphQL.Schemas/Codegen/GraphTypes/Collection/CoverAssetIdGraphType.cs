@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.CollectionDomain
 {
-    public class CoverAssetIdGraphType : ObjectGraphType<CoverAssetIdModel>
+    public class
+    CoverAssetIdGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.CollectionDomain.CoverAssetId>
     {
         public CoverAssetIdGraphType()
         {

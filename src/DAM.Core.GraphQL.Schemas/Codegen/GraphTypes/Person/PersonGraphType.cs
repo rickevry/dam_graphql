@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.PersonDomain
 {
-    public class PersonGraphType : ObjectGraphType<PersonModel>
+    public class
+    PersonGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.PersonDomain.Person>
     {
         public PersonGraphType()
         {

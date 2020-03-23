@@ -1,5 +1,5 @@
-﻿using DAM.Core.GraphQL.SearchProxy.Configuration;
-using DAM.Core.GraphQL.Server.Configuration;
+﻿using DAM.Core.GraphQL.Configuration;
+using DAM.Core.GraphQL.SearchProxy.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

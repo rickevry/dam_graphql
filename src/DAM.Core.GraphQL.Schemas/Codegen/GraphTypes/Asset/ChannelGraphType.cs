@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class ChannelGraphType : ObjectGraphType<ChannelModel>
+    public class
+    ChannelGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.Channel>
     {
         public ChannelGraphType()
         {

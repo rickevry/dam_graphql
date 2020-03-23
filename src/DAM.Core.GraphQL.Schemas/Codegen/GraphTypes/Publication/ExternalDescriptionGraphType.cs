@@ -10,7 +10,9 @@ namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     public class
     ExternalDescriptionGraphType
-    : ObjectGraphType<ExternalDescriptionModel>
+    :
+    ObjectGraphType<DAM.Core.Shared.Models.PublicationDomain.ExternalDescription
+    >
     {
         public ExternalDescriptionGraphType()
         {

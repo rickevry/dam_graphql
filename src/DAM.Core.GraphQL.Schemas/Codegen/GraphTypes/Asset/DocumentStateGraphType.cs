@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class DocumentStateGraphType : ObjectGraphType<DocumentStateModel>
+    public class
+    DocumentStateGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.DocumentState>
     {
         public DocumentStateGraphType()
         {

@@ -31,6 +31,10 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private string _fileName;
 
+        private string _mimeType;
+
+        private ResolutionModel _resolution;
+
         public DateTime FileModifiedDate
         {
             get
@@ -154,6 +158,42 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
+        /// <summary>
+        /// File name: Is the name you give the file on your computer. This field will be searchable in all our channels and in external search such as Google.
+        /// In Media Finder, photos/illustrations/Rich media/Zip the file name will appear as the title.
+        /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
+        /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
+        /// </summary>
+        public string MimeType
+        {
+            get
+            {
+                return _mimeType;
+            }
+            set
+            {
+                SetField(ref _mimeType, value);
+            }
+        }
+
+        /// <summary>
+        /// File name: Is the name you give the file on your computer. This field will be searchable in all our channels and in external search such as Google.
+        /// In Media Finder, photos/illustrations/Rich media/Zip the file name will appear as the title.
+        /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
+        /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
+        /// </summary>
+        public ResolutionModel Resolution
+        {
+            get
+            {
+                return _resolution;
+            }
+            set
+            {
+                SetField(ref _resolution, value);
+            }
+        }
+
         public static implicit operator DocumentAttributesModel(
             Shared.Models.AssetDomain.DocumentAttributes entity
         )
@@ -175,7 +215,9 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _checksum = entity.Checksum,
                 _fileSize = entity.FileSize,
                 _metadataModifiedDate = entity.MetadataModifiedDate,
-                _fileName = entity.FileName
+                _fileName = entity.FileName,
+                _mimeType = entity.MimeType,
+                _resolution = entity.Resolution
             };
         }
 

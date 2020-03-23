@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class IsocodeGraphType : ObjectGraphType<IsocodeModel>
+    public class
+    IsocodeGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.Isocode>
     {
         public IsocodeGraphType()
         {

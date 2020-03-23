@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.BundleDomain
 {
-    public class BundleGraphType : ObjectGraphType<BundleModel>
+    public class
+    BundleGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.BundleDomain.Bundle>
     {
         public BundleGraphType()
         {

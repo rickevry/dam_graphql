@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class CopyrightGraphType : ObjectGraphType<CopyrightModel>
+    public class
+    CopyrightGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.Copyright>
     {
         public CopyrightGraphType()
         {

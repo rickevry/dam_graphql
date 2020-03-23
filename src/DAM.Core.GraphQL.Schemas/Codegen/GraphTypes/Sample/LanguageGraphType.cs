@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class LanguageGraphType : ObjectGraphType<LanguageModel>
+    public class
+    LanguageGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.Language>
     {
         public LanguageGraphType()
         {

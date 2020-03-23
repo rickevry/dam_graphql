@@ -21,9 +21,11 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private void BuildGraphTypeFields()
         {
-            Field(o => o.Snapshot, nullable: true);
             Field(o => o.FileSize, nullable: true);
+            Field(o => o.Snapshot, nullable: true);
             Field(o => o.RenditionType, nullable: true);
+            Field(o => o.DownloadUrl, nullable: true);
+            Field(o => o.MimeType, nullable: true);
         }
     }
 }

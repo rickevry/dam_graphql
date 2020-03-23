@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class ProductInfoGraphType : ObjectGraphType<ProductInfoModel>
+    public class
+    ProductInfoGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.ProductInfo>
     {
         public ProductInfoGraphType()
         {

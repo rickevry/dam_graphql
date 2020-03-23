@@ -25,7 +25,10 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             Field(o => o.ExternalDescription, nullable: true);
             Field(o => o.AssetType, nullable: true);
             Field(o => o.Taxonomy, nullable: true);
-            Field(o => o.LanguageCode, nullable: true);
+            Field(o => o.Languages,
+            true,
+            typeof (ListGraphType<LanguagesInputGraphType>))
+                .Resolve(context => context.Source.Languages);
             Field(o => o.Title, nullable: true);
             Field(o => o.FolderId, nullable: true);
             Field(o => o.AssetRole, nullable: true);

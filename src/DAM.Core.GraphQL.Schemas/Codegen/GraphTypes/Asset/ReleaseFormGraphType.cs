@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
-    public class ReleaseFormGraphType : ObjectGraphType<ReleaseFormModel>
+    public class
+    ReleaseFormGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.ReleaseForm>
     {
         public ReleaseFormGraphType()
         {

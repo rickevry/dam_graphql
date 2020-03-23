@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.SampleDomain
 {
-    public class RenditionGraphType : ObjectGraphType<RenditionModel>
+    public class
+    RenditionGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.SampleDomain.Rendition>
     {
         public RenditionGraphType()
         {

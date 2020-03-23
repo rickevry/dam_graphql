@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.BundleDomain
 {
-    public class FileInfoGraphType : ObjectGraphType<FileInfoModel>
+    public class
+    FileInfoGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.BundleDomain.FileInfo>
     {
         public FileInfoGraphType()
         {

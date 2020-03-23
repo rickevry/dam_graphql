@@ -8,7 +8,9 @@ using GraphQL.Types;
 
 namespace DAM.Core.GraphQL.Schemas.UserDomain
 {
-    public class UserGraphType : ObjectGraphType<UserModel>
+    public class
+    UserGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.UserDomain.User>
     {
         public UserGraphType()
         {

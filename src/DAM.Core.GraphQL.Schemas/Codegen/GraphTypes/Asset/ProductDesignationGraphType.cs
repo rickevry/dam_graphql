@@ -10,7 +10,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     public class
     ProductDesignationGraphType
-    : ObjectGraphType<ProductDesignationModel>
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.ProductDesignation>
     {
         public ProductDesignationGraphType()
         {

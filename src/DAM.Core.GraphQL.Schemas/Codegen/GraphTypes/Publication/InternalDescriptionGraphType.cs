@@ -10,7 +10,9 @@ namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     public class
     InternalDescriptionGraphType
-    : ObjectGraphType<InternalDescriptionModel>
+    :
+    ObjectGraphType<DAM.Core.Shared.Models.PublicationDomain.InternalDescription
+    >
     {
         public InternalDescriptionGraphType()
         {

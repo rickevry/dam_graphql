@@ -10,7 +10,7 @@ namespace DAM.Core.GraphQL.Schemas.PublicationDomain
 {
     public class
     PublicationNameGraphType
-    : ObjectGraphType<PublicationNameModel>
+    : ObjectGraphType<DAM.Core.Shared.Models.PublicationDomain.PublicationName>
     {
         public PublicationNameGraphType()
         {

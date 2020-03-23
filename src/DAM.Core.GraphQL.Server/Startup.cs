@@ -1,13 +1,15 @@
 using DAM.Core.GraphQL.Configuration;
-using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Server.Extensions;
 using DAM.Core.Infrastructure.AkkaClusterClient;
+using GraphQL.Server;
+using GraphQL.Server.Ui.Altair;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 
 namespace DAM.Core.GraphQL.Server
 {
@@ -58,13 +60,26 @@ namespace DAM.Core.GraphQL.Server
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                app.UseEndpoints(endpoints =>
                 {
-                    await context.Response.WriteAsync("GraphQL server is running.");
+                    endpoints.MapControllers();
                 });
             });
 
-            app.UseGraphQL<GraphQLSchema>();
+            app
+                .UseWebSockets()
+                .UseGraphQLWebSockets<GraphQLSchema>()
+                .UseGraphQL<GraphQLSchema>();
+
+            app.UseGraphQLAltair(new GraphQLAltairOptions
+            {
+                Path = "/ui/altair",
+                GraphQLEndPoint = "/graphql",
+                Headers = new Dictionary<string, string>
+                {
+                    ["X-api-token"] = "130fh9823bd023hd892d0j238dh",
+                }
+            });
         }
     }
 }
