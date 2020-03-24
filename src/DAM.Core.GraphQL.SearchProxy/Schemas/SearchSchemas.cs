@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace DAM.Core.GraphQL.SearchProxy.Schemas
@@ -13,8 +14,11 @@ namespace DAM.Core.GraphQL.SearchProxy.Schemas
 
     public class Document
     {
-        public string _id { get; set; }
+        [JsonProperty("__typename")]
+        public string _typename { get; set; }
         public string _type { get; set; }
+        public string _id { get; set; }
+        public string bundle_type { get; set; }
         public DateTime doc_date_time { get; set; }
         public string docid { get; set; }
         public string main_content_url { get; set; }
@@ -116,6 +120,10 @@ namespace DAM.Core.GraphQL.SearchProxy.Schemas
         public Stats stats { get; set; }
         public string query { get; set; }
         public DocumentList documentList { get; set; }
+        public DocumentList collection { get; set; }
+        public DocumentList assets { get; set; }
+        public DocumentList bundle { get; set; }
+        public DocumentList collections { get; set; }
         public List<Facet> facets { get; set; }
         public object spell { get; set; }
         public object quicklinks { get; set; }

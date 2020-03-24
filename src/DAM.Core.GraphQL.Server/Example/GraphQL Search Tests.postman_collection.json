@@ -58,6 +58,110 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List Bundles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query list_bundles($token: String!, $params: String){\n    list_bundles (token: $token, params: $params){\n        stats {totalHits searchEngineTimeInMillis searchEngineRoundTripTimeInMillis searchProcessingTimeInMillis}\n        documentList {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                bundle_type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        facets {\n            id\n            displayName\n            selectionType\n            multipleLevels\n            filters { \n                displayName\n                selected\n                query \n                count\n                properties {id parentId}\n            }\n        }\n    }\n}",
+						"variables": "{\n\t\"token\": \"\",\n\t\"params\": \"\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asset by Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query find_asset($token: String!, $id: String!, $params: String){\n    find_asset (token: $token, id: $id, params: $params){\n        stats {totalHits searchEngineTimeInMillis searchEngineRoundTripTimeInMillis searchProcessingTimeInMillis}\n        documentList {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        facets {\n            id\n            displayName\n            selectionType\n            multipleLevels\n            filters { \n                displayName\n                selected\n                query \n                count\n                properties {id parentId}\n            }\n        }\n    }\n}",
+						"variables": "{\n\t\"id\": \"mMsydwkKPI\",\n\t\"token\": \"\",\n\t\"params\": \"\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collection by Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query find_collection($token: String!, $id: String!, $params: String){\n    find_collection (token: $token, id: $id, params: $params){\n        stats {totalHits searchEngineTimeInMillis searchEngineRoundTripTimeInMillis searchProcessingTimeInMillis}\n        collection {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        assets {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        facets {\n            id\n            displayName\n            selectionType\n            multipleLevels\n            filters { \n                displayName\n                selected\n                query \n                count\n                properties {id parentId}\n            }\n        }\n    }\n}",
+						"variables": "{\n\t\"id\": \"lUwzbxpt0n\",\n\t\"token\": \"\",\n\t\"params\": \"\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bundle by Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query find_bundle($token: String!, $id: String!, $params: String){\n    find_bundle (token: $token, id: $id, params: $params){\n        stats {totalHits searchEngineTimeInMillis searchEngineRoundTripTimeInMillis searchProcessingTimeInMillis}\n        bundle {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        collections {\n            id\n            displayName\n            numberOfHits\n            documents {\n                _typename\n                _id\n                _type\n                doc_date_time\n                docid\n                main_content_url\n                mmid\n                pdf_preview_standard_url\n                pdf_preview_url\n                png_highpreview1278_url\n                png_highpreview800_url\n                png_highpreview_url\n                png_lowpreview_url\n                taxonomy\n                thumbnail_url\n                title\n            }\n            pagination{\n                offset\n                hitsPerPage\n                firstPage {displayName selected query}\n                previousPage {displayName selected query}\n                nextPage {displayName selected query}\n                pages {displayName selected query}\n            }\n            sortOptions {displayName selected query}\n        }\n        facets {\n            id\n            displayName\n            selectionType\n            multipleLevels\n            filters { \n                displayName\n                selected\n                query \n                count\n                properties {id parentId}\n            }\n        }\n    }\n}",
+						"variables": "{\n\t\"id\": \"1UyYSs5W2t\",\n\t\"token\": \"\",\n\t\"params\": \"\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
