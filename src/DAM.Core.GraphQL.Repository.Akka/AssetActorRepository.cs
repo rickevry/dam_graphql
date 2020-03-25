@@ -39,18 +39,17 @@ namespace DAM.Core.GraphQL.Repository.Akka
         {
             try
             {
-                var test = _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id)).GetAwaiter().GetResult();
+                var akkaResult = _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id)).GetAwaiter().GetResult();
 
-                if (test.IsSuccessful)
-                    return Task.FromResult(AssetModel.FromEntity(test.AssetModel));
+                if (akkaResult.IsSuccessful)
+                    return Task.FromResult(AssetModel.FromEntity(akkaResult.AssetModel));
             }
-            catch (Exception ex)
+            catch
             {
-                return null;
             }
-            
+
             return null;
-            
+
         }
 
         public override Task<IQueryable<AssetModel>> GetItemsAsync()

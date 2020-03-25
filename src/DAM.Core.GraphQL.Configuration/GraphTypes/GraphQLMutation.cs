@@ -2,6 +2,7 @@
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
+using DAM.Core.GraphQL.Schemas.FolderDomain;
 using DAM.Core.GraphQL.Schemas.Messages;
 using DAM.Core.Messages;
 using DAM.Core.Shared.Models.AssetDomain;
@@ -29,7 +30,7 @@ namespace DAM.Core.GraphQL.Configuration
         private void CreateMutableFields()
         {
             CreateMutableFieldsFor<AssetModel, AssetMutableGraphType, AssetInputGraphType>();
-            CreateMutableFieldsFor<BundleModel, BundleMutableGraphType, BundleInputGraphType>();
+            CreateMutableFieldsFor<FolderModel, FolderMutableGraphType, FolderInputGraphType>();
         }
 
         private void CreateMutableFieldsFor<TModel, TGraphType, TInputGraphType>()

@@ -2,6 +2,7 @@
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
+using DAM.Core.GraphQL.Schemas.FolderDomain;
 using DAM.Core.GraphQL.SearchProxy.Services;
 using GraphQL;
 using GraphQL.Types;
@@ -32,7 +33,7 @@ namespace DAM.Core.GraphQL.Configuration
 
         private void CreateQueryFields()
         {
-            CreateQueryFieldsFor<BundleModel, BundleMutableGraphType>();
+            CreateQueryFieldsFor<FolderModel, FolderMutableGraphType>();
             CreateQueryFieldsFor<AssetModel, AssetMutableGraphType>();
         }
 
