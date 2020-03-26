@@ -2,14 +2,16 @@
 using DAM.Core.Infrastructure.AkkaClusterClient;
 using DAM.Core.Messages;
 using DAM.Core.Messages.AssetDomain;
+using DAM.Core.Shared.Models.AssetDomain;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DAM.Core.GraphQL.Repository.Akka
 {
-    public class AssetActorRepository : DataRepository<AssetModel>
+    public class AssetActorRepository : DataRepository<AssetModel>, IAssetRepository
     {
         private readonly AkkaClusterClientSystem _clusterClient;
         private readonly IServiceProvider _provider;
@@ -35,21 +37,30 @@ namespace DAM.Core.GraphQL.Repository.Akka
             throw new NotImplementedException();
         }
 
-        public override Task<AssetModel> GetByIdAsync(Guid id)
+        public async Task<List<Asset>> GetAssetsInFolderAsync(Guid folderId)
         {
             try
             {
-                var akkaResult = _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id)).GetAwaiter().GetResult();
-
-                if (akkaResult.IsSuccessful)
-                    return Task.FromResult(AssetModel.FromEntity(akkaResult.AssetModel));
+                var akkaResult = await _clusterClient.Ask<GetAssetsInFolderResult>(new GetAssetsInFolderCommand(folderId));
+                return akkaResult.Assets;
             }
             catch
             {
+                return null;
             }
+        }
 
-            return null;
-
+        public override async Task<AssetModel> GetByIdAsync(Guid id)
+        {
+            try
+            {
+                var akkaResult = await _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id));
+                return AssetModel.FromEntity(akkaResult.AssetModel);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public override Task<IQueryable<AssetModel>> GetItemsAsync()

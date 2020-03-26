@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Repository;
+﻿using DAM.Core.GraphQL.Configuration.Repositories;
+using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
@@ -18,16 +19,29 @@ namespace DAM.Core.GraphQL.Configuration
     public class GraphQLMutation : ObjectGraphType
     {
         private readonly DataRepositoryProvider _repositoryProvider;
+        private readonly IServiceProvider _serviceProvider;
 
-        public GraphQLMutation(DataRepositoryProvider repositoryProvider)
+        public GraphQLMutation(
+            IServiceProvider serviceProvider,
+            DataRepositoryProvider repositoryProvider)
         {
+            _serviceProvider = serviceProvider;
             _repositoryProvider = repositoryProvider;
 
-            CreateMutableFields();
-            CreateDataCommandsFields();
+            CreateDataRepositoryMutableFields();
+            CreateDataRepositorySpecificFields();
+
+            // TODO: Add commands through IRepositoryConfiguration or Ensure added commands has fields, otherwise GQL schema is broken
+            //CreateDataCommandsFields();
         }
 
-        private void CreateMutableFields()
+        private void CreateDataRepositorySpecificFields()
+        {
+            _serviceProvider.GetRequiredService<AssetRepositoryConfiguration>().ConfigureGraphQLMutationFields(this);
+            _serviceProvider.GetRequiredService<FolderRepositoryConfiguration>().ConfigureGraphQLMutationFields(this);
+        }
+
+        private void CreateDataRepositoryMutableFields()
         {
             CreateMutableFieldsFor<AssetModel, AssetMutableGraphType, AssetInputGraphType>();
             CreateMutableFieldsFor<FolderModel, FolderMutableGraphType, FolderInputGraphType>();

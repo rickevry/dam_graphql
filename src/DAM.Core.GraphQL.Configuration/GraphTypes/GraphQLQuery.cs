@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Repository;
+﻿using DAM.Core.GraphQL.Configuration.Repositories;
+using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
@@ -18,26 +19,36 @@ namespace DAM.Core.GraphQL.Configuration
     {
         private readonly DataRepositoryProvider _repositoryProvider;
         private readonly SearchClientService _searchClient;
+        private readonly IServiceProvider _serviceProvider;
 
         public GraphQLQuery(
+            IServiceProvider serviceProvider,
             DataRepositoryProvider repositoryProvider,
             SearchClientService searchClient)
         {
+            _serviceProvider = serviceProvider;
             _repositoryProvider = repositoryProvider;
             _searchClient = searchClient;
 
-            CreateQueryFields();
+            CreateDataRepositoryDefautQueryFields();
+            CreateDataRepositorySpecificFields();
 
             _searchClient.CreateSearchFields(this);
         }
 
-        private void CreateQueryFields()
+        private void CreateDataRepositorySpecificFields()
         {
-            CreateQueryFieldsFor<FolderModel, FolderMutableGraphType>();
-            CreateQueryFieldsFor<AssetModel, AssetMutableGraphType>();
+            _serviceProvider.GetRequiredService<AssetRepositoryConfiguration>().ConfigureGraphQLQueryFields(this);
+            _serviceProvider.GetRequiredService<FolderRepositoryConfiguration>().ConfigureGraphQLQueryFields(this);
         }
 
-        private void CreateQueryFieldsFor<TModel, TGraphType>()
+        private void CreateDataRepositoryDefautQueryFields()
+        {
+            CreateCreateDataRepositoryQueryFieldsFor<FolderModel, FolderMutableGraphType>();
+            CreateCreateDataRepositoryQueryFieldsFor<AssetModel, AssetMutableGraphType>();
+        }
+
+        private void CreateCreateDataRepositoryQueryFieldsFor<TModel, TGraphType>()
             where TModel : MutableModel, new()
             where TGraphType : ObjectGraphType<TModel>
         {

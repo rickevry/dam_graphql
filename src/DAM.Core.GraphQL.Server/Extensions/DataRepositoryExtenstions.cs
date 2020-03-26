@@ -12,7 +12,10 @@ namespace DAM.Core.GraphQL.Server.Extensions
         public static IServiceCollection AddDataRepositories(this IServiceCollection services)
         {
             services.AddSingleton<DataRepository<AssetModel>, AssetActorRepository>();
+            services.AddSingleton<IAssetRepository, AssetActorRepository>();
+
             services.AddSingleton<DataRepository<FolderModel>, FolderActorRepository>();
+            services.AddSingleton<IFolderRepository, FolderActorRepository>();
 
             services.AddSingleton<DataRepositoryProvider>();
 

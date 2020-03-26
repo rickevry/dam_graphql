@@ -41,7 +41,8 @@ namespace DAM.Core.GraphQL.Server
                 .AddDataRepositories()
                 .AddGraphQLService()
                 .AddGraphQLTypes()
-                .AddGraphQLSchema();
+                .AddGraphQLSchema()
+                .AddGraphQLRepositoryConfigurations();
 
             services.AddSingleton<AkkaClusterClientSystem>();
         }

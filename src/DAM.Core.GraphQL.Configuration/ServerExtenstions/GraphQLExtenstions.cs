@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Schemas;
+﻿using DAM.Core.GraphQL.Configuration.Repositories;
+using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.Messages;
 using DAM.Core.GraphQL.SearchProxy;
 using DAM.Core.GraphQL.Subscriptions.Extensions;
@@ -42,6 +43,14 @@ namespace DAM.Core.GraphQL.Configuration
             return services;
         }
 
+        public static IServiceCollection AddGraphQLRepositoryConfigurations(this IServiceCollection services)
+        {
+            services.AddSingleton<AssetRepositoryConfiguration>();
+            services.AddSingleton<FolderRepositoryConfiguration>();
+
+            return services;
+        }
+
         public static IServiceCollection AddGraphQLSchema(this IServiceCollection services)
         {
             services.AddSingleton<GraphQLQuery>();
@@ -57,7 +66,8 @@ namespace DAM.Core.GraphQL.Configuration
             return services
                 .AddGraphQLSearchProxyTypes()
                 .AddGraphQLDataModelTypes()
-                .AddGraphQLMessageTypes()
+                // TODO: Add commands through IRepositoryConfiguration or Ensure added commands has fields, otherwise GQL schema is broken
+                //                .AddGraphQLMessageTypes()
                 .AddGraphQLSubscriptionTypes();
         }
     }
