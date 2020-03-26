@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2227ba59-984a-4eec-a202-326ed09c3080",
-		"name": "GraphQL Fakes Tests",
+		"name": "GraphQL Akka Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -90,15 +90,70 @@
 			"response": []
 		},
 		{
-			"name": "Invoices/Drawings",
+			"name": "AssetPublishedEvent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assetModel\": {\n\t\t\"id\": \"129B2A0E-89FA-4DAC-8DD0-D7913BAB9329\",\n\t\t\"assetId\": \"String asset ID 345\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/events/AssetPublished",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"events",
+						"AssetPublished"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Assets In Folder",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query{\n    wrapper{\n        __typename\n        ... on SearchItemInterface{\n            title\n        }\n        ... on Invoice{\n            customer,\n            amount,\n        }\n        ... on Drawing{\n            info\n        }\n    }\n}",
-						"variables": ""
+						"query": "query getAssetsInFolder($folderId: Guid!){\r\n  getAssetsInFolder(folderId: $folderId){\r\n    id\r\n  }\r\n}",
+						"variables": "{\n\t\"folderId\": \"e9804578-7b23-452b-86de-3abf60373850\"\n}"
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44342/graphql",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44342",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Folders By Workspace ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getFoldersByWorkspaceId($workspaceId: Guid!){\r\n  getFoldersByWorkspaceId(workspaceId: $workspaceId){\r\n    id\r\n  }\r\n}",
+						"variables": "{\n\t\"workspaceId\": \"e9804578-7b23-452b-86de-3abf60373850\"\n}"
 					}
 				},
 				"url": {
