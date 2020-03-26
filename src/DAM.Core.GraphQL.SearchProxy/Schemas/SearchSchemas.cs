@@ -17,6 +17,7 @@ namespace DAM.Core.GraphQL.SearchProxy.Schemas
         public string _type { get; set; }
         public string _id { get; set; }
         public string doc_type { get; set; }
+        public string description { get; set; }
         public string bundle_type { get; set; }
         public DateTime doc_date_time { get; set; }
         public string docid { get; set; }
