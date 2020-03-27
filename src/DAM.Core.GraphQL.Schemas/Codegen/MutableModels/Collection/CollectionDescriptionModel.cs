@@ -42,5 +42,37 @@ namespace DAM.Core.GraphQL.Schemas.CollectionDomain
                 .Select(entity => (CollectionDescriptionModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.CollectionDomain.CollectionDescription(
+            CollectionDescriptionModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.CollectionDomain.CollectionDescription
+        ToEntity(CollectionDescriptionModel model)
+        {
+            return new Shared.Models.CollectionDomain.CollectionDescription {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.CollectionDomain.CollectionDescription>
+        ToEntityList(List<CollectionDescriptionModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.CollectionDomain.CollectionDescription)
+                    entity)
+                .ToList();
+        }
     }
 }

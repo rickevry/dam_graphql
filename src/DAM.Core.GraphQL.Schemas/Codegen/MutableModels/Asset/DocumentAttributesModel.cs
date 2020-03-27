@@ -31,8 +31,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private string _fileName;
 
-        private string _mimeType;
-
         private ResolutionModel _resolution;
 
         public DateTime FileModifiedDate
@@ -164,24 +162,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
         /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
         /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
         /// </summary>
-        public string MimeType
-        {
-            get
-            {
-                return _mimeType;
-            }
-            set
-            {
-                SetField(ref _mimeType, value);
-            }
-        }
-
-        /// <summary>
-        /// File name: Is the name you give the file on your computer. This field will be searchable in all our channels and in external search such as Google.
-        /// In Media Finder, photos/illustrations/Rich media/Zip the file name will appear as the title.
-        /// The naming convention to ensure proper search match should be very specific to the Asset & match the set title, No abbreviations or language codes etc
-        /// Designation-Brand-ProductName-industry (ie. 6205 SKF Deep Groove Ball Bearing used in food processing plant)
-        /// </summary>
         public ResolutionModel Resolution
         {
             get
@@ -216,7 +196,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _fileSize = entity.FileSize,
                 _metadataModifiedDate = entity.MetadataModifiedDate,
                 _fileName = entity.FileName,
-                _mimeType = entity.MimeType,
                 _resolution = entity.Resolution
             };
         }
@@ -233,6 +212,47 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
             return entityList
                 .Select(entity => (DocumentAttributesModel) entity)
+                .ToList();
+        }
+
+        public
+        static implicit operator Shared.Models.AssetDomain.DocumentAttributes(
+            DocumentAttributesModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.DocumentAttributes
+        ToEntity(DocumentAttributesModel model)
+        {
+            return new Shared.Models.AssetDomain.DocumentAttributes {
+                Id = model.Id,
+                FileModifiedDate = model._fileModifiedDate,
+                CheckedOutBy = model._checkedOutBy,
+                IsCheckedOut = model._isCheckedOut,
+                RepublishedDate = model._republishedDate,
+                PublishedDate = model._publishedDate,
+                Checksum = model._checksum,
+                FileSize = model._fileSize,
+                MetadataModifiedDate = model._metadataModifiedDate,
+                FileName = model._fileName,
+                Resolution = model._resolution
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.DocumentAttributes>
+        ToEntityList(List<DocumentAttributesModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.DocumentAttributes) entity)
                 .ToList();
         }
     }

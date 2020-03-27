@@ -37,5 +37,32 @@ namespace DAM.Core.GraphQL.Schemas.SampleDomain
 
             return entityList.Select(entity => (IsocodeModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.SampleDomain.Isocode(
+            IsocodeModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.SampleDomain.Isocode
+        ToEntity(IsocodeModel model)
+        {
+            return new Shared.Models.SampleDomain.Isocode { Id = model.Id };
+        }
+
+        public static List<Shared.Models.SampleDomain.Isocode>
+        ToEntityList(List<IsocodeModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.SampleDomain.Isocode) entity)
+                .ToList();
+        }
     }
 }

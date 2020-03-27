@@ -71,5 +71,36 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (LanguagesModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.Languages(
+            LanguagesModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Languages
+        ToEntity(LanguagesModel model)
+        {
+            return new Shared.Models.AssetDomain.Languages {
+                Id = model.Id,
+                IsoCode = model._isoCode,
+                Description = model._description
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Languages>
+        ToEntityList(List<LanguagesModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Languages) entity)
+                .ToList();
+        }
     }
 }

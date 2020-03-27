@@ -99,5 +99,39 @@ namespace DAM.Core.GraphQL.Schemas.CustomerDomain
 
             return entityList.Select(entity => (CustomerModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.CustomerDomain.Customer(
+            CustomerModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.CustomerDomain.Customer
+        ToEntity(CustomerModel model)
+        {
+            return new Shared.Models.CustomerDomain.Customer {
+                Id = model.Id,
+                CreatedDate = model._createdDate,
+                CreatedBy = model._createdBy,
+                ModifiedDate = model._modifiedDate,
+                ModifiedBy = model._modifiedBy
+            };
+        }
+
+        public static List<Shared.Models.CustomerDomain.Customer>
+        ToEntityList(List<CustomerModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.CustomerDomain.Customer) entity)
+                .ToList();
+        }
     }
 }

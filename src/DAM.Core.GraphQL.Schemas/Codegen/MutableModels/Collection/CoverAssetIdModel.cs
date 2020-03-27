@@ -41,5 +41,36 @@ namespace DAM.Core.GraphQL.Schemas.CollectionDomain
                 .Select(entity => (CoverAssetIdModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.CollectionDomain.CoverAssetId(
+            CoverAssetIdModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.CollectionDomain.CoverAssetId
+        ToEntity(CoverAssetIdModel model)
+        {
+            return new Shared.Models.CollectionDomain.CoverAssetId {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.CollectionDomain.CoverAssetId>
+        ToEntityList(List<CoverAssetIdModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.CollectionDomain.CoverAssetId) entity)
+                .ToList();
+        }
     }
 }

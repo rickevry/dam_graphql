@@ -73,5 +73,38 @@ namespace DAM.Core.GraphQL.Schemas.PublicationDomain
                 .Select(entity => (LanguagesModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.PublicationDomain.Languages(
+            LanguagesModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.PublicationDomain.Languages
+        ToEntity(LanguagesModel model)
+        {
+            return new Shared.Models.PublicationDomain.Languages {
+                Id = model.Id,
+                Language = model._language,
+                Assets = AssetsModel.ToEntityList(model._assets)
+            };
+        }
+
+        public static List<Shared.Models.PublicationDomain.Languages>
+        ToEntityList(List<LanguagesModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.PublicationDomain.Languages) entity)
+                .ToList();
+        }
     }
 }

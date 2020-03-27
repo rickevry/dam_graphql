@@ -131,5 +131,42 @@ namespace DAM.Core.GraphQL.Schemas.PublishingUnitDomain
 
             return entityList.Select(entity => (FolderModel) entity).ToList();
         }
+
+        public
+        static implicit operator Shared.Models.PublishingUnitDomain.Folder(
+            FolderModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.PublishingUnitDomain.Folder
+        ToEntity(FolderModel model)
+        {
+            return new Shared.Models.PublishingUnitDomain.Folder {
+                Id = model.Id,
+                CreatedDate = model._createdDate,
+                CreatedBy = model._createdBy,
+                ModifiedDate = model._modifiedDate,
+                Title = model._title,
+                ModifiedBy = model._modifiedBy,
+                Folders = model._folders
+            };
+        }
+
+        public static List<Shared.Models.PublishingUnitDomain.Folder>
+        ToEntityList(List<FolderModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.PublishingUnitDomain.Folder) entity)
+                .ToList();
+        }
     }
 }

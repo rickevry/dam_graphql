@@ -122,5 +122,38 @@ namespace DAM.Core.GraphQL.Schemas.UserDomain
 
             return entityList.Select(entity => (UserModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.UserDomain.User(
+            UserModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.UserDomain.User ToEntity(UserModel model)
+        {
+            return new Shared.Models.UserDomain.User {
+                Id = model.Id,
+                UserName = model._userName,
+                DisplayName = model._displayName,
+                Email = model._email,
+                Role = model._role,
+                PublishingUnit = model._publishingUnit
+            };
+        }
+
+        public static List<Shared.Models.UserDomain.User>
+        ToEntityList(List<UserModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.UserDomain.User) entity)
+                .ToList();
+        }
     }
 }

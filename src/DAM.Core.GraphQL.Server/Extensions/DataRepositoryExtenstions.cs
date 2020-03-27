@@ -3,6 +3,7 @@ using DAM.Core.GraphQL.Repository.Akka;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
 using DAM.Core.GraphQL.Schemas.FolderDomain;
+using DAM.Core.GraphQL.Schemas.PublicationDomain;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DAM.Core.GraphQL.Server.Extensions
@@ -16,6 +17,8 @@ namespace DAM.Core.GraphQL.Server.Extensions
 
             services.AddSingleton<DataRepository<FolderModel>, FolderActorRepository>();
             services.AddSingleton<IFolderRepository, FolderActorRepository>();
+
+            services.AddSingleton<DataRepository<PublicationModel>, PublicationActorRepository>();
 
             services.AddSingleton<DataRepositoryProvider>();
 

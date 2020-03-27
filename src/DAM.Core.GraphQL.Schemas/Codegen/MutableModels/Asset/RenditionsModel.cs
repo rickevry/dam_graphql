@@ -21,8 +21,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private string _downloadUrl;
 
-        private string _mimeType;
-
         public long FileSize
         {
             get
@@ -74,25 +72,6 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
-        /// <summary>
-        /// Title: Mandatory
-        /// Is the name that would appear online. This field will be searchable in all our channels and in external search such as Google.
-        /// The naming convention to ensure proper search match should be very specific to the Asset & match the filename, No abbreviations or language codes etc
-        /// Designation-Brand-Product-Name (ie. 6205 SKF Deep Groove Ball Bearing)
-
-        /// </summary>
-        public string MimeType
-        {
-            get
-            {
-                return _mimeType;
-            }
-            set
-            {
-                SetField(ref _mimeType, value);
-            }
-        }
-
         public static implicit operator RenditionsModel(
             Shared.Models.AssetDomain.Renditions entity
         )
@@ -109,8 +88,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _fileSize = entity.FileSize,
                 _snapshot = entity.Snapshot,
                 _renditionType = entity.RenditionType,
-                _downloadUrl = entity.DownloadUrl,
-                _mimeType = entity.MimeType
+                _downloadUrl = entity.DownloadUrl
             };
         }
 
@@ -124,6 +102,39 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
             return entityList
                 .Select(entity => (RenditionsModel) entity)
+                .ToList();
+        }
+
+        public static implicit operator Shared.Models.AssetDomain.Renditions(
+            RenditionsModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Renditions
+        ToEntity(RenditionsModel model)
+        {
+            return new Shared.Models.AssetDomain.Renditions {
+                Id = model.Id,
+                FileSize = model._fileSize,
+                Snapshot = model._snapshot,
+                RenditionType = model._renditionType,
+                DownloadUrl = model._downloadUrl
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Renditions>
+        ToEntityList(List<RenditionsModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Renditions) entity)
                 .ToList();
         }
     }

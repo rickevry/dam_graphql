@@ -4,6 +4,7 @@ using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
 using DAM.Core.GraphQL.Schemas.FolderDomain;
+using DAM.Core.GraphQL.Schemas.PublicationDomain;
 using DAM.Core.GraphQL.SearchProxy.Services;
 using GraphQL;
 using GraphQL.Types;
@@ -46,6 +47,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             CreateCreateDataRepositoryQueryFieldsFor<FolderModel, FolderMutableGraphType>();
             CreateCreateDataRepositoryQueryFieldsFor<AssetModel, AssetMutableGraphType>();
+            CreateCreateDataRepositoryQueryFieldsFor<PublicationModel, PublicationMutableGraphType>();
         }
 
         private void CreateCreateDataRepositoryQueryFieldsFor<TModel, TGraphType>()

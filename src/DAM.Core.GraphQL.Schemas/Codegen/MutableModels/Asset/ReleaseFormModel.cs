@@ -71,5 +71,37 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (ReleaseFormModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.ReleaseForm(
+            ReleaseFormModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.ReleaseForm
+        ToEntity(ReleaseFormModel model)
+        {
+            return new Shared.Models.AssetDomain.ReleaseForm {
+                Id = model.Id,
+                modelReleaseForms = model._modelReleaseForms,
+                generalReleaseForms = model._generalReleaseForms
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.ReleaseForm>
+        ToEntityList(List<ReleaseFormModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.ReleaseForm) entity)
+                .ToList();
+        }
     }
 }

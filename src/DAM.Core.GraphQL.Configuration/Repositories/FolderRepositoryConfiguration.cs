@@ -17,6 +17,20 @@ namespace DAM.Core.GraphQL.Configuration.Repositories
 
         public void ConfigureGraphQLMutationFields(ObjectGraphType parent)
         {
+            parent.Field<FolderGraphType>(
+               "UpdateFolderTitle",
+               arguments: new QueryArguments(
+                   new QueryArgument<NonNullGraphType<GuidGraphType>> { Name = "folderId" },
+                   new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "title" }
+               ),
+               resolve: context =>
+               {
+                   var folderId = context.GetArgument<Guid>("folderId");
+                   var title = context.GetArgument<string>("title");
+
+                   return _repository.UpdateFolderTitleAsync(folderId, title);
+               });
+
         }
 
         public void ConfigureGraphQLQueryFields(ObjectGraphType parent)

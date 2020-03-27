@@ -41,5 +41,36 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (TridionRestrictedModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.AssetDomain.TridionRestricted(
+            TridionRestrictedModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.TridionRestricted
+        ToEntity(TridionRestrictedModel model)
+        {
+            return new Shared.Models.AssetDomain.TridionRestricted {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.TridionRestricted>
+        ToEntityList(List<TridionRestrictedModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.TridionRestricted) entity)
+                .ToList();
+        }
     }
 }

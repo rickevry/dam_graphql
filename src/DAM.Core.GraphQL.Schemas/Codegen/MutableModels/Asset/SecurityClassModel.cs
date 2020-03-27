@@ -39,5 +39,35 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (SecurityClassModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.SecurityClass(
+            SecurityClassModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.SecurityClass
+        ToEntity(SecurityClassModel model)
+        {
+            return new Shared.Models.AssetDomain.SecurityClass {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.SecurityClass>
+        ToEntityList(List<SecurityClassModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.SecurityClass) entity)
+                .ToList();
+        }
     }
 }

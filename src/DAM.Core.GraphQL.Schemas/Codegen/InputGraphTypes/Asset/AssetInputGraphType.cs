@@ -43,6 +43,8 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Resolve(context => context.Source.ProductInfo);
             Field(o => o.Version, true, typeof (VersionInputGraphType))
                 .Resolve(context => context.Source.Version);
+            Field(o => o.Tridion, true, typeof (TridionInputGraphType))
+                .Resolve(context => context.Source.Tridion);
             Field(o => o.CreatedDate, nullable: true);
             Field(o => o.ModifiedDate, nullable: true);
             Field(o => o.CreatedBy, nullable: true);

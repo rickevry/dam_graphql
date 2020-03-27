@@ -111,5 +111,38 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
             return entityList.Select(entity => (VersionModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.Version(
+            VersionModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Version
+        ToEntity(VersionModel model)
+        {
+            return new Shared.Models.AssetDomain.Version {
+                Id = model.Id,
+                Major = model._major,
+                Minor = model._minor,
+                Current = model._current,
+                Snapshot = model._snapshot
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Version>
+        ToEntityList(List<VersionModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Version) entity)
+                .ToList();
+        }
     }
 }

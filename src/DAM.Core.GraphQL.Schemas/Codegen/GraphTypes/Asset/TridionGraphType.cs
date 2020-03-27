@@ -9,22 +9,19 @@ using GraphQL.Types;
 namespace DAM.Core.GraphQL.Schemas.AssetDomain
 {
     public class
-    RenditionsInputGraphType
-    : InputObjectGraphType<RenditionsModel>
+    TridionGraphType
+    : ObjectGraphType<DAM.Core.Shared.Models.AssetDomain.Tridion>
     {
-        public RenditionsInputGraphType()
+        public TridionGraphType()
         {
-            Name = "Asset_RenditionsInput";
+            Name = "Asset_Tridion";
 
             BuildGraphTypeFields();
         }
 
         private void BuildGraphTypeFields()
         {
-            Field(o => o.FileSize, nullable: true);
-            Field(o => o.Snapshot, nullable: true);
-            Field(o => o.RenditionType, nullable: true);
-            Field(o => o.DownloadUrl, nullable: true);
+            Field(o => o.Sites, nullable: true);
         }
     }
 }

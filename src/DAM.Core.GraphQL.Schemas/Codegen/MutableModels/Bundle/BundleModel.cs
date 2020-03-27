@@ -214,5 +214,45 @@ namespace DAM.Core.GraphQL.Schemas.BundleDomain
 
             return entityList.Select(entity => (BundleModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.BundleDomain.Bundle(
+            BundleModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.BundleDomain.Bundle
+        ToEntity(BundleModel model)
+        {
+            return new Shared.Models.BundleDomain.Bundle {
+                Id = model.Id,
+                BundleTitle = model._bundleTitle,
+                BundleDescription = model._bundleDescription,
+                ThumbnailURL = model._thumbnailURL,
+                Country = model._country,
+                Collections = model._collections,
+                CreatedDate = model._createdDate,
+                CreatedBy = model._createdBy,
+                BundleType = model._bundleType,
+                ModifiedDate = model._modifiedDate,
+                ModifiedBy = model._modifiedBy,
+                SortField = model._sortField
+            };
+        }
+
+        public static List<Shared.Models.BundleDomain.Bundle>
+        ToEntityList(List<BundleModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.BundleDomain.Bundle) entity)
+                .ToList();
+        }
     }
 }

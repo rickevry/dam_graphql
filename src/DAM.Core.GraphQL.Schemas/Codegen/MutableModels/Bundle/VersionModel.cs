@@ -37,5 +37,32 @@ namespace DAM.Core.GraphQL.Schemas.BundleDomain
 
             return entityList.Select(entity => (VersionModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.BundleDomain.Version(
+            VersionModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.BundleDomain.Version
+        ToEntity(VersionModel model)
+        {
+            return new Shared.Models.BundleDomain.Version { Id = model.Id };
+        }
+
+        public static List<Shared.Models.BundleDomain.Version>
+        ToEntityList(List<VersionModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.BundleDomain.Version) entity)
+                .ToList();
+        }
     }
 }

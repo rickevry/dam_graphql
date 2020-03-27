@@ -37,5 +37,32 @@ namespace DAM.Core.GraphQL.Schemas.BundleDomain
 
             return entityList.Select(entity => (FileInfoModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.BundleDomain.FileInfo(
+            FileInfoModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.BundleDomain.FileInfo
+        ToEntity(FileInfoModel model)
+        {
+            return new Shared.Models.BundleDomain.FileInfo { Id = model.Id };
+        }
+
+        public static List<Shared.Models.BundleDomain.FileInfo>
+        ToEntityList(List<FileInfoModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.BundleDomain.FileInfo) entity)
+                .ToList();
+        }
     }
 }

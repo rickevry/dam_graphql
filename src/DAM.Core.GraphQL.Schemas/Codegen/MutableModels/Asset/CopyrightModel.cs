@@ -108,5 +108,38 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (CopyrightModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.Copyright(
+            CopyrightModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Copyright
+        ToEntity(CopyrightModel model)
+        {
+            return new Shared.Models.AssetDomain.Copyright {
+                Id = model.Id,
+                AssetSource = model._assetSource,
+                CopyrightOwner = model._copyrightOwner,
+                CopyrightDescription = model._copyrightDescription,
+                CopyrightExpiryDate = model._copyrightExpiryDate
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Copyright>
+        ToEntityList(List<CopyrightModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Copyright) entity)
+                .ToList();
+        }
     }
 }

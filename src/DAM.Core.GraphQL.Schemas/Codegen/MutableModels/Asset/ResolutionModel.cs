@@ -85,5 +85,36 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (ResolutionModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.Resolution(
+            ResolutionModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Resolution
+        ToEntity(ResolutionModel model)
+        {
+            return new Shared.Models.AssetDomain.Resolution {
+                Id = model.Id,
+                X = model._x,
+                Y = model._y
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Resolution>
+        ToEntityList(List<ResolutionModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Resolution) entity)
+                .ToList();
+        }
     }
 }

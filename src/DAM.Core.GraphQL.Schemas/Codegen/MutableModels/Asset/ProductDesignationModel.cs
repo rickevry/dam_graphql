@@ -73,5 +73,38 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (ProductDesignationModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.AssetDomain.ProductDesignation(
+            ProductDesignationModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.ProductDesignation
+        ToEntity(ProductDesignationModel model)
+        {
+            return new Shared.Models.AssetDomain.ProductDesignation {
+                Id = model.Id,
+                Designation = model._designation,
+                DesignationType = model._designationType
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.ProductDesignation>
+        ToEntityList(List<ProductDesignationModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.ProductDesignation) entity)
+                .ToList();
+        }
     }
 }

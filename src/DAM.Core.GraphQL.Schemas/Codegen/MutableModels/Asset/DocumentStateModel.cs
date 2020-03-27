@@ -97,5 +97,40 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (DocumentStateModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.DocumentState(
+            DocumentStateModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.DocumentState
+        ToEntity(DocumentStateModel model)
+        {
+            return new Shared.Models.AssetDomain.DocumentState {
+                Id = model.Id,
+                State = model._state,
+                IsPublished = model._isPublished,
+                PublishingChannelStates =
+                    PublishingChannelStatesModel
+                        .ToEntityList(model._publishingChannelStates)
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.DocumentState>
+        ToEntityList(List<DocumentStateModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.DocumentState) entity)
+                .ToList();
+        }
     }
 }

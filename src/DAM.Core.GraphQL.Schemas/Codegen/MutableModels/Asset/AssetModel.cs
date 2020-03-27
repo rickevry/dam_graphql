@@ -33,6 +33,8 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
 
         private VersionModel _version;
 
+        private TridionModel _tridion;
+
         private DateTime _createdDate;
 
         private DateTime _modifiedDate;
@@ -178,6 +180,18 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
         }
 
+        public TridionModel Tridion
+        {
+            get
+            {
+                return _tridion;
+            }
+            set
+            {
+                SetField(ref _tridion, value);
+            }
+        }
+
         public DateTime CreatedDate
         {
             get
@@ -284,6 +298,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 _releaseForm = entity.ReleaseForm,
                 _productInfo = entity.ProductInfo,
                 _version = entity.Version,
+                _tridion = entity.Tridion,
                 _createdDate = entity.CreatedDate,
                 _modifiedDate = entity.ModifiedDate,
                 _createdBy = entity.CreatedBy,
@@ -302,6 +317,51 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
             }
 
             return entityList.Select(entity => (AssetModel) entity).ToList();
+        }
+
+        public static implicit operator Shared.Models.AssetDomain.Asset(
+            AssetModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.Asset ToEntity(AssetModel model)
+        {
+            return new Shared.Models.AssetDomain.Asset {
+                Id = model.Id,
+                DocumentState = model._documentState,
+                Copyright = model._copyright,
+                AssetId = model._assetId,
+                PublicationId = model._publicationId,
+                DocumentInfo = model._documentInfo,
+                PublishingUnitId = model._publishingUnitId,
+                DocumentAttributes = model._documentAttributes,
+                ReleaseForm = model._releaseForm,
+                ProductInfo = model._productInfo,
+                Version = model._version,
+                Tridion = model._tridion,
+                CreatedDate = model._createdDate,
+                ModifiedDate = model._modifiedDate,
+                CreatedBy = model._createdBy,
+                ModifiedBy = model._modifiedBy,
+                TridionRestricted = model._tridionRestricted,
+                Renditions = RenditionsModel.ToEntityList(model._renditions)
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.Asset>
+        ToEntityList(List<AssetModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.AssetDomain.Asset) entity)
+                .ToList();
         }
     }
 }

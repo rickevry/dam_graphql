@@ -22,14 +22,30 @@ namespace DAM.Core.GraphQL.Repository.Akka
             _clusterClient = _provider.GetRequiredService<AkkaClusterClientSystem>();
         }
 
-        public override Task<FolderModel> CreateAsync(FolderModel entity)
+        public override async Task<FolderModel> CreateAsync(FolderModel entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var folderResult = await _clusterClient.Ask<CreateFolderResult>(new CreateFolderCommand(entity));
+                return folderResult.FolderModel;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
-        public override Task<bool> DeleteAsync(Guid id)
+        public override async Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var folderResult = await _clusterClient.Ask<DeleteFolderResult>(new DeleteFolderCommand(id));
+                return folderResult.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public override IDataResult ExecuteCommand(IDataCommand command)
@@ -42,7 +58,7 @@ namespace DAM.Core.GraphQL.Repository.Akka
             try
             {
                 var folderResult = await _clusterClient.Ask<GetFolderByIdResult>(new GetFolderByIdCommand(id, true));
-                return FolderModel.FromEntity(folderResult.FolderModel);
+                return folderResult.FolderModel;
             }
             catch
             {
@@ -68,9 +84,32 @@ namespace DAM.Core.GraphQL.Repository.Akka
             throw new NotImplementedException();
         }
 
-        public override Task<FolderModel> UpdateAsync(FolderModel entity)
+        public override async Task<FolderModel> UpdateAsync(FolderModel entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var folderResult = await _clusterClient.Ask<UpdateFolderResult>(new UpdateFolderCommand(entity));
+                return folderResult.FolderModel;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<FolderModel> UpdateFolderTitleAsync(Guid folderId, string title)
+        {
+            try
+            {
+                var folderModel = await GetByIdAsync(folderId);
+                folderModel.Title = title;
+
+                return await UpdateAsync(folderModel);
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

@@ -37,5 +37,31 @@ namespace DAM.Core.GraphQL.Schemas.SampleDomain
 
             return entityList.Select(entity => (TypeModel) entity).ToList();
         }
+
+        public static implicit operator Shared.Models.SampleDomain.Type(
+            TypeModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.SampleDomain.Type ToEntity(TypeModel model)
+        {
+            return new Shared.Models.SampleDomain.Type { Id = model.Id };
+        }
+
+        public static List<Shared.Models.SampleDomain.Type>
+        ToEntityList(List<TypeModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity => (Shared.Models.SampleDomain.Type) entity)
+                .ToList();
+        }
     }
 }

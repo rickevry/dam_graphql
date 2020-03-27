@@ -41,5 +41,36 @@ namespace DAM.Core.GraphQL.Schemas.CollectionDomain
                 .Select(entity => (ShowOnStartPageModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.CollectionDomain.ShowOnStartPage(
+            ShowOnStartPageModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.CollectionDomain.ShowOnStartPage
+        ToEntity(ShowOnStartPageModel model)
+        {
+            return new Shared.Models.CollectionDomain.ShowOnStartPage {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.CollectionDomain.ShowOnStartPage>
+        ToEntityList(List<ShowOnStartPageModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.CollectionDomain.ShowOnStartPage) entity)
+                .ToList();
+        }
     }
 }

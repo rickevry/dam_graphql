@@ -41,5 +41,36 @@ namespace DAM.Core.GraphQL.Schemas.PublicationDomain
                 .Select(entity => (PublishingUnitModel) entity)
                 .ToList();
         }
+
+        public
+        static implicit operator Shared.Models.PublicationDomain.PublishingUnit(
+            PublishingUnitModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.PublicationDomain.PublishingUnit
+        ToEntity(PublishingUnitModel model)
+        {
+            return new Shared.Models.PublicationDomain.PublishingUnit {
+                Id = model.Id
+            };
+        }
+
+        public static List<Shared.Models.PublicationDomain.PublishingUnit>
+        ToEntityList(List<PublishingUnitModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.PublicationDomain.PublishingUnit) entity)
+                .ToList();
+        }
     }
 }

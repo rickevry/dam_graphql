@@ -260,5 +260,46 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
                 .Select(entity => (DocumentInfoModel) entity)
                 .ToList();
         }
+
+        public static implicit operator Shared.Models.AssetDomain.DocumentInfo(
+            DocumentInfoModel model
+        )
+
+        {
+            return ToEntity(model);
+        }
+
+        public static Shared.Models.AssetDomain.DocumentInfo
+        ToEntity(DocumentInfoModel model)
+        {
+            return new Shared.Models.AssetDomain.DocumentInfo {
+                Id = model.Id,
+                InternalDescription = model._internalDescription,
+                ExternalDescription = model._externalDescription,
+                AssetType = model._assetType,
+                Taxonomy = model._taxonomy,
+                Languages = LanguagesModel.ToEntityList(model._languages),
+                Title = model._title,
+                FolderId = model._folderId,
+                AssetRole = model._assetRole,
+                PublicationDesignation = model._publicationDesignation,
+                SecurityClass = model._securityClass,
+                TridionRestricted = model._tridionRestricted
+            };
+        }
+
+        public static List<Shared.Models.AssetDomain.DocumentInfo>
+        ToEntityList(List<DocumentInfoModel> modelsList)
+        {
+            if (modelsList == null)
+            {
+                return null;
+            }
+
+            return modelsList
+                .Select(entity =>
+                    (Shared.Models.AssetDomain.DocumentInfo) entity)
+                .ToList();
+        }
     }
 }

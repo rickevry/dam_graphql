@@ -24,7 +24,20 @@ namespace DAM.Core.GraphQL.Repository.Akka
 
         public override Task<AssetModel> CreateAsync(AssetModel entity)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("Use CreateInFolder instead");
+        }
+
+        public async Task<AssetModel> CreateInFolderAsync(AssetModel entity, Guid folderId)
+        {
+            try
+            {
+                var akkaResult = await _clusterClient.Ask<UpdateAssetResult>(new UpdateAssetCommand(folderId, entity));
+                return akkaResult.Model;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public override Task<bool> DeleteAsync(Guid id)
@@ -55,7 +68,7 @@ namespace DAM.Core.GraphQL.Repository.Akka
             try
             {
                 var akkaResult = await _clusterClient.Ask<GetAssetByIdResult>(new GetAssetByIdCommand(id));
-                return AssetModel.FromEntity(akkaResult.AssetModel);
+                return akkaResult.AssetModel;
             }
             catch
             {
