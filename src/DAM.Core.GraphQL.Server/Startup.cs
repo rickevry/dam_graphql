@@ -61,10 +61,7 @@ namespace DAM.Core.GraphQL.Server
 
             app.UseEndpoints(endpoints =>
             {
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
+                endpoints.MapControllers();
             });
 
             app

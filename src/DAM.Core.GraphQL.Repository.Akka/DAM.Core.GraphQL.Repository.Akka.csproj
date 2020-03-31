@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DAM.Akka\src\DAM.Core.Assets.Actors\DAM.Core.Actors.csproj" />
     <ProjectReference Include="..\..\..\DAM.Akka\src\DAM.Core.Infrastructure\DAM.Core.Infrastructure.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.Repository\DAM.Core.GraphQL.Repository.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.Schemas\DAM.Core.GraphQL.Schemas.csproj" />
