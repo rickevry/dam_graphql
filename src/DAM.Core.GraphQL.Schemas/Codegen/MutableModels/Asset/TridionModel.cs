@@ -35,7 +35,7 @@ namespace DAM.Core.GraphQL.Schemas.AssetDomain
         )
 
         {
-            return FromEntity(entity);
+            return entity != null ? FromEntity(entity) : null;
         }
 
         public static TridionModel
