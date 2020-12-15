@@ -33,7 +33,7 @@ namespace DAM.Core.GraphQL.Configuration.Repositories
                     return _repository.GetListByEidAsync(termsetId);
                 });
 
-            parent.Field<ListGraphType<TermsetGraphType>>(
+            parent.Field<TermsetGraphType>(
                "GetFoldersByWorkspace",
                arguments: new QueryArguments(
                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "workspaceId" }

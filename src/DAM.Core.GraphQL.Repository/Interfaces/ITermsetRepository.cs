@@ -11,7 +11,7 @@ namespace DAM.Core.GraphQL.Repository
     {
         Task<List<Termset>> GetListByEidAsync(string eid);
 
-        Task<List<Termset>> GetFoldersByWorkspace(string wid);
+        Task<Termset> GetFoldersByWorkspace(string wid);
 
     }
 }

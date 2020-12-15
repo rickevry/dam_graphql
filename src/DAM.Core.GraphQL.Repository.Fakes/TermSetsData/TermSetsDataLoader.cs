@@ -90,12 +90,12 @@ namespace DAM.Core.GraphQL.Repository.Fakes.TermSetsData
             return result;
         }
 
-        static public List<Termset> LoadWorkspace(string termName)
+        static public Termset LoadWorkspace(string termName)
         {
 
             if (dict.ContainsKey(termName))
             {
-                return dict[termName];
+                return dict[termName][0];
             }
 
             string fileName = getWorkspaceFileName(termName);
@@ -136,7 +136,7 @@ namespace DAM.Core.GraphQL.Repository.Fakes.TermSetsData
 
             dict.Add(termName, result);
 
-            return result;
+            return result.First();
         }
     }
 }

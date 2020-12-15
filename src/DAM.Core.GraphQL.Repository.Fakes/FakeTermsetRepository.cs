@@ -92,7 +92,7 @@ namespace DAM.Core.GraphQL.Repository.Fakes
             throw new NotImplementedException();
         }
 
-        public Task<List<Termset>> GetFoldersByWorkspace(string wid)
+        public Task<Termset> GetFoldersByWorkspace(string wid)
         {
             try
             {
