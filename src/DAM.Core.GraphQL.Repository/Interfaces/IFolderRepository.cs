@@ -12,4 +12,5 @@ namespace DAM.Core.GraphQL.Repository
 
         Task<FolderModel> UpdateFolderTitleAsync(Guid folderId, string title);
     }
+
 }

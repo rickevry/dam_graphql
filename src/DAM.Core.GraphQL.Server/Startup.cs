@@ -38,7 +38,7 @@ namespace DAM.Core.GraphQL.Server
             services
                 .AddConfiguration(Configuration)
                 .AddIntegrationClients()
-                .AddDataRepositories()
+                .AddDataRepositories() // AssetActorRepository, FolderActorRepository, PublicationActorRepository
                 .AddGraphQLService()
                 .AddGraphQLTypes()
                 .AddGraphQLSchema()

@@ -20,6 +20,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             _serviceProvider.GetRequiredService<AssetRepositoryConfiguration>().ConfigureGraphQLSubscriptionFields(this);
             _serviceProvider.GetRequiredService<FolderRepositoryConfiguration>().ConfigureGraphQLSubscriptionFields(this);
+            _serviceProvider.GetRequiredService<TermsetRepositoryConfiguration>().ConfigureGraphQLSubscriptionFields(this);
         }
     }
 }

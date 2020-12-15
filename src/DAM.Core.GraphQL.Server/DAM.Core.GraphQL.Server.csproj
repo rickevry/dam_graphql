@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DAM.Core.GraphQL.Configuration\DAM.Core.GraphQL.Configuration.csproj" />
     <ProjectReference Include="..\DAM.Core.GraphQL.Repository.Akka\DAM.Core.GraphQL.Repository.Akka.csproj" />
+    <ProjectReference Include="..\DAM.Core.GraphQL.Repository.Fakes\DAM.Core.GraphQL.Repository.Fakes.csproj" />
   </ItemGroup>
 
   <ItemGroup>

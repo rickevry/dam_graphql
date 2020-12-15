@@ -39,6 +39,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             _serviceProvider.GetRequiredService<AssetRepositoryConfiguration>().ConfigureGraphQLMutationFields(this);
             _serviceProvider.GetRequiredService<FolderRepositoryConfiguration>().ConfigureGraphQLMutationFields(this);
+            _serviceProvider.GetRequiredService<TermsetRepositoryConfiguration>().ConfigureGraphQLMutationFields(this);
         }
 
         private void CreateDataRepositoryMutableFields()

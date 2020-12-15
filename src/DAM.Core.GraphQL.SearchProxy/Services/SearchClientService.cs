@@ -76,6 +76,11 @@ namespace DAM.Core.GraphQL.SearchProxy.Services
                 resolve: ResolveSerarchById(_assetProvider));
 
             parent.Field<AutoRegisteringObjectGraphType<RootObject>>(
+                "find_termset",
+                arguments: _queryArgumentsWithId,
+                resolve: ResolveSerarchById(_assetProvider));
+
+            parent.Field<AutoRegisteringObjectGraphType<RootObject>>(
                 "find_collection",
                 arguments: _queryArgumentsWithId,
                 resolve: ResolveSerarchById(_collectionProvider));

@@ -47,6 +47,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             services.AddSingleton<AssetRepositoryConfiguration>();
             services.AddSingleton<FolderRepositoryConfiguration>();
+            services.AddSingleton<TermsetRepositoryConfiguration>();
 
             return services;
         }

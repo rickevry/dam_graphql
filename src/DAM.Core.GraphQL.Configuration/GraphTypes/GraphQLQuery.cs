@@ -3,6 +3,7 @@ using DAM.Core.GraphQL.Repository;
 using DAM.Core.GraphQL.Schemas;
 using DAM.Core.GraphQL.Schemas.AssetDomain;
 using DAM.Core.GraphQL.Schemas.BundleDomain;
+using DAM.Core.GraphQL.Schemas.TermsetDomain;
 using DAM.Core.GraphQL.Schemas.FolderDomain;
 using DAM.Core.GraphQL.Schemas.PublicationDomain;
 using DAM.Core.GraphQL.SearchProxy.Services;
@@ -41,6 +42,7 @@ namespace DAM.Core.GraphQL.Configuration
         {
             _serviceProvider.GetRequiredService<AssetRepositoryConfiguration>().ConfigureGraphQLQueryFields(this);
             _serviceProvider.GetRequiredService<FolderRepositoryConfiguration>().ConfigureGraphQLQueryFields(this);
+            _serviceProvider.GetRequiredService<TermsetRepositoryConfiguration>().ConfigureGraphQLQueryFields(this);
         }
 
         private void CreateDataRepositoryDefautQueryFields()
@@ -48,6 +50,7 @@ namespace DAM.Core.GraphQL.Configuration
             CreateCreateDataRepositoryQueryFieldsFor<FolderModel, FolderMutableGraphType>();
             CreateCreateDataRepositoryQueryFieldsFor<AssetModel, AssetMutableGraphType>();
             CreateCreateDataRepositoryQueryFieldsFor<PublicationModel, PublicationMutableGraphType>();
+            CreateCreateDataRepositoryQueryFieldsFor<TermsetModel, TermsetMutableGraphType>();
         }
 
         private void CreateCreateDataRepositoryQueryFieldsFor<TModel, TGraphType>()
