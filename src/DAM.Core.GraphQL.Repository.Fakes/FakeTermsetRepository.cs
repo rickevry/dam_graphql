@@ -1,4 +1,5 @@
-﻿using DAM.Core.GraphQL.Schemas.TermsetDomain;
+﻿using DAM.Core.GraphQL.Repository.Fakes.TermSetsData;
+using DAM.Core.GraphQL.Schemas.TermsetDomain;
 using DAM.Core.Messages;
 using DAM.Core.Shared.Models.TermsetDomain;
 using System;
@@ -57,23 +58,23 @@ namespace DAM.Core.GraphQL.Repository.Fakes
         {
             try
             {
+                return Task.FromResult(TermSetsDataLoader.Load(eid));
+                //var result = new List<Termset>();
+                //var item = new Termset()
+                //{
+                //    Eid = "123",
+                //    Title = "floff",
+                //    Terms = new List<Term>()
+                //{
+                //    new Term () { Id = "111", Title = "kjkj" },
+                //    new Term () { Id = "111", Title = "kjkj" },
+                //    new Term () { Id = "111", Title = "kjkj" },
+                //    new Term () { Id = "111", Title = "kjkj" },
+                //}
+                //};
+                //result.Add(item);
 
-                var result = new List<Termset>();
-                var item = new Termset()
-                {
-                    Eid = "123",
-                    Title = "floff",
-                    Terms = new List<Term>()
-                {
-                    new Term () { Id = "111", Title = "kjkj" },
-                    new Term () { Id = "111", Title = "kjkj" },
-                    new Term () { Id = "111", Title = "kjkj" },
-                    new Term () { Id = "111", Title = "kjkj" },
-                }
-                };
-                result.Add(item);
-
-                return Task.FromResult(result);
+                //return Task.FromResult(result);
             }
             catch
             {

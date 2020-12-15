@@ -6,10 +6,32 @@
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="29.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DAM.Core.GraphQL.Repository\DAM.Core.GraphQL.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TermSetsData\Asset types.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TermSetsData\Catgories.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TermSetsData\Industries.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TermSetsData\Products.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TermSetsData\Publishing unit.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TermSetsData\Services and solutions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
