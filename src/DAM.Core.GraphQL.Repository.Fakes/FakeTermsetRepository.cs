@@ -91,5 +91,17 @@ namespace DAM.Core.GraphQL.Repository.Fakes
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<Termset>> GetFoldersByWorkspace(string wid)
+        {
+            try
+            {
+                return Task.FromResult(TermSetsDataLoader.LoadWorkspace(wid));
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

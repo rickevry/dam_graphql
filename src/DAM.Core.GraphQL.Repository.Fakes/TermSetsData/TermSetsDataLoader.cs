@@ -28,6 +28,16 @@ namespace DAM.Core.GraphQL.Repository.Fakes.TermSetsData
             return "";
         }
 
+        static private string getWorkspaceFileName(string termName)
+        {
+            switch (termName)
+            {
+                case "SKFUSA": return "SKF USA Inc.json";
+                case "AngularContact": return "Angular Contact Ball Bearings and MSP.json";
+                case "MaintenanceProducts": return "Maintenance Products.json";
+            }
+            return "";
+        }
 
         static public List<Termset> Load(string termName)
         {
@@ -55,16 +65,65 @@ namespace DAM.Core.GraphQL.Repository.Fakes.TermSetsData
 
             foreach (JObject item in jArray)
             {
-                string EntityType = item.GetValue("EntityType").ToString();
+                //string EntityType = item.GetValue("EntityType").ToString();
                 string TermId = item.GetValue("TermId").ToString();
                 string TermName = item.GetValue("TermName").ToString();
                 string ParentId = item.GetValue("ParentId").ToString();
-                string Path = item.GetValue("Path").ToString();
+                //string Path = item.GetValue("Path").ToString();
 
                 Term term = new Term()
                 { 
                     Id = TermId,
                     Pid = ParentId, 
+                    Title = TermName
+                };
+
+                termset.Terms.Add(term);
+
+            }
+
+            var result = new List<Termset>();
+            result.Add(termset);
+
+            dict.Add(termName, result);
+
+            return result;
+        }
+
+        static public List<Termset> LoadWorkspace(string termName)
+        {
+
+            if (dict.ContainsKey(termName))
+            {
+                return dict[termName];
+            }
+
+            string fileName = getWorkspaceFileName(termName);
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string location = Path.Combine(executableLocation, "WorkspaceData", fileName);
+            string json = System.IO.File.ReadAllText(location);
+            JArray jArray = JArray.Parse(json);
+
+            Termset termset = new Termset()
+            {
+                Eid = termName,
+                Id = Guid.NewGuid(),
+                Title = termName,
+                Terms = new List<Term>()
+
+            };
+
+            foreach (JObject item in jArray)
+            {
+                string TermId = item.GetValue("Id").ToString();
+                string TermName = item.GetValue("Name").ToString();
+                string ParentId = item.GetValue("ParentId").ToString();
+             
+                Term term = new Term()
+                {
+                    Id = TermId,
+                    Pid = ParentId,
                     Title = TermName
                 };
 

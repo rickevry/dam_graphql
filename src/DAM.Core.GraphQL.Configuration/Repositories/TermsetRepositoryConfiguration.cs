@@ -32,6 +32,17 @@ namespace DAM.Core.GraphQL.Configuration.Repositories
                     var termsetId = context.GetArgument<String>("termsetId");
                     return _repository.GetListByEidAsync(termsetId);
                 });
+
+            parent.Field<ListGraphType<TermsetGraphType>>(
+               "GetFoldersByWorkspace",
+               arguments: new QueryArguments(
+                   new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "workspaceId" }
+               ),
+               resolve: context =>
+               {
+                   var workspaceId = context.GetArgument<String>("workspaceId");
+                   return _repository.GetFoldersByWorkspace(workspaceId);
+               });
         }
 
         public void ConfigureGraphQLSubscriptionFields(ObjectGraphType parent)
